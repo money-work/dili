@@ -1,7 +1,7 @@
 'use strict'
 const path = require('path')
 const utils = require('./utils')
-const config = require('../config')
+const config = require('../webpackConfig')
 const vueLoaderConfig = require('./vue-loader.conf')
 
 function resolve (dir) {
@@ -13,7 +13,7 @@ function resolve (dir) {
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    app: './src/main.js'
+    app: './config/main.js'
   },
   output: {
     path: config.build.assetsRoot,
