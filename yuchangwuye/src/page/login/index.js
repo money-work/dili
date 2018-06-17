@@ -60,6 +60,17 @@ export default {
 			}
 			this.iconLoading = true;
 
+			// 测试代码
+			sessionData.set("userInfo", [
+				{
+					"id": "1",
+					"name": "这是业主信息"
+				}
+			]);
+			sessionData.set("token", "dfsdfdsfdsdsf");
+			vm.$router.push({name: 'paymentList'});
+			return;
+
 			ajax(urls.login, {
 				jsonParams: vm.formData
 			}).then(json => {

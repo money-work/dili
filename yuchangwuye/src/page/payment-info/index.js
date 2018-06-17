@@ -33,19 +33,58 @@ export default {
 	methods: {
 		getPaymentInfo() {
 			let vm = this;
+
+			this.paymentInfo = {
+				"id": "1",
+				"name": "裕昌国际",
+				"floor": "33栋",
+				"unit": "1单元",
+				"room": "603室",
+				"info": [
+					{
+						"id": 1,
+						"name": "物业费",
+						"money": "2000",
+						"date": "2018年1月-2018年2月"
+					},
+					{
+						"id": 2,
+						"name": "电费",
+						"money": "200",
+						"date": "2018年4月-2018年5月"
+					},
+					{
+						"id": 3,
+						"name": "水费",
+						"money": "220",
+						"date": "2018年3月-2018年4月"
+					},
+					{
+						"id": 4,
+						"name": "大学城生活垃圾处置费",
+						"money": "2300",
+						"date": "2018年3月-2018年4月"
+					}
+				]
+			};
+
+			this.paymentInfo.info.map(function (item) {
+				vm.plainOptions.push(item.id);
+			});
+			return;
 			// ajax(urls.getPaymentHistoryInfo, {
 			// 	jsonParams: this.paymentHistoryInfoId
 			// }).then(json => {
 			// 	this.paymentInfo = json.data;
 			// }).catch(() => {
 			// });
-			ajax(urls.getPaymentInfo).then(json => {
-				this.paymentInfo = json.data[0];
-				this.paymentInfo.info.map(function (item) {
-					vm.plainOptions.push(item.id);
-				})
-			}).catch(() => {
-			});
+			// ajax(urls.getPaymentInfo).then(json => {
+			// 	this.paymentInfo = json.data[0];
+			// 	this.paymentInfo.info.map(function (item) {
+			// 		vm.plainOptions.push(item.id);
+			// 	})
+			// }).catch(() => {
+			// });
 		},
 		changeMoney() {
 			let vm = this;
