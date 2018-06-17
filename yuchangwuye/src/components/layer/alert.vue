@@ -1,11 +1,11 @@
 <template>
     <layer :show="showLayer">
         <div slot="custom" v-html="custom"></div>
-        <div slot="title">{{title|lang}}</div>
-        <div slot="content">{{content|lang}}</div>
+        <div slot="title">{{title}}</div>
+        <div slot="content">{{content}}</div>
         <div slot="customContent" v-html="customContent"></div>
         <div slot="bottomBtn">
-            <a class="ok" :href="linkUrl" @click="callback">{{alertText|lang}}</a>
+            <a class="ok" :href="linkUrl" @click="callback">{{alertText}}</a>
         </div>
     </layer>
 </template>

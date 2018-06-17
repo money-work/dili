@@ -3,6 +3,7 @@ import Vue from 'vue';
 import userInfo from '../../components/top-user/index.vue';
 import {ajax, sessionData, urls} from "../../common/common";
 import {Button, Checkbox} from 'vue-antd-ui';
+import toast from "../../components/toast";
 
 export default {
 	data() {
@@ -31,13 +32,13 @@ export default {
 	},
 	methods: {
 		getPaymentInfo() {
+			let vm = this;
 			// ajax(urls.getPaymentHistoryInfo, {
 			// 	jsonParams: this.paymentHistoryInfoId
 			// }).then(json => {
 			// 	this.paymentInfo = json.data;
 			// }).catch(() => {
 			// });
-			let vm = this;
 			ajax(urls.getPaymentInfo).then(json => {
 				this.paymentInfo = json.data[0];
 				this.paymentInfo.info.map(function (item) {
@@ -79,6 +80,12 @@ export default {
 			if (this.iconLoading) {
 				return;
 			}
+
+			if (this.checkedList.length <= 0) {
+				toast('请选择缴费项');
+				return;
+			}
+
 			this.iconLoading = true;
 		}
 	}

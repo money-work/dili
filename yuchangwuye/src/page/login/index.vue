@@ -8,21 +8,21 @@
 						:labelCol="formItemLayout.labelCol"
 						:wrapperCol="formItemLayout.wrapperCol"
 				>
-					<a-input v-model="formData.name" placeholder='请输入姓名'/>
+					<a-input ref="name" v-model.trim="formData.name" placeholder='请输入姓名'/>
 				</a-form-item>
 				<a-form-item
 						label='身份证号:'
 						:labelCol="formItemLayout.labelCol"
 						:wrapperCol="formItemLayout.wrapperCol"
 				>
-					<a-input v-model="formData.idCardNo" placeholder='请输入身份证号'/>
+					<a-input ref="idCardNo" v-model.trim="formData.idCardNo" placeholder='请输入身份证号'/>
 				</a-form-item>
 				<a-form-item
 						label='手机号:'
 						:labelCol="formItemLayout.labelCol"
 						:wrapperCol="formItemLayout.wrapperCol"
 				>
-					<a-input v-model="formData.phone" placeholder='请输入手机号'/>
+					<a-input ref="mobile" v-model.trim="formData.phone" placeholder='请输入手机号'/>
 				</a-form-item>
 				<a-form-item
 						:wrapperCol="buttonItemLayout.wrapperCol"
