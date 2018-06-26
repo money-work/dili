@@ -21,8 +21,9 @@ $(function () {
 				$(this).find(".ant-collapse-content").addClass("ant-collapse-item-active");
 			}
 		});
-		$(".payment-history-list-page").on("click", ".ant-collapse-content-box p", function () {
+		$(".payment-history-list-page").on("click", ".ant-collapse-content-box a", function () {
 			// 跳转到缴费历史详情页；
+			e.stopPropagation();
 		})
 	}
 
