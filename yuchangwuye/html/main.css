@@ -5,6 +5,11 @@ body, html {
 	width: 100%;
 }
 
+a {
+	text-decoration: none;
+	color: rgba(0, 0, 0, 0.65);
+}
+
 #app {
 	position: relative;
 	font-family: 'PingFangSC-Regular', 'Avenir', Helvetica, Arial, sans-serif;

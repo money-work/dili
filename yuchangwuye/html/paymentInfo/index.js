@@ -4,11 +4,15 @@ $(function () {
 		allMoney: 0.0,
 		allIDs: []
 	};
+	getAllMoney();
 	addEvent();
 
 	function addEvent() {
 		$(params.ele).on("click", ".checkbox-group li", function (e) {
 			e.preventDefault();
+			if ($(this).attr("data-type") == "disabled") {
+				return false
+			}
 			if ($(this).find(".ant-checkbox").hasClass("ant-checkbox-checked")) {
 				$(this).find(".ant-checkbox").removeClass("ant-checkbox-checked");
 			} else {
@@ -34,12 +38,12 @@ $(function () {
 			e.preventDefault();
 			if ($(this).find(".ant-checkbox").hasClass("ant-checkbox-checked")) {
 				$(this).find(".ant-checkbox").removeClass("ant-checkbox-checked");
-				$(params.ele).find(".checkbox-group li").each(function () {
+				$(params.ele).find(".checkbox-group li[data-type!='disabled']").each(function () {
 					$(this).find(".ant-checkbox-checked").removeClass("ant-checkbox-checked");
 				})
 			} else {
 				$(this).find(".ant-checkbox").removeClass("ant-checkbox-indeterminate").addClass("ant-checkbox-checked");
-				$(params.ele).find(".checkbox-group li").each(function () {
+				$(params.ele).find(".checkbox-group li[data-type!='disabled']").each(function () {
 					$(this).find(".ant-checkbox").addClass("ant-checkbox-checked");
 				})
 			}
