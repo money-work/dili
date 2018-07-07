@@ -69,3 +69,19 @@
 	word-break: break-all;
 	display: inline-block;
 }
+
+.payment-history-info-page .seaech-content {
+	border-bottom: 1px solid #cccccc;
+	height: 46px;
+	line-height: 46px;
+	text-align: center;
+}
+
+.payment-history-info-page .seaech-content button {
+	margin-left: 5px;
+	cursor: pointer;
+}
+
+.payment-history-info-page .ant-calendar-picker {
+	width: 38%;
+}
