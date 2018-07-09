@@ -47,7 +47,7 @@ $(function () {
 				"phone": phone
 			},
 			success: function (result) {
-
+				$this.removeClass("ant-btn-loading");
 			},
 			error: function () {
 				$this.removeClass("ant-btn-loading");
