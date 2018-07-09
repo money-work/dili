@@ -5,7 +5,7 @@ $(function () {
 			date: {preset: 'date'},
 			datetime: {preset: 'datetime'},
 			time: {preset: 'time'},
-			default: {
+			defaultConfig: {
 				theme: 'android-ics light', //皮肤样式
 				display: 'modal', //显示方式
 				mode: 'scroller', //日期选择模式
@@ -27,22 +27,22 @@ $(function () {
 	function startTimer() {
 		var opt = JSON.parse(JSON.stringify(parms.opt));
 		// var opt = parms.opt;
-		opt.default.onClose = function (event, inst) {
+		opt.defaultConfig.onClose = function (event, inst) {
 			if (inst == "set") {
 				parms.startTime = event;
 			}
 		};
-		$("#startTime").mobiscroll($.extend(opt['date'], opt['default']));
+		$("#startTime").mobiscroll($.extend(opt['date'], opt['defaultConfig']));
 	}
 
 	function endTimer() {
 		var opt = JSON.parse(JSON.stringify(parms.opt));
-		opt.default.onClose = function (event, inst) {
+		opt.defaultConfig.onClose = function (event, inst) {
 			if (inst == "set") {
 				parms.endTime = event;
 			}
 		};
-		$("#endTime").mobiscroll($.extend(opt['date'], opt['default']));
+		$("#endTime").mobiscroll($.extend(opt['date'], opt['defaultConfig']));
 	}
 
 	function addEvent() {
