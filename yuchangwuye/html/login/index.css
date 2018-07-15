@@ -25,11 +25,11 @@ a {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
-	background-color: #f2f5f8;
+	/*background-color: #f2f5f8;*/
+	background-color: #ffffff;
 	height: 100%;
 	width: 100%;
 	overflow: hidden;
-	padding-bottom: 50px;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
@@ -37,39 +37,108 @@ a {
 .login-content {
 	height: 100%;
 	width: 100%;
-	padding: 100px 10px;
+}
+
+.top-logo img {
+	width: 100%;
+}
+
+.login-content .bottom-content {
+	width: 100%;
 }
 
 .login-content .owner-information {
 	height: 60px;
 	line-height: 60px;
-	font-size: 18px;
-	border-bottom: 2px solid #cccccc;
+	font-size: 20px;
+	font-weight: bold;
 }
 
-.login-content .form-content {
+.login-content .input-content {
+	height: 40px;
+	line-height: 40px;
+	font-size: 0;
+	text-align: left;
+	overflow: hidden;
+}
+
+.login-content .input-content:first-child {
+	border-top: 1px solid #cccccc;
+}
+
+.login-content .input-content:last-child {
+	border-bottom: 1px solid #cccccc;
+}
+
+.login-content .input-content input {
+	float: right;
+	width: calc(100% - 40px);
+	border: 0;
+	border-bottom: 1px solid #cccccc;
+	height: 39px;
+	outline: 0;
+	font-size: 14px;
+}
+
+.login-content .input-content:last-child input {
+	border: 0;
+}
+
+.login-content .input-content input:focus {
+	outline: 0;
+}
+
+.login-content .input-content i {
+	display: inline-block;
+	width: 40px;
+	height: 100%;
+	background-size: 22px;
+	background-repeat: no-repeat;
+	background-image: url("./images/logo.png");
+}
+
+.login-content .input-content i.phone {
+	background-position: 9px 9px;
+}
+
+.login-content .input-content i.name {
+	background-position: 9px -36px;
+}
+
+.login-content .input-content i.idCardNo {
+	background-position: 9px -77px;
+}
+
+.login-content .oper-content {
+	margin: 20px 10px;
+
+}
+
+.login-content .oper-content .ant-btn-primary {
 	width: 100%;
-	padding: 20px 50px;
+	height: 40px;
+	line-height: 40px;
+	background-color: #fb5024;
+	border-color: #fb5024;
 }
 
-.login-content .form-content .ant-form-item-label {
-	min-width: 60px;
-	padding: 0;
-	margin-right: 10px;
-}
-
-.ant-btn-primary i {
+.login-content .ant-btn-primary i {
 	display: none;
 }
 
-.ant-btn-loading i {
+.login-content .ant-btn-loading i {
 	display: inline-block;
 }
 
-.ant-btn-primary span {
+.login-content .ant-btn-primary span {
 	margin-left: 0 !important;
 }
 
-.ant-btn-loading span {
+.login-content .ant-btn-loading span {
 	margin-left: 8px !important;
+}
+
+.login-content .tips-content {
+	margin: 20px 10px;
+
 }
