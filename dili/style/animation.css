@@ -1,0 +1,22 @@
+@-webkit-keyframes widthRightToLeft {
+  0% {
+    width: 0; }
+  100% {
+    transform: translateX(200px); } }
+@-moz-keyframes widthRightToLeft {
+  0% {
+    width: 0; }
+  100% {
+    transform: translateX(200px); } }
+@-o-keyframes widthRightToLeft {
+  0% {
+    width: 0; }
+  100% {
+    transform: translateX(200px); } }
+@keyframes widthRightToLeft {
+  0% {
+    width: 0; }
+  100% {
+    transform: translateX(200px); } }
+
+/*# sourceMappingURL=animation.css.map */

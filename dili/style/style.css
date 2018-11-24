@@ -1,0 +1,203 @@
+body, html, .content {
+  height: 100%;
+  width: 100%;
+  overflow: hidden; }
+
+body, p, ul, dl, dd, ol, h1, h2, h3, h4, h5, h6 {
+  margin: 0; }
+
+ul, ol {
+  padding-left: 0;
+  list-style: none; }
+
+em, i {
+  font-style: normal; }
+
+strong, b {
+  font-style: normal; }
+
+a {
+  text-decoration: none; }
+
+.background-public, .page_1, .page_1 .bottom-content .title1, .page_1 .bottom-content .title2, .page_1 .bottom-content .title-en {
+  background-size: 100% 100%;
+  background-repeat: no-repeat; }
+
+.page_1 {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  background-image: url("../images/page1/bg.png"); }
+  .page_1 .music-oper {
+    position: absolute;
+    overflow: hidden;
+    width: 1.05rem;
+    height: 1.05rem;
+    right: 0.675rem;
+    top: 0.45rem; }
+    .page_1 .music-oper .music-img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      right: 0; }
+    .page_1 .music-oper .play-cls {
+      display: block; }
+    .page_1 .music-oper .suspend-cls {
+      display: none; }
+    .page_1 .music-oper.suspend .suspend-cls {
+      display: block; }
+    .page_1 .music-oper.suspend .play-cls {
+      display: none; }
+  .page_1 .logo-img {
+    position: relative;
+    margin-top: 2.15rem;
+    width: 3.35rem;
+    height: 3.925rem;
+    margin-left: auto;
+    margin-right: auto; }
+  .page_1 .bottom-content {
+    position: relative;
+    width: 7rem;
+    height: 2.825rem;
+    margin-top: 2.325rem;
+    margin-left: auto;
+    margin-right: auto; }
+    .page_1 .bottom-content .title1 {
+      position: absolute;
+      left: 0.6rem;
+      top: -0.575rem;
+      height: 1.75rem;
+      width: 0;
+      background-image: url("../images/page1/title1.png"); }
+      .page_1 .bottom-content .title1.title1-transition {
+        width: 5.3375rem; }
+    .page_1 .bottom-content .title2 {
+      position: absolute;
+      left: 1.3rem;
+      top: 0.975rem;
+      height: 1.625rem;
+      width: 0;
+      background-image: url("../images/page1/title2.png"); }
+      .page_1 .bottom-content .title2.title2-transition {
+        width: 5.275rem; }
+    .page_1 .bottom-content .title-en {
+      position: absolute;
+      left: 1.3rem;
+      bottom: -0.5rem;
+      height: 1rem;
+      width: 3.925rem;
+      display: none;
+      background-image: url("../images/page1/title-en.png"); }
+      .page_1 .bottom-content .title-en.title-en-transition {
+        display: block; }
+    .page_1 .bottom-content .line {
+      background-color: #ffffff; }
+    .page_1 .bottom-content .top-left-line {
+      position: absolute;
+      right: 6.5125rem;
+      top: 0rem;
+      height: 0.0625rem;
+      width: 0;
+      transform-origin: right top;
+      -webkit-transition-timing-function: linear;
+      -moz-transition-timing-function: linear;
+      -o-transition-timing-function: linear;
+      transition-timing-function: linear;
+      -webkit-transition-property: width;
+      -moz-transition-property: width;
+      -o-transition-property: width;
+      transition-property: width; }
+      .page_1 .bottom-content .top-left-line.top-left-line-transition {
+        width: 0.4875rem; }
+    .page_1 .bottom-content .left-line {
+      position: absolute;
+      left: 0rem;
+      top: 0.0625rem;
+      width: 0.0625rem;
+      height: 0;
+      transform-origin: right;
+      -webkit-transition-timing-function: linear;
+      -moz-transition-timing-function: linear;
+      -o-transition-timing-function: linear;
+      transition-timing-function: linear;
+      -webkit-transition-property: height;
+      -moz-transition-property: height;
+      -o-transition-property: height;
+      transition-property: height; }
+      .page_1 .bottom-content .left-line.left-line-transition {
+        height: 2.7625rem; }
+    .page_1 .bottom-content .bottom-left-line {
+      position: absolute;
+      left: 0rem;
+      bottom: 0rem;
+      height: 0.0625rem;
+      width: 0;
+      -webkit-transition-timing-function: linear;
+      -moz-transition-timing-function: linear;
+      -o-transition-timing-function: linear;
+      transition-timing-function: linear;
+      -webkit-transition-property: width;
+      -moz-transition-property: width;
+      -o-transition-property: width;
+      transition-property: width; }
+      .page_1 .bottom-content .bottom-left-line.bottom-left-line-transition {
+        width: 1.2rem; }
+    .page_1 .bottom-content .bottom--right-line {
+      position: absolute;
+      left: 5.475rem;
+      bottom: 0rem;
+      width: 0;
+      height: 0.0625rem;
+      -webkit-transition-timing-function: linear;
+      -moz-transition-timing-function: linear;
+      -o-transition-timing-function: linear;
+      transition-timing-function: linear;
+      -webkit-transition-property: width;
+      -moz-transition-property: width;
+      -o-transition-property: width;
+      transition-property: width; }
+      .page_1 .bottom-content .bottom--right-line.bottom--right-line-transition {
+        width: 1.525rem; }
+    .page_1 .bottom-content .right-line {
+      position: absolute;
+      right: 0rem;
+      bottom: 0.0625rem;
+      width: 0.0625rem;
+      height: 0;
+      -webkit-transition-timing-function: linear;
+      -moz-transition-timing-function: linear;
+      -o-transition-timing-function: linear;
+      transition-timing-function: linear;
+      -webkit-transition-property: height;
+      -moz-transition-property: height;
+      -o-transition-property: height;
+      transition-property: height; }
+      .page_1 .bottom-content .right-line.right-line-transition {
+        height: 2.7625rem; }
+    .page_1 .bottom-content .top-right-line {
+      position: absolute;
+      right: 0.0625rem;
+      top: 0rem;
+      height: 0.0625rem;
+      width: 0;
+      -webkit-transition-timing-function: linear;
+      -moz-transition-timing-function: linear;
+      -o-transition-timing-function: linear;
+      transition-timing-function: linear;
+      -webkit-transition-property: width;
+      -moz-transition-property: width;
+      -o-transition-property: width;
+      transition-property: width; }
+      .page_1 .bottom-content .top-right-line.top-right-line-transition {
+        width: 0.925rem; }
+  .page_1 .arrow-img {
+    width: 1.2875rem;
+    height: 0.6375rem;
+    position: absolute;
+    bottom: 0.475rem;
+    left: 50%;
+    transform: translateX(-50%); }
+
+/*# sourceMappingURL=style.css.map */

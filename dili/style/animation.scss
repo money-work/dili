@@ -1,0 +1,47 @@
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+	@content;
+  }
+  @-moz-keyframes #{$animationName} {
+	@content;
+  }
+  @-o-keyframes #{$animationName} {
+	@content;
+  }
+  @keyframes #{$animationName} {
+	@content;
+  }
+}
+
+//@include keyframes(widthRightToLeft) {
+//  0% {
+//	width: 0;
+//  }
+//  100% {
+//	transform: translateX(200px);
+//  }
+//}
+
+@mixin transition1($name, $time) {
+  -webkit-transition-timing-function: linear;
+  -moz-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  transition-timing-function: linear;
+
+  -webkit-transition-property: #{$name};
+  -moz-transition-property: #{$name};
+  -o-transition-property: #{$name};
+  transition-property: #{$name};
+
+  //webkit-transition-duration: #{$time};
+  //-moz-transition-duration: #{$time};
+  //-o-transition-duration: #{$time};
+  //transition-duration: #{$time};
+}
+
+//@mixin transition1($name, $time) {
+//  -webkit-transition: #{$name} #{$time};
+//  -moz-transition: #{$name} #{$time};
+//  -o-transition: #{$name} #{$time};
+//  transition: #{$name} #{$time};
+//}
