@@ -27,9 +27,35 @@ a {
   text-decoration: none
 }
 
+.preloading-content {
+  position: absolute;
+  left: -88888px;
+  top: -8888px;
+  width: 30px;
+  height: 30px;
+  img {
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	left: 0;
+	top: 0;
+  }
+}
+
 $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 @mixin px2rem($name, $px) {
   #{$name}: $px / $baseFontSize * 1rem;
+}
+
+@mixin calcPx2rem($name, $px) {
+  #{$name}: calc(100% - (#{$px} / #{$baseFontSize}) * 1rem);
+}
+
+@mixin maginPadding($name, $px1, $px2, $px3, $px4) {
+  @include px2rem(#{$name}-top, $px1);
+  @include px2rem(#{$name}-right, $px2);
+  @include px2rem(#{$name}-bottom, $px3);
+  @include px2rem(#{$name}-left, $px4);
 }
 
 .background-public {
@@ -37,8 +63,25 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
   background-repeat: no-repeat;
 }
 
+.content {
+  width: 100%;
+  height: 700%;
+  overflow: hidden;
+  /*pointer-events: none; 去掉这句话*/
+  -webkit-transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  position: relative;
+}
+
+.page {
+  height: calc(100% / 7);
+
+  position: relative;
+
+}
+
 .page_1 {
-  height: 100%;
+  //height: 100%;
   width: 100%;
   overflow: hidden;
   text-align: center;
@@ -99,6 +142,7 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 	  @include px2rem(height, 140);
 	  width: 0;
 	  background-image: url("../images/page1/title1.png");
+	  background-size: cover;
 	  @extend .background-public;
 	  &.title1-transition {
 		@include px2rem(width, 427);
@@ -113,6 +157,7 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 	  width: 0;
 	  background-image: url("../images/page1/title2.png");
 	  @extend .background-public;
+	  background-size: cover;
 	  &.title2-transition {
 		@include px2rem(width, 422);
 	  }
@@ -219,12 +264,316 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 	  }
 	}
   }
-  .arrow-img {
+  .arrow-content {
+	position: absolute;
 	@include px2rem(width, 103);
 	@include px2rem(height, 51);
-	position: absolute;
 	@include px2rem(bottom, 38);
 	left: 50%;
 	transform: translateX(-50%);
+  }
+  .arrow-img {
+	width: 100%;
+	height: 100%;
+
+	-webkit-animation: heartbeat 8s;
+	animation: heartbeat 8s;
+	-webkit-animation-timing-function: ease-out;
+	animation-timing-function: ease-out;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+  }
+}
+
+.page_2, .page_3, .page_4, .page_5, .page_6 {
+  //height: 100%;
+  width: 100%;
+  .bg {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	visibility: hidden;
+  }
+  .bg1 {
+	z-index: 1;
+	visibility: visible;
+  }
+
+  .bg2 {
+	z-index: 2;
+
+  }
+  .bg3 {
+	z-index: 3;
+  }
+
+  .page-content {
+	position: absolute;
+	@include px2rem(left, 94);
+	@include px2rem(top, 80);
+  }
+  .shuye {
+	position: absolute;
+	@include px2rem(width, 56);
+	@include px2rem(height, 139);
+	@include px2rem(left, 0);
+	@include px2rem(top, 0);
+	z-index: 100;
+	opacity: 0;
+	img {
+	  width: 100%;
+	  height: 100%;
+	}
+  }
+
+  .text-content {
+	position: absolute;
+	@include px2rem(width, 521);
+	@include px2rem(height, 223);
+	@include px2rem(left, 136);
+	@include px2rem(top, 80);
+	z-index: 100;
+
+	.every-day-content {
+	  position: absolute;
+	  @include px2rem(width, 237);
+	  @include px2rem(height, 91);
+	  @include px2rem(left, -70);
+	  @include px2rem(top, -60);
+	  .bihua {
+		background-color: #cccccc;
+		opacity: 0;
+		width: 10px;
+		height: 20px;
+		float: left;
+	  }
+	}
+	.en-img {
+	  position: absolute;
+	  @include px2rem(width, 122);
+	  @include px2rem(height, 36);
+	  @include px2rem(left, 178);
+	  @include px2rem(top, -36);
+	  opacity: 0;
+	}
+	.line {
+	  background-color: #ffffff;
+	}
+	.left-line {
+	  position: absolute;
+	  @include px2rem(width, 4);
+	  @include px2rem(height, 0);
+	  @include px2rem(left, 0);
+	  @include px2rem(top, 53);
+	  &.left-line-transition {
+		//@include px2rem(height, 170);
+		@include calcPx2rem(height, 53);
+	  }
+	}
+	.bottom-line {
+	  position: absolute;
+	  @include px2rem(width, 0);
+	  @include px2rem(height, 4);
+	  @include px2rem(left, 4);
+	  @include px2rem(bottom, 0);
+	  &.bottom-line-transition {
+		//@include px2rem(width, 517);
+		@include calcPx2rem(width, 4);
+	  }
+	}
+	.right-line {
+	  position: absolute;
+	  @include px2rem(width, 4);
+	  @include px2rem(height, 0);
+	  @include px2rem(right, 0);
+	  @include px2rem(bottom, 4);
+	  &.right-line-transition {
+		//@include px2rem(height, 219);
+		@include calcPx2rem(height, 4);
+	  }
+	}
+	.top-line {
+	  position: absolute;
+	  @include px2rem(width, 0);
+	  @include px2rem(height, 4);
+	  @include px2rem(right, 4);
+	  @include px2rem(top, 0);
+	  &.top-line-transition {
+		//@include px2rem(width, 338);
+		@include calcPx2rem(width, 186);
+	  }
+	}
+	.title {
+	  box-sizing: border-box;
+	  width: 100%;
+	  height: 100%;
+	  @include px2rem(font-size, 24);
+	  color: #ffffff;
+	  @include maginPadding(padding, 40, 30, 40, 30);
+	  .label {
+		opacity: 0;
+	  }
+	}
+  }
+}
+
+.page_3 {
+  .page-content {
+	position: absolute;
+	@include px2rem(left, 146);
+	@include px2rem(top, 80);
+
+	.text-content {
+	  @include px2rem(width, 468);
+
+	  //.left-line {
+	  //&.left-line-transition {
+	  //  @include px2rem(height, 170);
+	  //}
+	  //}
+	  //.bottom-line {
+	  //&.bottom-line-transition {
+	  //  @include px2rem(width, 468);
+	  //}
+	  //}
+	  //.right-line {
+	  //position: absolute;
+	  //&.right-line-transition {
+	  //  @include px2rem(height, 219);
+	  //}
+	  //}
+	  //.top-line {
+	  //&.top-line-transition {
+	  //  @include px2rem(width, 290);
+	  //}
+	  //}
+	  .title {
+		@include maginPadding(padding, 30, 20, 30, 20);
+	  }
+	}
+
+  }
+}
+
+.page_4 {
+  .page-content {
+	position: absolute;
+	@include px2rem(left, 50);
+	@include px2rem(top, 800);
+	.text-content {
+	  @include px2rem(width, 380);
+	  @include px2rem(height, 220);
+
+	  //.left-line {
+	  //&.left-line-transition {
+	  //  @include px2rem(height, 167);
+	  //}
+	  //}
+	  //.bottom-line {
+	  //&.bottom-line-transition {
+	  //  @include px2rem(width, 376);
+	  //}
+	  //}
+	  //.right-line {
+	  //position: absolute;
+	  //&.right-line-transition {
+	  //  @include px2rem(height, 216);
+	  //}
+	  //}
+	  //.top-line {
+	  //&.top-line-transition {
+	  //  @include px2rem(width, 200);
+	  //}
+	  //}
+	  .title {
+		@include maginPadding(padding, 30, 20, 30, 20);
+	  }
+	}
+  }
+}
+
+.page_5 {
+  .page-content {
+	@include px2rem(left, 232);
+	.text-content {
+	  @include px2rem(width, 394);
+	  @include px2rem(height, 220);
+	}
+  }
+}
+
+.page_6 {
+  .page-content {
+	@include px2rem(left, 70);
+	.text-content {
+	  @include px2rem(width, 472);
+	  @include px2rem(height, 326);
+	}
+  }
+}
+
+.page_7 {
+
+  .bg {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	visibility: hidden;
+  }
+  .bg1 {
+	z-index: 1;
+	visibility: visible;
+  }
+
+  .bg2 {
+	z-index: 2;
+
+  }
+  .bg3 {
+	z-index: 3;
+  }
+  .bg4 {
+	z-index: 4;
+  }
+  .bg5 {
+	z-index: 5;
+  }
+
+  .page-content {
+	position: absolute;
+	@include px2rem(left, 226);
+	@include px2rem(top, 60);
+	@include px2rem(width, 400);
+	@include px2rem(height, 300);
+	z-index: 100;
+
+	.title {
+	  @include px2rem(width, 472);
+	  @include px2rem(height, 326);
+	  @include px2rem(font-size, 24);
+	  color: #ffffff;
+	  @include px2rem(padding-left, 30);
+
+	  .label {
+		opacity: 0;
+	  }
+	}
+  }
+  .line {
+	position: absolute;
+	@include px2rem(left, 0);
+	@include px2rem(top, 16);
+	@include px2rem(width, 6);
+	@include px2rem(height, 0);
+	background-color: #ffffff;
+	&.line-transition {
+	  @include px2rem(height, 280);
+	}
   }
 }
