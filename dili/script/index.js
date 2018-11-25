@@ -301,7 +301,7 @@ $(function () {
       //ipad、iphone竖屏；Andriod横屏
       $("body").attr("class", "landscape");
       orientation = 'landscape';
-      // alert("横屏");
+      alert("横屏");
       return false;
     } else if (window.orientation == 0 || window.orientation == 180) {
       //ipad、iphone横屏；Andriod竖屏
