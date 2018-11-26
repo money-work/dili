@@ -1,5 +1,5 @@
 // require('./jquery-3.3.1');
-require('./zoom');
+// require('./zoom');
 $(function () {
   // orient();
 //用户变化屏幕方向时调用
