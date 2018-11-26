@@ -415,7 +415,15 @@ a {
       height: 1.75rem;
       width: 0;
       background-image: url("../images/page1/title1.png");
-      background-size: cover; }
+      background-size: cover;
+      -webkit-transition-timing-function: linear;
+      -moz-transition-timing-function: linear;
+      -o-transition-timing-function: linear;
+      transition-timing-function: linear;
+      -webkit-transition-property: width;
+      -moz-transition-property: width;
+      -o-transition-property: width;
+      transition-property: width; }
       .page_1 .bottom-content .title1.title1-transition {
         width: 5.3375rem; }
     .page_1 .bottom-content .title2 {
@@ -425,7 +433,15 @@ a {
       height: 1.625rem;
       width: 0;
       background-image: url("../images/page1/title2.png");
-      background-size: cover; }
+      background-size: cover;
+      -webkit-transition-timing-function: linear;
+      -moz-transition-timing-function: linear;
+      -o-transition-timing-function: linear;
+      transition-timing-function: linear;
+      -webkit-transition-property: width;
+      -moz-transition-property: width;
+      -o-transition-property: width;
+      transition-property: width; }
       .page_1 .bottom-content .title2.title2-transition {
         width: 5.275rem; }
     .page_1 .bottom-content .title-en {

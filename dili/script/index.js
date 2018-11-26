@@ -1,33 +1,6 @@
-var loadingType = true;
-
-function setLoad (v, el) {
-  var ie5 = (document.all && document.getElementsByTagName);
-  if (ie5 || document.readyState == "complete") {
-    valueEl = el.children[0];
-    valueEl.innerText = v;
-    $('.loading-content .line').css('width', v + '%')
-  }
-}
-
-function fakeProgress (v, el) {
-  // $("body").on('touchmove', function (event) {
-  //   event.preventDefault();
-  // }, false);
-  if (v > 100) {
-    loadingType = false;
-    $('.loading-content').hide();
-    $(".content").show();
-    // $("body").off('touchmove');
-  } else {
-    setLoad(v, el);
-    window.setTimeout("fakeProgress(" + (++v) + ", document.all['" + el.id + "'])", 20);
-  }
-}
-
-
+// require('./jquery-3.3.1');
+require('./zoom');
 $(function () {
-
-
   // orient();
 //用户变化屏幕方向时调用
 //   $(window).bind('orientationchange', function (e) {

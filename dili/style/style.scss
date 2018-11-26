@@ -213,6 +213,7 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 	  background-image: url("../images/page1/title1.png");
 	  background-size: cover;
 	  @extend .background-public;
+	  @include transition1(width, 2s);
 	  &.title1-transition {
 		@include px2rem(width, 427);
 	  }
@@ -227,6 +228,7 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 	  background-image: url("../images/page1/title2.png");
 	  @extend .background-public;
 	  background-size: cover;
+	  @include transition1(width, 2s);
 	  &.title2-transition {
 		@include px2rem(width, 422);
 	  }

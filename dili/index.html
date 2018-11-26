@@ -9,9 +9,38 @@
     <meta name="screen-orientation" content="portrait">
     <meta name="x5-orientation" content="portrait">
     <title>地利集团</title>
-    <script type="text/javascript" src="./script/zoom.js"></script>
-    <link href="./style/style.css" rel="stylesheet"/>
-    <link href="./style/animation.css" rel="stylesheet"/>
+    <script type="text/javascript" src="./script/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="./dist/style.js"></script>
+    <!--<script type="text/javascript" src="./script/zoom.js"></script>-->
+    <!--<link href="./style/style.css" rel="stylesheet"/>-->
+    <!--<link href="./style/animation.css" rel="stylesheet"/>-->
+    <script>
+      var loadingType = true;
+
+      function setLoad (v, el) {
+        var ie5 = (document.all && document.getElementsByTagName);
+        if (ie5 || document.readyState == "complete") {
+          valueEl = el.children[0];
+          valueEl.innerText = v;
+          $('.loading-content .line').css('width', v + '%')
+        }
+      }
+
+      function fakeProgress (v, el) {
+        // $("body").on('touchmove', function (event) {
+        //   event.preventDefault();
+        // }, false);
+        if (v > 100) {
+          loadingType = false;
+          $('.loading-content').hide();
+          $(".content").show();
+          // $("body").off('touchmove');
+        } else {
+          setLoad(v, el);
+          window.setTimeout("fakeProgress(" + (++v) + ", document.all['" + el.id + "'])", 20);
+        }
+      }
+    </script>
 </head>
 <body onload="fakeProgress(0, num)" class="landscape">
 <div class="preloading-content">
@@ -270,7 +299,7 @@
     </div>
 </div>
 
-<script type="text/javascript" src="./script/jquery-3.3.1.js"></script>
-<script type="text/javascript" src="./script/index.js"></script>
+<script type="text/javascript" src="./dist/main.js"></script>
+<!--<script type="text/javascript" src="./script/index.js"></script>-->
 </body>
 </html>
