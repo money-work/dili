@@ -62,6 +62,73 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
+.landscapeLayer {
+  display: none;
+}
+@media all and (orientation: landscape) {
+  .landscape .landscapeLayer {
+	background-color: #21313e;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 999;
+	display: block;
+  }
+  .landscapeLayer-inner {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	text-align: center;
+  }
+  .size14 {
+	color: #fff;
+	font-size: 14px;
+	margin-top: 20px;
+  }
+}
+
+.loading-content {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  background-image: url("../images/page1/bg.png");
+  @extend .background-public;
+  .logo-img {
+	position: relative;
+	@include px2rem(margin-top, 172);
+	@include px2rem(width, 268);
+	@include px2rem(height, 314);
+	margin-left: auto;
+	margin-right: auto;
+  }
+  .bottom-content {
+	position: relative;
+	@include px2rem(width, 560);
+	@include px2rem(height, 226);
+	@include px2rem(margin-top, 186);
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	.line {
+	  width: 1%;
+	  background-color: rgba(255,255,255,0.8);
+	  @include px2rem(height, 10);
+
+	}
+	.num {
+	  @include px2rem(font-size, 30);
+	  width: 100%;
+	  text-align: center;
+	  @include px2rem(height, 50);
+	  @include px2rem(line-height, 50);
+	  color: #ffffff;
+	}
+
+  }
+}
 
 .content {
   width: 100%;
@@ -71,6 +138,7 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
   -webkit-transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   position: relative;
+  display: none;
 }
 
 .page {
@@ -80,6 +148,38 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 
 }
 
+.music-oper {
+  position: absolute;
+  overflow: hidden;
+  @include px2rem(width, 84);
+  @include px2rem(height, 84);
+  @include px2rem(right, 54);
+  @include px2rem(top, 36);
+  z-index: 100;
+  .music-img {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	right: 0;
+  }
+  .play-cls {
+	display: block;
+  }
+  .suspend-cls {
+	display: none;
+  }
+
+  &.suspend {
+	.suspend-cls {
+	  display: block;
+	}
+	.play-cls {
+	  display: none;
+	}
+  }
+}
+
 .page_1 {
   //height: 100%;
   width: 100%;
@@ -87,37 +187,6 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
   text-align: center;
   background-image: url("../images/page1/bg.png");
   @extend .background-public;
-
-  .music-oper {
-	position: absolute;
-	overflow: hidden;
-	@include px2rem(width, 84);
-	@include px2rem(height, 84);
-	@include px2rem(right, 54);
-	@include px2rem(top, 36);
-	.music-img {
-	  width: 100%;
-	  height: 100%;
-	  position: absolute;
-	  left: 0;
-	  right: 0;
-	}
-	.play-cls {
-	  display: block;
-	}
-	.suspend-cls {
-	  display: none;
-	}
-
-	&.suspend {
-	  .suspend-cls {
-		display: block;
-	  }
-	  .play-cls {
-		display: none;
-	  }
-	}
-  }
 
   .logo-img {
 	position: relative;
@@ -344,11 +413,74 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 	  @include px2rem(left, -70);
 	  @include px2rem(top, -60);
 	  .bihua {
-		background-color: #cccccc;
+		position: absolute;
 		opacity: 0;
-		width: 10px;
-		height: 20px;
-		float: left;
+	  }
+	  .bihua1 {
+		@include px2rem(width, 20);
+		@include px2rem(height, 37);
+		@include px2rem(left, 24);
+		@include px2rem(top, 0);
+	  }
+	  .bihua2 {
+		@include px2rem(width, 56);
+		@include px2rem(height, 79);
+		@include px2rem(left, 20);
+		@include px2rem(top, 0);
+	  }
+	  .bihua3 {
+		@include px2rem(width, 33);
+		@include px2rem(height, 57);
+		@include px2rem(left, 62);
+		@include px2rem(top, 26);
+	  }
+	  .bihua4 {
+		@include px2rem(width, 98);
+		@include px2rem(height, 23);
+		@include px2rem(left, 0);
+		@include px2rem(top, 44);
+	  }
+	  .bihua5 {
+		@include px2rem(width, 27);
+		@include px2rem(height, 47);
+		@include px2rem(left, 52);
+		@include px2rem(top, 26);
+	  }
+	  .bihua6 {
+		@include px2rem(width, 55);
+		@include px2rem(height, 13);
+		@include px2rem(left, 16);
+		@include px2rem(top, 70);
+	  }
+	  .bihua7 {
+		@include px2rem(width, 51);
+		@include px2rem(height, 17);
+		@include px2rem(left, 108);
+		@include px2rem(top, 34);
+	  }
+	  .bihua8 {
+		@include px2rem(width, 62);
+		@include px2rem(height, 26);
+		@include px2rem(left, 170);
+		@include px2rem(top, 0);
+	  }
+	  .bihua9 {
+		@include px2rem(width, 50);
+		@include px2rem(height, 30);
+		@include px2rem(left, 176);
+		@include px2rem(top, 22);
+	  }
+	  .bihua10 {
+		@include px2rem(width, 48);
+		@include px2rem(height, 66);
+		@include px2rem(left, 172);
+		@include px2rem(top, 14);
+	  }
+	  .bihua11 {
+		@include px2rem(width, 32);
+		@include px2rem(height, 24);
+		@include px2rem(left, 210);
+		@include px2rem(top, 42);
 	  }
 	}
 	.en-img {

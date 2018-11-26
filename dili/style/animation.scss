@@ -37,11 +37,11 @@ $bihuaFadeInTime: 1s;
 
 }
 
-@mixin animation($name, $time) {
+@mixin animation($name, $time, $num:1) {
   @include prefix(animation-name, #{$name});
   @include prefix(animation-duration, #{$time});
   @include prefix(animation-timing-function, linear);
-  @include prefix(animation-iteration-count, 1);
+  @include prefix(animation-iteration-count, $num);
 }
 
 .animation-public {
@@ -69,6 +69,11 @@ $bihuaFadeInTime: 1s;
 .fade-in {
   @extend .animation-public;
   @include animation(fade-in, $bihuaFadeInTime);
+}
+
+.rotate {
+  @extend .animation-public;
+  @include animation(rotate, 1.2s, infinite);
 }
 
 @include keyframes(slide-in-right) {
@@ -119,5 +124,20 @@ $bihuaFadeInTime: 1s;
   }
   10%, 30%, 50%, 70%, 90% {
 	transform: scale(1.15);
+  }
+}
+
+@include keyframes(rotate) {
+  0% {
+	-webkit-transform-origin: center;
+	transform-origin: center;
+	-webkit-transform: rotateZ(0deg) translateZ(0);
+	transform: rotateZ(0deg) translateZ(0);
+  }
+  100% {
+	-webkit-transform-origin: center;
+	transform-origin: center;
+	-webkit-transform: rotateZ(360deg) translateZ(0);
+	transform: rotateZ(360deg) translateZ(0);
   }
 }

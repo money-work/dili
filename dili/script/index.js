@@ -1,23 +1,26 @@
+var loadingType = true;
+
 function setLoad (v, el) {
   var ie5 = (document.all && document.getElementsByTagName);
   if (ie5 || document.readyState == "complete") {
     valueEl = el.children[0];
     valueEl.innerText = v;
+    $('.loading-content .line').css('width', v + '%')
   }
 }
 
-var loadingType = true;
-
-function fakeProgress (v) {
-  $("body").on('touchmove', function (event) {
-    event.preventDefault();
-  }, false);
+function fakeProgress (v, el) {
+  // $("body").on('touchmove', function (event) {
+  //   event.preventDefault();
+  // }, false);
   if (v > 100) {
     loadingType = false;
-    $("body").off('touchmove');
+    $('.loading-content').hide();
+    $(".content").show();
+    // $("body").off('touchmove');
   } else {
-    // setLoad(v, el);
-    window.setTimeout("fakeProgress(" + (++v) + ")", 20);
+    setLoad(v, el);
+    window.setTimeout("fakeProgress(" + (++v) + ", document.all['" + el.id + "'])", 20);
   }
 }
 
@@ -25,11 +28,11 @@ function fakeProgress (v) {
 $(function () {
 
 
-  orient();
+  // orient();
 //用户变化屏幕方向时调用
-  $(window).bind('orientationchange', function (e) {
-    orient();
-  });
+//   $(window).bind('orientationchange', function (e) {
+//     orient();
+  // });
   var parms = {
     loadingTimeer: null,// 记录当前页面位置
     currentPosition: 0,
@@ -215,11 +218,13 @@ $(function () {
   if (!loadingType) {
     clearInterval(parms.loadingTimeer);
     addTransitionClass(parms.pageNow);
+    app.bindTouchEvent(); // 绑定触摸事件
   } else {
     parms.loadingTimeer = setInterval(function () {
       if (!loadingType) {
         clearInterval(parms.loadingTimeer);
         addTransitionClass(parms.pageNow);
+        app.bindTouchEvent(); // 绑定触摸事件
       }
     }, 20);
   }
@@ -420,7 +425,6 @@ $(function () {
       }.bind(this), false);
     }
   };
-  app.bindTouchEvent(); // 绑定触摸事件
 
 })
 ;

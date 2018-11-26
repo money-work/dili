@@ -13,17 +13,34 @@
     <link href="./style/style.css" rel="stylesheet"/>
     <link href="./style/animation.css" rel="stylesheet"/>
 </head>
-<body onload="fakeProgress(0)">
+<body onload="fakeProgress(0, num)" class="landscape">
 <div class="preloading-content">
     <img src="./images/page1/bg.png">
 </div>
-
+<div class="landscapeLayer">
+    <div class="landscapeLayer-inner">
+        <img src="images/wrong.png" data-src="./mages/wrong.png" style="width:74px;height:110px;">
+        <br>
+        <span class="size14">为了更好的体验，请使用竖屏浏览</span>
+    </div>
+</div>
+<div class="music-oper hide">
+    <img class="music-img play-cls rotate" src="./images/page1/play.png">
+    <img class="music-img suspend-cls hide" src="./images/page1/suspend.png">
+</div>
+<div class="loading-content">
+    <img class="logo-img" src="./images/page1/logo.png">
+    <div class="bottom-content">
+        <div class="line"></div>
+        <div id="num" class="num"><span>10</span>%</div>
+    </div>
+</div>
 <div class="content">
     <div class="page_1 page" data-page="1">
-        <div class="music-oper hide">
-            <img class="music-img play-cls " src="./images/page1/play.png">
-            <img class="music-img suspend-cls hide" src="./images/page1/suspend.png">
-        </div>
+        <!--<div class="music-oper hide">-->
+        <!--<img class="music-img play-cls " src="./images/page1/play.png">-->
+        <!--<img class="music-img suspend-cls hide" src="./images/page1/suspend.png">-->
+        <!--</div>-->
         <img class="logo-img" src="./images/page1/logo.png">
         <div class="bottom-content">
             <div class="line top-left-line"></div>
@@ -52,11 +69,17 @@
             </div>
             <div class="text-content">
                 <div class="every-day-content">
-                    <div class="bihua bihua1" data-num="0"></div>
-                    <div class="bihua bihua2" data-num="1"></div>
-                    <div class="bihua bihua3" data-num="2"></div>
-                    <div class="bihua bihua4" data-num="3"></div>
-                    <div class="bihua bihua5" data-num="4"></div>
+                    <img class="bihua bihua1" src="./images/everyday/1.png">
+                    <img class="bihua bihua2" src="./images/everyday/2.png">
+                    <img class="bihua bihua3" src="./images/everyday/3.png">
+                    <img class="bihua bihua4" src="./images/everyday/4.png">
+                    <img class="bihua bihua5" src="./images/everyday/5.png">
+                    <img class="bihua bihua6" src="./images/everyday/6.png">
+                    <img class="bihua bihua7" src="./images/everyday/7.png">
+                    <img class="bihua bihua8" src="./images/everyday/8.png">
+                    <img class="bihua bihua9" src="./images/everyday/9.png">
+                    <img class="bihua bihua10" src="./images/everyday/10.png">
+                    <img class="bihua bihua11" src="./images/everyday/11.png">
                 </div>
                 <img class="en-img logo" src="./images/en.png">
                 <div class="line left-line"></div>
@@ -83,11 +106,17 @@
             </div>
             <div class="text-content">
                 <div class="every-day-content">
-                    <div class="bihua bihua1" data-num="0"></div>
-                    <div class="bihua bihua2" data-num="1"></div>
-                    <div class="bihua bihua3" data-num="2"></div>
-                    <div class="bihua bihua4" data-num="3"></div>
-                    <div class="bihua bihua5" data-num="4"></div>
+                    <img class="bihua bihua1" src="./images/everyday/1.png">
+                    <img class="bihua bihua2" src="./images/everyday/2.png">
+                    <img class="bihua bihua3" src="./images/everyday/3.png">
+                    <img class="bihua bihua4" src="./images/everyday/4.png">
+                    <img class="bihua bihua5" src="./images/everyday/5.png">
+                    <img class="bihua bihua6" src="./images/everyday/6.png">
+                    <img class="bihua bihua7" src="./images/everyday/7.png">
+                    <img class="bihua bihua8" src="./images/everyday/8.png">
+                    <img class="bihua bihua9" src="./images/everyday/9.png">
+                    <img class="bihua bihua10" src="./images/everyday/10.png">
+                    <img class="bihua bihua11" src="./images/everyday/11.png">
                 </div>
                 <img class="en-img logo" src="./images/en.png">
                 <div class="line left-line"></div>
@@ -113,11 +142,17 @@
             </div>
             <div class="text-content">
                 <div class="every-day-content">
-                    <div class="bihua bihua1" data-num="0"></div>
-                    <div class="bihua bihua2" data-num="1"></div>
-                    <div class="bihua bihua3" data-num="2"></div>
-                    <div class="bihua bihua4" data-num="3"></div>
-                    <div class="bihua bihua5" data-num="4"></div>
+                    <img class="bihua bihua1" src="./images/everyday/1.png">
+                    <img class="bihua bihua2" src="./images/everyday/2.png">
+                    <img class="bihua bihua3" src="./images/everyday/3.png">
+                    <img class="bihua bihua4" src="./images/everyday/4.png">
+                    <img class="bihua bihua5" src="./images/everyday/5.png">
+                    <img class="bihua bihua6" src="./images/everyday/6.png">
+                    <img class="bihua bihua7" src="./images/everyday/7.png">
+                    <img class="bihua bihua8" src="./images/everyday/8.png">
+                    <img class="bihua bihua9" src="./images/everyday/9.png">
+                    <img class="bihua bihua10" src="./images/everyday/10.png">
+                    <img class="bihua bihua11" src="./images/everyday/11.png">
                 </div>
                 <img class="en-img logo" src="./images/en.png">
                 <div class="line left-line"></div>
@@ -145,11 +180,17 @@
             </div>
             <div class="text-content">
                 <div class="every-day-content">
-                    <div class="bihua bihua1" data-num="0"></div>
-                    <div class="bihua bihua2" data-num="1"></div>
-                    <div class="bihua bihua3" data-num="2"></div>
-                    <div class="bihua bihua4" data-num="3"></div>
-                    <div class="bihua bihua5" data-num="4"></div>
+                    <img class="bihua bihua1" src="./images/everyday/1.png">
+                    <img class="bihua bihua2" src="./images/everyday/2.png">
+                    <img class="bihua bihua3" src="./images/everyday/3.png">
+                    <img class="bihua bihua4" src="./images/everyday/4.png">
+                    <img class="bihua bihua5" src="./images/everyday/5.png">
+                    <img class="bihua bihua6" src="./images/everyday/6.png">
+                    <img class="bihua bihua7" src="./images/everyday/7.png">
+                    <img class="bihua bihua8" src="./images/everyday/8.png">
+                    <img class="bihua bihua9" src="./images/everyday/9.png">
+                    <img class="bihua bihua10" src="./images/everyday/10.png">
+                    <img class="bihua bihua11" src="./images/everyday/11.png">
                 </div>
                 <img class="en-img logo" src="./images/en.png">
                 <div class="line left-line"></div>
@@ -177,11 +218,17 @@
             </div>
             <div class="text-content">
                 <div class="every-day-content">
-                    <div class="bihua bihua1" data-num="0"></div>
-                    <div class="bihua bihua2" data-num="1"></div>
-                    <div class="bihua bihua3" data-num="2"></div>
-                    <div class="bihua bihua4" data-num="3"></div>
-                    <div class="bihua bihua5" data-num="4"></div>
+                    <img class="bihua bihua1" src="./images/everyday/1.png">
+                    <img class="bihua bihua2" src="./images/everyday/2.png">
+                    <img class="bihua bihua3" src="./images/everyday/3.png">
+                    <img class="bihua bihua4" src="./images/everyday/4.png">
+                    <img class="bihua bihua5" src="./images/everyday/5.png">
+                    <img class="bihua bihua6" src="./images/everyday/6.png">
+                    <img class="bihua bihua7" src="./images/everyday/7.png">
+                    <img class="bihua bihua8" src="./images/everyday/8.png">
+                    <img class="bihua bihua9" src="./images/everyday/9.png">
+                    <img class="bihua bihua10" src="./images/everyday/10.png">
+                    <img class="bihua bihua11" src="./images/everyday/11.png">
                 </div>
                 <img class="en-img logo" src="./images/en.png">
                 <div class="line left-line"></div>
