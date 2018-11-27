@@ -62,9 +62,11 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
+
 .landscapeLayer {
   display: none;
 }
+
 @media all and (orientation: landscape) {
   .landscape .landscapeLayer {
 	background-color: #21313e;
@@ -114,7 +116,7 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 	text-align: center;
 	.line {
 	  width: 1%;
-	  background-color: rgba(255,255,255,0.8);
+	  background-color: rgba(255, 255, 255, 0.8);
 	  @include px2rem(height, 10);
 
 	}
@@ -395,8 +397,14 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 	z-index: 100;
 	opacity: 0;
 	img {
+	  position: absolute;
+	  left: 0;
+	  top: 0;
 	  width: 100%;
 	  height: 100%;
+	}
+	.lvye-img {
+	  display: none;
 	}
   }
 
@@ -678,7 +686,15 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
   .bg5 {
 	z-index: 5;
   }
-
+  .guding-img {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 99;
+	display: none;
+  }
   .page-content {
 	position: absolute;
 	@include px2rem(left, 226);
@@ -708,6 +724,114 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 	background-color: #ffffff;
 	&.line-transition {
 	  @include px2rem(height, 280);
+	}
+  }
+  .new-page {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	.new-page-bg {
+	  position: absolute;
+	  left: 0;
+	  top: 0;
+	  height: 100%;
+	  width: 100%;
+	}
+	.top-logo {
+	  @include px2rem(width, 268);
+	  @include px2rem(height, 313);
+	  @include px2rem(margin-top, 78);
+	  margin-left: auto;
+	  margin-right: auto;
+	  position: relative;
+	  .logo {
+		@include px2rem(width, 268);
+		@include px2rem(height, 313);
+		opacity: 0;
+		position: relative;
+	  }
+	  .sanluo {
+		@include px2rem(width, 150);
+		@include px2rem(height, 150);
+		position: absolute;
+		@include px2rem(left, 60);
+		@include px2rem(top, 16);
+		&.Zindex {
+		  z-index: 99;
+		}
+
+	  }
+	  .lvye {
+		@include px2rem(width, 62);
+		//@include px2rem(height, 86);
+		position: absolute;
+		@include transition1('right,top,bottom,left', 2s);
+
+	  }
+	  .lvye1 {
+		@include px2rem(right, -200);
+		@include px2rem(top, 14);
+		&.lvye-transition {
+		  @include px2rem(right, -8);
+		}
+	  }
+	  .lvye2 {
+		@include px2rem(right, -264);
+		@include px2rem(bottom, -308);
+		transform: rotate(74deg);
+		&.lvye-transition {
+		  @include px2rem(right, 24);
+		  @include px2rem(bottom, -28);
+		}
+	  }
+	  .lvye3 {
+		@include px2rem(left, -156);
+		@include px2rem(bottom, -266);
+		transform: rotate(144deg);
+
+		&.lvye-transition {
+		  @include px2rem(left, 4.8);
+		  @include px2rem(bottom, -16);
+		}
+	  }
+	  .lvye4 {
+		@include px2rem(left, -70);
+		@include px2rem(top, -150);
+		transform: rotate(217deg);
+		&.lvye-transition {
+		  @include px2rem(left, -3.2);
+		  @include px2rem(top, -8);
+		}
+	  }
+
+	  .lvye5 {
+		@include px2rem(right, 350);
+		@include px2rem(top, -250);
+		transform: rotate(292deg);
+		&.lvye-transition {
+		  @include px2rem(right, 32);
+		  @include px2rem(top, -33.6);
+		}
+	  }
+	}
+	.title1 {
+	  position: relative;
+	  @include px2rem(margin-top, 54);
+	  @include px2rem(width, 685);
+	  &.Zindex {
+		z-index: 11;
+	  }
+	}
+	.title2 {
+	  position: relative;
+	  @include px2rem(margin-top, 54);
+	  @include px2rem(width, 568);
+	  &.Zindex {
+		z-index: 11;
+	  }
 	}
   }
 }

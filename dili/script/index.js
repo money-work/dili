@@ -7,6 +7,7 @@ $(function () {
 //     orient();
   // });
   var parms = {
+    page7Type: false,
     loadingTimeer: null,// 记录当前页面位置
     currentPosition: 0,
     pageNow: 1,// 当前页码
@@ -66,7 +67,7 @@ $(function () {
       titleAnimation: {
         'classStr': 'label',
         'animationName': 'fade-in',
-        'animationTime': '0.6s'
+        'animationTime': '1s'
       },
       lineTransition: [
         {
@@ -103,6 +104,16 @@ $(function () {
         'animationName': 'fade-in',
         'animationTime': '0.6s'
       },
+      titleOutAnimation: {
+        'classStr': 'page-content',
+        'animationName': 'fade-out',
+        'animationTime': '0.6s'
+      },
+      sanluoTransition: {
+        'classStr': 'lvye',
+        'animationTime': '1.5s'
+      },
+
       lineTransition: [
         {
           'classStr': 'line',
@@ -112,6 +123,7 @@ $(function () {
     },
     shuyeOut: {
       'classStr': 'shuye',
+      'showClassStr': 'lvye',
       'animationName': 'fade-out-up',
       'animationTime': '0.5s'
     }
@@ -165,13 +177,19 @@ $(function () {
   function watchAnimationEvent (el, obj, type, page) {
     var transitionEvent = whichAnimationEvent();
     transitionEvent && $(el)[0].addEventListener(transitionEvent, function () {
-      $(el) && $(el).next().length > 0 && $(el).next().css('animation-duration', obj.animationTime).addClass(obj.animationName);
-      if (type == 'titleAnimation') {
-        var num = $(el).attr('data-num');
-        var bgAnimationEl = $('.page_' + page + ' .' + parms['page' + page].bgAnimation.classStr)[num];
-        var bgAnimation = parms['page' + page].bgAnimation;
-        $(bgAnimationEl) && $(bgAnimationEl).next().length > 0 && $(bgAnimationEl).next().css('animation-duration', bgAnimation.animationTime).addClass(bgAnimation.animationName);
+      if (type == 'bgAnimation') {
+        setTimeout(function () {
+          $(el) && $(el).next().length > 0 && $(el).next().css('animation-duration', obj.animationTime).addClass(obj.animationName);
+        }, 3000)
+      } else {
+        $(el) && $(el).next().length > 0 && $(el).next().css('animation-duration', obj.animationTime).addClass(obj.animationName);
       }
+      // if (type == 'titleAnimation') {
+      //   var num = $(el).attr('data-num');
+      //   var bgAnimationEl = $('.page_' + page + ' .' + parms['page' + page].bgAnimation.classStr)[num];
+      //   var bgAnimation = parms['page' + page].bgAnimation;
+      //   $(bgAnimationEl) && $(bgAnimationEl).next().length > 0 && $(bgAnimationEl).next().css('animation-duration', bgAnimation.animationTime).addClass(bgAnimation.animationName);
+      // }
       $(el)[0].removeEventListener(transitionEvent, arguments.callee, false);//销毁事件
     });
   }
@@ -254,12 +272,22 @@ $(function () {
           }
 
           break;
+        case 'bgAnimation':
+          var pageNow = parms.pageNow;
+          setTimeout(function () {
+            $($('.page_' + pageNow + ' .' + page['bgAnimation'].classStr)[1]).css('animation-duration', page['bgAnimation'].animationTime).addClass(page['bgAnimation'].animationName);
+          }, 3000);
+          $('.page_' + pageNow + ' .' + page['bgAnimation'].classStr).each(function () {
+            watchAnimationEvent(this, page['bgAnimation'], 'bgAnimation', pageNow);
+          });
+
+          break;
         case 'lineTransition':
           if (!page['bgAnimation']) {
             break;
           }
-          var bgEl = $('.page_' + parms.pageNow + ' .' + page['bgAnimation'].classStr);
-          if (!bgEl) {
+          var bgEl = $('.page_' + parms.pageNow + ' .' + page['titleAnimation'].classStr);
+          if (!bgEl && bgEl.length <= 0) {
             break;
           }
           var transitionEvent = whichAnimationEvent();
@@ -364,22 +392,48 @@ $(function () {
         // 发生了滑动，并且当前滑动事件未结束
         if (isMove && !isTouchEnd) {
           // 使用动画过渡让页面滑动到最终的位置
+          var animationEvent = whichAnimationEvent();
+          var transitionEvent = whichTransitionEvent();
+
           if (parms.currentPosition == 0 && direction === 'bottom') {
             isTouchEnd = true; // 标记当前完整的滑动事件已经结束
+            return false;
+          }
+          if (parms.pageNow == 7 && direction === 'top' && !parms.page7Type) {
+            $('.page_7 .guding-img').show();
+            $('.page_7').find('.' + parms.page7.titleOutAnimation.classStr)
+              .css('animation-duration', parms.page7.titleOutAnimation.animationTime).addClass(parms.page7.titleOutAnimation.animationName);
+            parms.page7Type = true;
+            animationEvent && $('.page_' + parms.pageNow + ' .' + parms.page7.titleOutAnimation.classStr)[0].addEventListener(animationEvent, function () {
+              $(".new-page .sanluo").addClass("Zindex");
+              $(".new-page .sanluo .lvye").addClass("lvye-transition");
+            });
+            transitionEvent && $('.page_7 .lvye5')[0].addEventListener(transitionEvent, function () {
+              $(".new-page .sanluo").addClass("fade-out").css('animation-duration', '1s');
+              $(".new-page .logo").addClass("fade-in").css('animation-duration', '1s');
+              $(".new-page .title1").addClass("fade-in").css('animation-duration', '1s');
+              setTimeout(function () {
+                $(".new-page .title1").hide();
+                $(".new-page .title2").addClass("fade-in").css('animation-duration', '1s');
+                $(".new-page .new-page-bg").addClass("fade-in").css('animation-duration', '1s');
+              }, 2000)
+            });
             return false;
           }
           if (-parms.currentPosition == maxHeight && direction === 'top') {
             isTouchEnd = true; // 标记当前完整的滑动事件已经结束
             return false;
           }
+
           if (parms.pageNow <= 6 && parms.pageNow > 1 && direction === 'top') {
             // 树叶飞走
+            $($('.page_' + parms.pageNow + ' .' + parms.shuyeOut.classStr)[0]).find('.shuye-img').hide();
+            $($('.page_' + parms.pageNow + ' .' + parms.shuyeOut.classStr)[0]).find('.lvye-img').show();
             $($('.page_' + parms.pageNow + ' .' + parms.shuyeOut.classStr)[0]).css('animation-duration', parms.shuyeOut.animationTime).removeClass('fade-in').addClass(parms.shuyeOut.animationName);
             var $this = this;
-            var transitionEvent = whichAnimationEvent();
-            transitionEvent && $('.page_' + parms.pageNow + ' .' + parms.shuyeOut.classStr)[0].addEventListener(transitionEvent, function () {
+            animationEvent && $('.page_' + parms.pageNow + ' .' + parms.shuyeOut.classStr)[0].addEventListener(animationEvent, function () {
               $($('.page_' + parms.pageNow + ' .' + parms.shuyeOut.classStr)[0]).css('opacity', '1').removeClass(parms.shuyeOut.animationName);
-              $('.page_' + parms.pageNow + ' .' + parms.shuyeOut.classStr)[0].removeEventListener(transitionEvent, arguments.callee, false);//销毁事件
+              $('.page_' + parms.pageNow + ' .' + parms.shuyeOut.classStr)[0] && $('.page_' + parms.pageNow + ' .' + parms.shuyeOut.classStr)[0].removeEventListener(animationEvent, arguments.callee, false);//销毁事件
               viewport.style.webkitTransition = '0.3s ease -webkit-transform';
               translate = direction === 'top' ? parms.currentPosition - pageHeight : parms.currentPosition + pageHeight;
               parms.pageNow = Math.round(Math.abs(translate) / pageHeight) + 1;
@@ -388,6 +442,9 @@ $(function () {
             });
 
           } else {
+            if (parms.pageNow == 7 && direction === 'bottom') {
+              parms.page7Type = false;
+            }
             viewport.style.webkitTransition = '0.3s ease -webkit-transform';
             translate = direction === 'top' ? parms.currentPosition - pageHeight : parms.currentPosition + pageHeight;
             parms.pageNow = Math.round(Math.abs(translate) / pageHeight) + 1;

@@ -35,6 +35,10 @@ $bihuaFadeInTime: 1s;
   -o-transition-property: #{$name};
   transition-property: #{$name};
 
+  -webkit-transition-duration: #{$time};
+  -moz-transition-duration: #{$time};
+  -o-transition-duration: #{$time};
+  transition-duration: #{$time};
 }
 
 @mixin animation($name, $time, $num:1) {
@@ -64,6 +68,11 @@ $bihuaFadeInTime: 1s;
 .fade-out-up {
   @extend .animation-public;
   @include animation(fade-out-up, $shuyeFadeOutUpTime);
+}
+
+.fade-out {
+  @extend .animation-public;
+  @include animation(fade-out, $shuyeFadeOutUpTime);
 }
 
 .fade-in {
@@ -105,6 +114,15 @@ $bihuaFadeInTime: 1s;
   100% {
 	transform: translateY(-100%);
 
+	opacity: 0;
+  }
+}
+
+@include keyframes(fade-out) {
+  0% {
+	opacity: 1;
+  }
+  100% {
 	opacity: 0;
   }
 }
