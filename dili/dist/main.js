@@ -174,8 +174,8 @@
 	    shuyeOut: {
 	      'classStr': 'shuye',
 	      'showClassStr': 'lvye',
-	      'animationName': 'fade-out-up',
-	      'animationTime': '0.5s'
+	      'animationName': 'scale-enlarge',
+	      'animationTime': '1.5s'
 	    },
 	    layerData: {
 	      "zhongzhi": {
@@ -584,18 +584,25 @@
 	
 	          if (parms.pageNow <= 6 && parms.pageNow > 1 && direction === 'top') {
 	            // 树叶飞走
-	            $($('.page_' + parms.pageNow + ' .' + parms.shuyeOut.classStr)[0]).find('.shuye-img').hide();
-	            $($('.page_' + parms.pageNow + ' .' + parms.shuyeOut.classStr)[0]).find('.lvye-img').show();
-	            $($('.page_' + parms.pageNow + ' .' + parms.shuyeOut.classStr)[0]).css('animation-duration', parms.shuyeOut.animationTime).removeClass('fade-in').addClass(parms.shuyeOut.animationName);
+	            var pageNow = parms.pageNow;
+	            $($('.page_' + pageNow + ' .' + parms.shuyeOut.classStr)[0]).find('.shuye-img').hide();
+	            $($('.page_' + pageNow + ' .' + parms.shuyeOut.classStr)[0]).css('opacity', '1');
+	            $($('.page_' + pageNow + ' .' + parms.shuyeOut.classStr)[0]).find('.lvye-img').show().css('animation-duration', parms.shuyeOut.animationTime).addClass(parms.shuyeOut.animationName);
 	            var $this = this;
-	            animationEvent && $('.page_' + parms.pageNow + ' .' + parms.shuyeOut.classStr)[0].addEventListener(animationEvent, function () {
-	              $($('.page_' + parms.pageNow + ' .' + parms.shuyeOut.classStr)[0]).css('opacity', '1').removeClass(parms.shuyeOut.animationName);
-	              $('.page_' + parms.pageNow + ' .' + parms.shuyeOut.classStr)[0] && $('.page_' + parms.pageNow + ' .' + parms.shuyeOut.classStr)[0].removeEventListener(animationEvent, arguments.callee, false); //销毁事件
-	              viewport.style.webkitTransition = '0.3s ease -webkit-transform';
-	              translate = direction === 'top' ? parms.currentPosition - pageHeight : parms.currentPosition + pageHeight;
-	              parms.pageNow = Math.round(Math.abs(translate) / pageHeight) + 1;
-	              $this.transform.call(viewport, translate);
-	              mangerAnimation();
+	            animationEvent && $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr + ' .lvye-img')[0].addEventListener(animationEvent, function () {
+	              $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr).removeClass('fade-in').addClass('fade-out').css('animation-duration', '1s');
+	              // $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr)[0] && $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr)[0].removeEventListener(animationEvent, arguments.callee, false);//销毁事件
+	              $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr + ' .lvye-img')[0] && $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr + ' .lvye-img')[0].removeEventListener(animationEvent, arguments.callee, false); //销毁事件
+	              setTimeout(function () {
+	                $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr).removeClass('fade-in').removeClass('fade-out');
+	                $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr + ' .lvye-img').removeClass('scale-enlarge');
+	
+	                viewport.style.webkitTransition = '0.3s ease -webkit-transform';
+	                translate = direction === 'top' ? parms.currentPosition - pageHeight : parms.currentPosition + pageHeight;
+	                parms.pageNow = Math.round(Math.abs(translate) / pageHeight) + 1;
+	                $this.transform.call(viewport, translate);
+	                mangerAnimation();
+	              }, 1100);
 	            });
 	          } else {
 	            if (parms.pageNow == 7 && direction === 'bottom') {
