@@ -234,7 +234,8 @@
 	        'animationName': 'fade-in',
 	        'animationTime': '0.5s'
 	      }
-	    }
+	    },
+	    bgAnimationArr: ['bounceInDown', 'flash', 'bounceInLeft', 'bounceInRight', 'bounceInUp', 'fadeIn', 'fadeInDown', 'flip', 'lightSpeedIn', 'rotateIn', 'rotateInDownLeft', 'rotateInDownRight', 'zoomIn', 'zoomInLeft', 'zoomInRight', 'rollIn']
 	  };
 	  parms.page3 = parms.page2;
 	  parms.page4 = parms.page2;
@@ -286,7 +287,8 @@
 	    transitionEvent && $(el)[0].addEventListener(transitionEvent, function () {
 	      if (type == 'bgAnimation') {
 	        setTimeout(function () {
-	          $(el) && $(el).next().length > 0 && $(el).next().css('animation-duration', obj.animationTime).addClass(obj.animationName);
+	          var animationName = parms.bgAnimationArr[Math.floor(Math.random() * parms.bgAnimationArr.length)] + ' animated ';
+	          $(el) && $(el).next().length > 0 && $(el).next().css('animation-duration', obj.animationTime).addClass(animationName);
 	        }, 3000);
 	      } else {
 	        $(el) && $(el).next().length > 0 && $(el).next().css('animation-duration', obj.animationTime).addClass(obj.animationName);
@@ -418,7 +420,8 @@
 	        case 'bgAnimation':
 	          var pageNow = parms.pageNow;
 	          setTimeout(function () {
-	            $($('.page_' + pageNow + ' .' + page['bgAnimation'].classStr)[1]).css('animation-duration', page['bgAnimation'].animationTime).addClass(page['bgAnimation'].animationName);
+	            var animationName = parms.bgAnimationArr[Math.floor(Math.random() * parms.bgAnimationArr.length)] + ' animated ';
+	            $($('.page_' + pageNow + ' .' + page['bgAnimation'].classStr)[1]).css('animation-duration', page['bgAnimation'].animationTime).addClass(animationName);
 	          }, 3000);
 	          $('.page_' + pageNow + ' .' + page['bgAnimation'].classStr).each(function () {
 	            watchAnimationEvent(this, page['bgAnimation'], 'bgAnimation', pageNow);
