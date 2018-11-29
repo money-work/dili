@@ -6,6 +6,7 @@ $(function () {
 //   $(window).bind('orientationchange', function (e) {
 //     orient();
   // });
+
   var parms = {
     page7Type: false,
     loadingTimeer: null,// 记录当前页面位置
@@ -119,14 +120,59 @@ $(function () {
           'classStr': 'line',
           'time': '0.6s'
         }
-      ]
+      ],
+      btnAnimation: {
+        'classStr': 'btn-oper',
+        'animationName': 'fade-in',
+        'animationTime': '0.8s'
+      }
     },
     shuyeOut: {
       'classStr': 'shuye',
       'showClassStr': 'lvye',
       'animationName': 'fade-out-up',
       'animationTime': '0.5s'
-    }
+    },
+    layerData: {
+      "zhongzhi": {
+        imgs: [
+          "images/layer/zhongzhi/1.jpg",
+          "images/layer/zhongzhi/2.jpg",
+          "images/layer/zhongzhi/3.jpg",
+        ],
+        text: "地利集团运营的种植育苗基地为位于贵州大方，种苗温室使用面积超过32000平方米，迄今为止已经免费为当地农户提供优质种苗超过1300万株。引入以色列农业种植专家团队，组建并培育专业种苗技术人员，使种植蔬菜技术趋于专业化、规范化。"
+      },
+      "liutong": {
+        imgs: [
+          "images/layer/liutong/1.jpg",
+          "images/layer/liutong/2.jpg",
+          "images/layer/liutong/3.jpg",
+        ],
+        text: "地利集团在东北、华东、西南地区拥有18家农副产品物流园，分别位于哈尔滨、长春、沈阳、齐齐哈尔、牡丹江、寿光、杭州、成都、贵阳等核心城市，并运营30多个各类型功能仓储中心，年交易额近3000亿元。"
+      },
+      "lingshou": {
+        imgs: [
+          "images/layer/lingshou/1.jpg",
+          "images/layer/lingshou/2.jpg"
+        ],
+        text: "地利生鲜是一家全国性的专业生鲜零售连锁企业，目前在东北、华北、西南地区拥有近500家终端门店，总经营面积超过25万平方米，是东北地区规模最大的社区生鲜连锁超市品牌。"
+      },
+      "jiagong": {
+        imgs: [
+          "images/layer/jiagong/1.jpg",
+          "images/layer/jiagong/2.jpg"
+        ],
+        text: "地利集团拥有十大加工厂，21条生产线，占地面积超8000平方米，平均每月生产250万公斤自产食品，包括中式主食、西式糕点、熟食以及其他粗加工农产品，提供给地利生鲜位全国的门店。"
+      },
+      "jiance": {
+        imgs: [
+          "images/layer/jiance/1.jpg",
+          "images/layer/jiance/2.jpg"
+        ],
+        text: "地利集团在每个大型农副产品物流园设置检验检测中心，并在零售渠道引入地区综合能力最强的第三方专业检测机构，在食品溯源管理等方面展开全面合作，对所有食品在存储、加工、物流环节全品类全时段全流程进行安全检测。"
+      }
+    },
+    mySwiper: null
   };
   parms.page3 = parms.page2;
   parms.page4 = parms.page2;
@@ -198,11 +244,35 @@ $(function () {
 
   function addEvent () {
     $("body").on("click", '.music-oper', function (e) {
+      e.stopPropagation();
       if ($(this).hasClass('suspend')) {
         $(this).removeClass("suspend")
       } else {
         $(this).addClass("suspend")
       }
+    })
+    $("body .new-page").on("click", '.close-img', function (e) {
+      $(".layer-content").hide();
+      parms.mySwiper.destroy(false);
+    });
+    $("body .new-page").on("click", '.btn', function (e) {
+      e.stopPropagation();
+      var dataType = $(this).attr('data-type');
+      $(".layer-content .text").text(parms.layerData[dataType].text);
+      var imgs = parms.layerData[dataType].imgs;
+      var str = "";
+      for (var i = 0; i < imgs.length; i++) {
+        str += "<div class='swiper-slide'><img src = '" + imgs[i] + "' /></div>";
+      }
+      $(".layer-content .swiper-wrapper").html(str);
+      parms.mySwiper = new Swiper('.swiper-container', {
+        loop: true,
+        effect: 'fade',
+        centeredSlides: true,
+        autoplay: 2000,
+        autoplayDisableOnInteraction: false
+      });
+      $(".layer-content").show();
     })
   }
 
@@ -342,12 +412,11 @@ $(function () {
 
       // 手指放在屏幕上
       viewport.addEventListener('touchstart', function (e) {
-        if (event.cancelable) {
-          // 判断默认行为是否已经被禁用
-          if (!event.defaultPrevented) {
-            event.preventDefault();
-          }
-        }
+        // if (e.cancelable) {
+        //   if (!e.defaultPrevented) {
+        //     e.preventDefault();
+        //   }
+        // }
         // 单手指触摸或者多手指同时触摸，禁止第二个手指延迟操作事件
         if (e.touches.length === 1 || isTouchEnd) {
           var touch = e.touches[0];
@@ -360,12 +429,11 @@ $(function () {
 
       // 手指在屏幕上滑动，页面跟随手指移动
       viewport.addEventListener('touchmove', function (e) {
-        if (event.cancelable) {
-          // 判断默认行为是否已经被禁用
-          if (!event.defaultPrevented) {
-            event.preventDefault();
-          }
-        }
+        // if (e.cancelable) {
+        //   if (!e.defaultPrevented) {
+        //     e.preventDefault();
+        //   }
+        // }
         // 如果当前滑动已结束，不管其他手指是否在屏幕上都禁止该事件
         if (isTouchEnd) return;
 
@@ -379,12 +447,12 @@ $(function () {
 
       // 手指离开屏幕时，计算最终需要停留在哪一页
       viewport.addEventListener('touchend', function (e) {
-        if (event.cancelable) {
-          // 判断默认行为是否已经被禁用
-          if (!event.defaultPrevented) {
-            event.preventDefault();
-          }
-        }
+        // if (e.cancelable) {
+        //   判断默认行为是否已经被禁用
+        // if (!e.defaultPrevented) {
+        //   e.preventDefault();
+        // }
+        // }
         if (loadingType) {
           return false;
         }
@@ -416,6 +484,12 @@ $(function () {
                 $(".new-page .title1").hide();
                 $(".new-page .title2").addClass("fade-in").css('animation-duration', '1s');
                 $(".new-page .new-page-bg").addClass("fade-in").css('animation-duration', '1s');
+                $(".new-page .btn-content").addClass("Zindex");
+
+                $(".new-page .btn1").addClass("fade-in").css('animation-duration', parms.page7.btnAnimation.animationTime);
+                $('.page_7 .' + parms.page7.btnAnimation.classStr).each(function () {
+                  watchAnimationEvent(this, parms.page7['btnAnimation'], 'btnAnimation', parms.pageNow);
+                });
               }, 2000)
             });
             return false;
