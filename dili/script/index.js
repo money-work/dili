@@ -1,12 +1,101 @@
 // require('./jquery-3.3.1');
 // require('./zoom');
+let baseApp = require('./baseApp').up;
 $(function () {
   // orient();
 //用户变化屏幕方向时调用
 //   $(window).bind('orientationchange', function (e) {
 //     orient();
   // });
+	var loadingType = true;
+	var cacheList = [
+		"images/en.png",
+		"images/logo.png",
+		"images/lvye.png",
+		"images/lvye1.png",
+		"images/wrong.png",
+		"images/shuye.png",
+		"images/everyday/1.png",
+		"images/everyday/10.png",
+		"images/everyday/11.png",
+		"images/everyday/2.png",
+		"images/everyday/3.png",
+		"images/everyday/4.png",
+		"images/everyday/5.png",
+		"images/everyday/6.png",
+		"images/everyday/7.png",
+		"images/everyday/8.png",
+		"images/everyday/9.png",
+		"images/page1/arrow.png",
+		"images/page1/bg.jpg",
+		"images/page1/play.png",
+		"images/page1/suspend.png",
+		"images/page1/title-en.png",
+		"images/page1/title1.png",
+		"images/page1/title2.png",
+		"images/page2/bg1.jpg",
+		"images/page2/bg2.jpg",
+		"images/page2/bg3.jpg",
+		"images/page3/bg1.jpg",
+		"images/page3/bg2.jpg",
+		"images/page3/bg3.jpg",
+		"images/page3/bg4.jpg",
+		"images/page4/bg1.jpg",
+		"images/page4/bg2.jpg",
+		"images/page6/bg1.jpg",
+		"images/page6/bg2.jpg",
+		"images/page5/bg1.jpg",
+		"images/page5/bg2.jpg",
+		"images/page7/bg1.jpg",
+		"images/page7/bg2.jpg",
+		"images/page7/bg3.jpg",
+		"images/page7/bg4.jpg",
+		"images/page7/bg5.jpg",
+		"images/page7/bg6.jpg",
+		"images/page7/btn.png",
+		"images/page7/close.png",
+		"images/page7/jiagong.png",
+		"images/page7/jiance.png",
+		"images/page7/lingshou.png",
+		"images/page7/liutong.png",
+		"images/page7/play-video.png",
+		"images/page7/title1.png",
+		"images/page7/title2.png",
+		"images/page7/zhongzhi.png",
+		"images/page8/bg1.jpg",
+		"images/page8/bg2.jpg",
+		"images/page8/bg3.png",
+		"images/page8/dili.png",
+		"images/page8/title1.png",
+		"images/page8/title2.png",
+		"images/page8/zhiwei.png",
+		"images/layer/jiagong/2.jpg",
+		"images/layer/jiagong/1.jpg",
+		"images/layer/jiance/1.jpg",
+		"images/layer/jiance/2.jpg",
+		"images/layer/lingshou/1.jpg",
+		"images/layer/lingshou/2.jpg",
+		"images/layer/liutong/1.jpg",
+		"images/layer/liutong/2.jpg",
+		"images/layer/liutong/3.jpg",
+		"images/layer/zhongzhi/1.jpg",
+		"images/layer/zhongzhi/2.jpg",
+		"images/layer/zhongzhi/3.jpg"
+	];
+	baseApp.loading(cacheList, function () {
+		$("#num span").text('100%')
+		$('.loading-content .line').css('width', '100%');
+		setTimeout(function(){
+			loadingType = false;
+			$('.loading-content').hide();
+			$(".content").show();
+    },300);
 
+
+	}, function(progress){
+	  $("#num span").text(progress+'%')
+		$('.loading-content .line').css('width', progress + '%')
+  });
   var parms = {
     page7Type: false,
     loadingTimeer: null,// 记录当前页面位置
