@@ -7,97 +7,98 @@ $(function () {
 //   $(window).bind('orientationchange', function (e) {
 //     orient();
   // });
-	var loadingType = true;
-	var cacheList = [
-		"images/en.png",
-		"images/logo.png",
-		"images/lvye.png",
-		"images/lvye1.png",
-		"images/wrong.png",
-		"images/shuye.png",
-		"images/everyday/1.png",
-		"images/everyday/10.png",
-		"images/everyday/11.png",
-		"images/everyday/2.png",
-		"images/everyday/3.png",
-		"images/everyday/4.png",
-		"images/everyday/5.png",
-		"images/everyday/6.png",
-		"images/everyday/7.png",
-		"images/everyday/8.png",
-		"images/everyday/9.png",
-		"images/page1/arrow.png",
-		"images/page1/bg.jpg",
-		"images/page1/play.png",
-		"images/page1/suspend.png",
-		"images/page1/title-en.png",
-		"images/page1/title1.png",
-		"images/page1/title2.png",
-		"images/page2/bg1.jpg",
-		"images/page2/bg2.jpg",
-		"images/page2/bg3.jpg",
-		"images/page3/bg1.jpg",
-		"images/page3/bg2.jpg",
-		"images/page3/bg3.jpg",
-		"images/page3/bg4.jpg",
-		"images/page4/bg1.jpg",
-		"images/page4/bg2.jpg",
-		"images/page6/bg1.jpg",
-		"images/page6/bg2.jpg",
-		"images/page5/bg1.jpg",
-		"images/page5/bg2.jpg",
-		"images/page7/bg1.jpg",
-		"images/page7/bg2.jpg",
-		"images/page7/bg3.jpg",
-		"images/page7/bg4.jpg",
-		"images/page7/bg5.jpg",
-		"images/page7/bg6.jpg",
-		"images/page7/btn.png",
-		"images/page7/close.png",
-		"images/page7/jiagong.png",
-		"images/page7/jiance.png",
-		"images/page7/lingshou.png",
-		"images/page7/liutong.png",
-		"images/page7/play-video.png",
-		"images/page7/title1.png",
-		"images/page7/title2.png",
-		"images/page7/zhongzhi.png",
-		"images/page8/bg1.jpg",
-		"images/page8/bg2.jpg",
-		"images/page8/bg3.png",
-		"images/page8/dili.png",
-		"images/page8/title1.png",
-		"images/page8/title2.png",
-		"images/page8/zhiwei.png",
-		"images/layer/jiagong/2.jpg",
-		"images/layer/jiagong/1.jpg",
-		"images/layer/jiance/1.jpg",
-		"images/layer/jiance/2.jpg",
-		"images/layer/lingshou/1.jpg",
-		"images/layer/lingshou/2.jpg",
-		"images/layer/liutong/1.jpg",
-		"images/layer/liutong/2.jpg",
-		"images/layer/liutong/3.jpg",
-		"images/layer/zhongzhi/1.jpg",
-		"images/layer/zhongzhi/2.jpg",
-		"images/layer/zhongzhi/3.jpg"
-	];
-	baseApp.loading(cacheList, function () {
-		$("#num span").text('100%')
-		$('.loading-content .line').css('width', '100%');
-		setTimeout(function(){
-			loadingType = false;
-			$('.loading-content').hide();
-			$(".content").show();
-    },300);
+  var loadingType = true;
+  var cacheList = [
+    "images/en.png",
+    "images/logo.png",
+    "images/lvye.png",
+    "images/lvye1.png",
+    "images/wrong.png",
+    "images/shuye.png",
+    "images/everyday/1.png",
+    "images/everyday/10.png",
+    "images/everyday/11.png",
+    "images/everyday/2.png",
+    "images/everyday/3.png",
+    "images/everyday/4.png",
+    "images/everyday/5.png",
+    "images/everyday/6.png",
+    "images/everyday/7.png",
+    "images/everyday/8.png",
+    "images/everyday/9.png",
+    "images/page1/arrow.png",
+    "images/page1/bg.jpg",
+    "images/page1/play.png",
+    "images/page1/suspend.png",
+    "images/page1/title-en.png",
+    "images/page1/title1.png",
+    "images/page1/title2.png",
+    "images/page2/bg1.jpg",
+    "images/page2/bg2.jpg",
+    "images/page2/bg3.jpg",
+    "images/page3/bg1.jpg",
+    "images/page3/bg2.jpg",
+    "images/page3/bg3.jpg",
+    "images/page3/bg4.jpg",
+    "images/page4/bg1.jpg",
+    "images/page4/bg2.jpg",
+    "images/page6/bg1.jpg",
+    "images/page6/bg2.jpg",
+    "images/page5/bg1.jpg",
+    "images/page5/bg2.jpg",
+    "images/page7/bg1.jpg",
+    "images/page7/bg2.jpg",
+    "images/page7/bg3.jpg",
+    "images/page7/bg4.jpg",
+    "images/page7/bg5.jpg",
+    "images/page7/bg6.jpg",
+    "images/page7/btn.png",
+    "images/page7/close.png",
+    "images/page7/jiagong.png",
+    "images/page7/jiance.png",
+    "images/page7/lingshou.png",
+    "images/page7/liutong.png",
+    "images/page7/play-video.png",
+    "images/page7/title1.png",
+    "images/page7/title2.png",
+    "images/page7/zhongzhi.png",
+    "images/page8/bg1.jpg",
+    "images/page8/bg2.jpg",
+    "images/page8/bg3.png",
+    "images/page8/dili.png",
+    "images/page8/title1.png",
+    "images/page8/title2.png",
+    "images/page8/zhiwei.png",
+    "images/layer/jiagong/2.jpg",
+    "images/layer/jiagong/1.jpg",
+    "images/layer/jiance/1.jpg",
+    "images/layer/jiance/2.jpg",
+    "images/layer/lingshou/1.jpg",
+    "images/layer/lingshou/2.jpg",
+    "images/layer/liutong/1.jpg",
+    "images/layer/liutong/2.jpg",
+    "images/layer/liutong/3.jpg",
+    "images/layer/zhongzhi/1.jpg",
+    "images/layer/zhongzhi/2.jpg",
+    "images/layer/zhongzhi/3.jpg"
+  ];
+  baseApp.loading(cacheList, function () {
+    $("#num span").text('100%')
+    $('.loading-content .line').css('width', '100%');
+    setTimeout(function () {
+      loadingType = false;
+      $('.loading-content').hide();
+      $(".content").show();
+    }, 300);
 
 
-	}, function(progress){
-	  $("#num span").text(progress+'%')
-		$('.loading-content .line').css('width', progress + '%')
+  }, function (progress) {
+    $("#num span").text(progress + '%')
+    $('.loading-content .line').css('width', progress + '%')
   });
   var parms = {
     page7Type: false,
+    page8Type: false,
     loadingTimeer: null,// 记录当前页面位置
     currentPosition: 0,
     pageNow: 1,// 当前页码
@@ -261,7 +262,47 @@ $(function () {
         text: "地利集团在每个大型农副产品物流园设置检验检测中心，并在零售渠道引入地区综合能力最强的第三方专业检测机构，在食品溯源管理等方面展开全面合作，对所有食品在存储、加工、物流环节全品类全时段全流程进行安全检测。"
       }
     },
-    mySwiper: null
+    mySwiper: null,
+    page8: {
+      bgAnimation: {
+        'classStr': 'bg',
+        'animationName': 'slide-in-right',
+        'animationTime': '0.5s'
+      },
+      bihuaAnimation: {
+        'classStr': 'bihua',
+        'animationName': 'fade-in',
+        'animationTime': '0.2s'
+      },
+      titleAnimation: {
+        'classStr': 'label',
+        'animationName': 'fade-in',
+        'animationTime': '1s'
+      },
+      lineTransition: [
+        {
+          'classStr': 'left-line',
+          'time': '0.6s'
+        },
+        {
+          'classStr': 'bottom-line',
+          'time': '1.2s'
+        },
+        {
+          'classStr': 'right-line',
+          'time': '0.8s'
+        },
+        {
+          'classStr': 'top-line',
+          'time': '1s'
+        }
+      ],
+      logoAnimation: {
+        'classStr': 'logo',
+        'animationName': 'fade-in',
+        'animationTime': '0.5s'
+      }
+    }
   };
   parms.page3 = parms.page2;
   parms.page4 = parms.page2;
@@ -390,13 +431,14 @@ $(function () {
 
   function mangerAnimation () {
     var page = parms['page' + parms.pageNow];
+    var transitionEvent = whichTransitionEvent();
+    var animationEvent = whichAnimationEvent();
 
     for (var key in page) {
       switch (key) {
         case 'logoAnimation':
           var lineEl = $('.page_' + parms.pageNow + ' .line');
           var obj = page['logoAnimation'];
-          var transitionEvent = whichTransitionEvent();
           var pageNow = parms.pageNow;
           transitionEvent && $(lineEl[lineEl.length - 1])[0].addEventListener(transitionEvent, function () {
             $('.page_' + pageNow + ' .logo').css('animation-duration', obj.animationTime).addClass(obj.animationName);
@@ -404,19 +446,31 @@ $(function () {
 
           break;
         case 'bihuaAnimation':
-          $($('.page_' + parms.pageNow + ' .' + page['bihuaAnimation'].classStr)[0]).css('animation-duration', page['bihuaAnimation'].animationTime).addClass(page['bihuaAnimation'].animationName);
-          $('.page_' + parms.pageNow + ' .' + page['bihuaAnimation'].classStr).each(function () {
-            watchAnimationEvent(this, page['bihuaAnimation']);
-          });
+          var pageNow = parms.pageNow;
+          if (pageNow == 8) {
+            $('.page_' + pageNow + ' .page-content-bg').css('animation-duration', '0.2s').addClass('fade-in');
+            animationEvent && $('.page_' + pageNow + ' .page-content-bg')[0].addEventListener(animationEvent, function () {
+              $('.page_' + pageNow + ' .shuye').css('animation-duration', '0.2s').addClass('fade-in');
+            });
+            animationEvent && $('.page_' + pageNow + ' .shuye')[0].addEventListener(animationEvent, function () {
+              $($('.page_' + parms.pageNow + ' .' + page['bihuaAnimation'].classStr)[0]).css('animation-duration', page['bihuaAnimation'].animationTime).addClass(page['bihuaAnimation'].animationName);
+              $('.page_' + parms.pageNow + ' .' + page['bihuaAnimation'].classStr).each(function () {
+                watchAnimationEvent(this, page['bihuaAnimation']);
+              });
+            });
+          } else {
+            $($('.page_' + parms.pageNow + ' .' + page['bihuaAnimation'].classStr)[0]).css('animation-duration', page['bihuaAnimation'].animationTime).addClass(page['bihuaAnimation'].animationName);
+            $('.page_' + parms.pageNow + ' .' + page['bihuaAnimation'].classStr).each(function () {
+              watchAnimationEvent(this, page['bihuaAnimation']);
+            });
+          }
           break;
         case 'titleAnimation':
 
           var pageNow = parms.pageNow;
-          if (pageNow <= 6 && pageNow > 1) {
+          if (pageNow <= 6 && pageNow > 1 || pageNow == 8) {
             var bihuaEl = $('.page_' + pageNow + ' .' + page['bihuaAnimation'].classStr);
-            var transitionEvent = whichAnimationEvent();
-
-            transitionEvent && $(bihuaEl[bihuaEl.length - 1])[0].addEventListener(transitionEvent, function () {
+            animationEvent && $(bihuaEl[bihuaEl.length - 1])[0].addEventListener(animationEvent, function () {
               $($('.page_' + pageNow + ' .' + page['titleAnimation'].classStr)[0]).css('animation-duration', page['titleAnimation'].animationTime).addClass(page['titleAnimation'].animationName);
               $('.page_' + pageNow + ' .' + page['titleAnimation'].classStr).each(function () {
                 watchAnimationEvent(this, page['titleAnimation'], 'titleAnimation', pageNow);
@@ -449,9 +503,8 @@ $(function () {
           if (!bgEl && bgEl.length <= 0) {
             break;
           }
-          var transitionEvent = whichAnimationEvent();
           var pageNow = parms.pageNow;
-          transitionEvent && $(bgEl[bgEl.length - 1])[0].addEventListener(transitionEvent, function () {
+          animationEvent && $(bgEl[bgEl.length - 1])[0].addEventListener(animationEvent, function () {
             addTransitionClass(pageNow);
           });
 
@@ -583,6 +636,16 @@ $(function () {
             });
             return false;
           }
+          if (parms.pageNow == 8 && direction === 'top' && !parms.page8Type) {
+            parms.page8Type = true;
+
+            $('.page_8 .logo-img').removeClass('fade-in').addClass('fade-out').css('animation-duration', '1s');
+            setTimeout(function () {
+              $('.page_8 .lv-logo-img').addClass('fade-in').addClass('lv-logo-img-transition').css('animation-duration', '1s');
+              $('.page_8 .bg2').addClass('fade-in').css('animation-duration', '2s');
+            }, 1100);
+            return false;
+          }
           if (-parms.currentPosition == maxHeight && direction === 'top') {
             isTouchEnd = true; // 标记当前完整的滑动事件已经结束
             return false;
@@ -607,6 +670,9 @@ $(function () {
           } else {
             if (parms.pageNow == 7 && direction === 'bottom') {
               parms.page7Type = false;
+            }
+            if (parms.pageNow == 8 && direction === 'bottom') {
+              parms.page8Type = false;
             }
             viewport.style.webkitTransition = '0.3s ease -webkit-transform';
             translate = direction === 'top' ? parms.currentPosition - pageHeight : parms.currentPosition + pageHeight;
