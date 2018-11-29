@@ -41,10 +41,10 @@ $bihuaFadeInTime: 1s;
   transition-duration: #{$time};
 }
 
-@mixin animation($name, $time, $num:1, $delay:0) {
+@mixin animation($name, $time, $num:1, $delay:0, $function:linear) {
   @include prefix(animation-name, #{$name});
   @include prefix(animation-duration, #{$time});
-  @include prefix(animation-timing-function, linear);
+  @include prefix(animation-timing-function, #{$function});
   @include prefix(animation-iteration-count, $num);
   @include prefix(animation-delay, $delay);
 }
@@ -104,6 +104,11 @@ $bihuaFadeInTime: 1s;
 .circle3 {
   @extend .animation-public;
   @include animation(circle, 3s, infinite, 1.6s);
+}
+
+.heartbeat {
+  @extend .animation-public;
+  @include animation(heartbeat, 8s, infinite, 0, ease-out);
 }
 
 @include keyframes(slide-in-right) {

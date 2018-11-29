@@ -448,7 +448,7 @@ $(function () {
         case 'bihuaAnimation':
           var pageNow = parms.pageNow;
           if (pageNow == 8) {
-            $('.page_' + pageNow + ' .page-content-bg').css('animation-duration', '0.2s').addClass('fade-in');
+            $('.page_' + pageNow + ' .page-content-bg').css('animation-duration', '1s').addClass('fade-in');
             animationEvent && $('.page_' + pageNow + ' .page-content-bg')[0].addEventListener(animationEvent, function () {
               $('.page_' + pageNow + ' .shuye').css('animation-duration', '0.2s').addClass('fade-in');
             });
