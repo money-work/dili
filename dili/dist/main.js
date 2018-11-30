@@ -62,6 +62,10 @@
 	      loadingType = false;
 	      $('.loading-content').hide();
 	      $(".content").show();
+	      setTimeout(function () {
+	        addTransitionClass(parms.pageNow);
+	        app.bindTouchEvent(); // 绑定触摸事件
+	      }, 200);
 	    }, 300);
 	  }, function (progress) {
 	    $("#num span").text(progress + '%');
@@ -282,15 +286,27 @@
 	    });
 	  }
 	
+	  function resetAnimationCount() {
+	    if (animationCount === count) {
+	      animationCount = 0;
+	      count = 1;
+	      pageAnimationDone = true;
+	    }
+	  }
 	  function watchAnimationEvent(el, obj, type, page) {
 	    var transitionEvent = whichAnimationEvent();
+	    animationCount++;
 	    transitionEvent && $(el)[0].addEventListener(transitionEvent, function () {
 	      if (type == 'bgAnimation') {
 	        setTimeout(function () {
+	          count++;
+	          resetAnimationCount();
 	          var animationName = parms.bgAnimationArr[Math.floor(Math.random() * parms.bgAnimationArr.length)] + ' animated ';
 	          $(el) && $(el).next().length > 0 && $(el).next().css('animation-duration', obj.animationTime).addClass(animationName);
 	        }, 3000);
 	      } else {
+	        count++;
+	        resetAnimationCount();
 	        $(el) && $(el).next().length > 0 && $(el).next().css('animation-duration', obj.animationTime).addClass(obj.animationName);
 	      }
 	      // if (type == 'titleAnimation') {
@@ -299,6 +315,7 @@
 	      //   var bgAnimation = parms['page' + page].bgAnimation;
 	      //   $(bgAnimationEl) && $(bgAnimationEl).next().length > 0 && $(bgAnimationEl).next().css('animation-duration', bgAnimation.animationTime).addClass(bgAnimation.animationName);
 	      // }
+	      // console.log('销毁事件',el, obj, type, page, count++);
 	      $(el)[0].removeEventListener(transitionEvent, arguments.callee, false); //销毁事件
 	    });
 	  }
@@ -339,7 +356,7 @@
 	    });
 	  }
 	
-	  if (!loadingType) {
+	  /*if (!loadingType) {
 	    clearInterval(parms.loadingTimeer);
 	    addTransitionClass(parms.pageNow);
 	    app.bindTouchEvent(); // 绑定触摸事件
@@ -351,7 +368,7 @@
 	        app.bindTouchEvent(); // 绑定触摸事件
 	      }
 	    }, 20);
-	  }
+	  }*/
 	
 	  function addTransitionClass(page) {
 	    var lineTransition = parms['page' + page].lineTransition;
@@ -361,7 +378,18 @@
 	    }
 	  }
 	
+	  //页面整体动画完成状态，整体完成后可以滑动到下一页。开始动画前置为false，全部完成后置为true
+	  var pageAnimationDone = true;
+	  var animationCount = 0;
+	  var count = 0;
 	  function mangerAnimation() {
+	
+	    setTimeout(pageAnimation, 300);
+	  }
+	  function pageAnimation() {
+	    animationCount = 0;
+	    count = 1;
+	    pageAnimationDone = false;
 	    var page = parms['page' + parms.pageNow];
 	    var transitionEvent = whichTransitionEvent();
 	    var animationEvent = whichAnimationEvent();
@@ -491,6 +519,7 @@
 	        //     e.preventDefault();
 	        //   }
 	        // }
+	        e.preventDefault();
 	        // 单手指触摸或者多手指同时触摸，禁止第二个手指延迟操作事件
 	        if (e.touches.length === 1 || isTouchEnd) {
 	          var touch = e.touches[0];
@@ -583,19 +612,20 @@
 	          }
 	
 	          if (parms.pageNow <= 6 && parms.pageNow > 1 && direction === 'top') {
+	            if (!pageAnimationDone) return;
 	            // 树叶飞走
 	            var pageNow = parms.pageNow;
-	            $($('.page_' + pageNow + ' .' + parms.shuyeOut.classStr)[0]).find('.shuye-img').hide();
+	            // $($('.page_' + pageNow + ' .' + parms.shuyeOut.classStr)[0]).find('.shuye-img').hide();
 	            $($('.page_' + pageNow + ' .' + parms.shuyeOut.classStr)[0]).css('opacity', '1');
-	            $($('.page_' + pageNow + ' .' + parms.shuyeOut.classStr)[0]).find('.lvye-img').show().css('animation-duration', parms.shuyeOut.animationTime).addClass(parms.shuyeOut.animationName);
+	            $($('.page_' + pageNow + ' .' + parms.shuyeOut.classStr)[0]).find('.lvye-img').css('animation-duration', parms.shuyeOut.animationTime).addClass(parms.shuyeOut.animationName);
 	            var $this = this;
 	            animationEvent && $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr + ' .lvye-img')[0].addEventListener(animationEvent, function () {
-	              $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr).removeClass('fade-in').addClass('fade-out').css('animation-duration', '1s');
+	              // $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr).removeClass('fade-in').addClass('fade-out').css('animation-duration', '1s');
 	              // $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr)[0] && $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr)[0].removeEventListener(animationEvent, arguments.callee, false);//销毁事件
 	              $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr + ' .lvye-img')[0] && $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr + ' .lvye-img')[0].removeEventListener(animationEvent, arguments.callee, false); //销毁事件
 	              setTimeout(function () {
-	                $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr).removeClass('fade-in').removeClass('fade-out');
-	                $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr + ' .lvye-img').removeClass('scale-enlarge');
+	                // $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr).removeClass('fade-in').removeClass('fade-out');
+	                $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr + ' .lvye-img').removeClass(parms.shuyeOut.animationName);
 	
 	                viewport.style.webkitTransition = '0.3s ease -webkit-transform';
 	                translate = direction === 'top' ? parms.currentPosition - pageHeight : parms.currentPosition + pageHeight;

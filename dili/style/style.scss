@@ -1,7 +1,16 @@
 @import "animate.css";
 @import "animation";
 @import "swiper.css";
-
+html,body{
+	position:absolute;
+	left:0;
+	top:0;
+	bottom:0;
+	right:0;
+}
+.content{
+	position:fixed;
+}
 body, html, .content {
   height: 100%;
   width: 100%;
@@ -411,7 +420,7 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 	  height: 100%;
 	}
 	.lvye-img {
-	  display: none;
+	  opacity:0;
 	}
   }
 
