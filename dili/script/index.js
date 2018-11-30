@@ -465,8 +465,8 @@ $(function () {
     // });
 
     //音乐暂停事件
-    $("body").on("click", '.music-oper', function (e) {
-      e.stopPropagation();
+    $(".music-oper").on("click", function (e) {
+      // e.stopPropagation();
       var audio = document.getElementById('audio-cls');
       if (audio !== null) {
         if (audio.paused) {
@@ -530,15 +530,13 @@ $(function () {
 
   function audioAutoPlay () {
     var audio = document.getElementById("audio-cls");
-    play = function () {
+    var play = function () {
       if (audio.paused) {
         audio.play();
       }
       document.removeEventListener("touchstart", play, false);
     };
-    if (audio.paused) {
-      audio.play();
-    }
+    play();
     document.addEventListener("WeixinJSBridgeReady", function () {
       play();
     }, false);
