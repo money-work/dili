@@ -1,6 +1,6 @@
 // require('./jquery-3.3.1');
 // require('./zoom');
-let baseApp = require('./baseApp').up;
+var baseApp = require('./baseApp').up;
 $(function () {
   // orient();
 //用户变化屏幕方向时调用
@@ -199,7 +199,11 @@ $(function () {
         {
           'classStr': 'title-en',
           'time': '1s'
-        }
+        },
+	      {
+		      'classStr': 'arrow-content',
+		      'time': '1s'
+	      }
       ]
     },
     page2: {
@@ -361,7 +365,7 @@ $(function () {
         'animationTime': '0.5s'
       }
     },
-    bgAnimationArr: ['bounceInDown', 'flash', 'bounceInLeft', 'bounceInRight', 'bounceInUp', 'fadeIn', 'fadeInDown', 'flip', 'lightSpeedIn', 'rotateIn', 'rotateInDownLeft', 'rotateInDownRight', 'zoomIn', 'zoomInLeft', 'zoomInRight', 'rollIn',]
+    bgAnimationArr: ['bounceInDown', 'bounceInLeft', 'bounceInRight', 'bounceInUp', 'fadeIn', 'fadeInDown', 'flip', 'lightSpeedIn', 'rotateIn', 'rotateInDownLeft', 'rotateInDownRight', 'zoomIn', 'zoomInLeft', 'zoomInRight', 'rollIn',]
   };
   parms.page3 = parms.page2;
   parms.page4 = parms.page2;
@@ -403,7 +407,12 @@ $(function () {
 
   function watchTransitionEvent (el, nextel, pageNum) {
     var transitionEvent = whichTransitionEvent();
+    animationCount++;
+    console.log(transitionEvent,(".page_" + pageNum + ' .' + el.classStr), nextel);
     transitionEvent && $(".page_" + pageNum + ' .' + el.classStr)[0].addEventListener(transitionEvent, function () {
+      console.log('animation done',nextel.classStr, this.className);
+      count++;
+	    resetAnimationCount();
       $(".page_" + pageNum + ' .' + nextel.classStr).css('transition-duration', nextel.time).addClass(nextel.classStr + '-transition');
       $(".page_" + pageNum + ' .' + el.classStr)[0].removeEventListener(transitionEvent, arguments.callee, false);//销毁事件
     });
@@ -411,27 +420,98 @@ $(function () {
 
 
   function resetAnimationCount () {
+	  console.log('reset animation count ', animationCount, count);
     if (animationCount === count) {
       animationCount = 0;
       count = 1;
       pageAnimationDone = true;
+      var page = parms.pageNow;
+
+      console.log('reset css page ', page);
+      if(page>1){
+
+        resetAnimationCss(page-1);
+        resetAnimationCss(page+1);
+      }else{
+	      resetAnimationCss(page+1);
+      }
+
     }
   }
 
+  window.resetAnimationCss = resetAnimationCss;
+  function resetAnimationCss(pageNum){
+  	var page = parms['page'+pageNum];
+  	if(pageNum == 8){
+  		console.log('aaaaa ppp888')
+	  }
+  	for(var key in page ){
+  		if(key == 'lineTransition'){
+  			var lineTransition = page[key];
+  			for(var i = 0;i<=lineTransition.length-1;i++){
+				  // console.log($('.page_' + pageNum + ' .' +lineTransition[i].classStr)[0], lineTransition[i].classStr);
+				  var obj = lineTransition[i]
+				  $('.page_' + pageNum + ' .' +obj.classStr).removeClass(obj.classStr+'-transition').css({'animation-duration':'inherit','transition-duration':'inherit'});
+
+			  }
+		  }else{
+  			var obj = page[key];
+			  $('.page_' + pageNum + ' .' +obj.classStr).removeClass(obj.animationName).removeClass(obj.animationName+'-transition').css({'animation-duration':'inherit','transition-duration':'inherit'});
+			  if(key  == 'bgAnimation'){
+				  var _el = $('.page_' + pageNum + ' .' +obj.classStr);
+				  _el.removeClass('animated');
+				  for(var j = 0;j<parms.bgAnimationArr.length;j++){
+				  	_el.removeClass(parms.bgAnimationArr[j]);
+				  }
+			  }
+			  if(key == 'sanluoTransition'){
+				  $('.page_' + pageNum + ' .lvye').removeAttr('style').removeClass('lvye-transition');
+				  $(".new-page .sanluo").removeClass("fade-out Zindex").removeAttr('style');
+				  $(".new-page .logo").removeClass("fade-in").removeAttr('style');
+				  $(".new-page .title1").removeClass("fade-in").removeAttr('style');
+				  $(".new-page .title1").show();
+				  $(".new-page .title2").removeClass("fade-in").removeAttr('style');
+				  $(".new-page .new-page-bg").removeClass("fade-in").removeAttr('style');
+				  $(".new-page .btn-content").removeClass("Zindex");
+
+				  $(".new-page .btn1").removeClass("fade-in").removeAttr('style');
+			  }
+			  // console.log($('.page_' + pageNum + ' .' +page[key].classStr)[0], page[key].classStr);
+			  $('.page_' + pageNum + ' .shuye').removeClass('fade-in').removeClass(obj.classStr+'-transition').css({'animation-duration':'inherit', 'opacity':'0'});
+		  }
+
+	  }
+	  $('.page_' + pageNum + ' .shuye .lvye-img').removeClass('scale-enlarge').css({'animation-duration':'inherit'});
+  	if(pageNum == 7){
+		  $('.page_7 .guding-img').removeAttr('style');
+	  }
+  	if(pageNum == 8){
+  		$(".page_8 .page-content-bg").removeClass('fade-in');
+  		$(".page_8 .bg2").removeClass('fade-in');
+  		$(".page_8 .logo").removeClass('fade-out');
+  		$(".page_8 .lv-logo-img").removeClass('fade-in lv-logo-img-transition');
+		  // $('.page_8 .logo-img').addClass('fade-in').removeClass('fade-out').removeAttr('style');
+			 //  $('.page_8 .lv-logo-img').removeClass('fade-in').removeClass('lv-logo-img-transition').removeAttr('style');
+			 //  $('.page_8 .bg2').addClass('fade-in').removeAttr('style');
+	  }
+  }
   function watchAnimationEvent (el, obj, type, page) {
     var transitionEvent = whichAnimationEvent();
     animationCount++;
+    console.log('animationcount =++', animationCount, type, page);
     transitionEvent && $(el)[0].addEventListener(transitionEvent, function () {
       if (type == 'bgAnimation') {
         setTimeout(function () {
           count++;
           resetAnimationCount();
           var animationName = parms.bgAnimationArr[Math.floor(Math.random() * parms.bgAnimationArr.length)] + ' animated ';
+          console.log('bg', el, animationName)
           $(el) && $(el).next().length > 0 && $(el).next().css('animation-duration', obj.animationTime).addClass(animationName);
         }, 3000)
       } else {
         count++;
         resetAnimationCount();
+	      console.log('bg2', el, obj.animationName)
         $(el) && $(el).next().length > 0 && $(el).next().css('animation-duration', obj.animationTime).addClass(obj.animationName);
       }
       // if (type == 'titleAnimation') {
@@ -571,16 +651,18 @@ $(function () {
   function addTransitionClass (page) {
     var lineTransition = parms['page' + page].lineTransition;
     $(".page_" + page + ' .' + lineTransition[0].classStr).css('transition-duration', lineTransition[0].time).addClass(lineTransition[0].classStr + '-transition');
+
     for (var i = 0; i < lineTransition.length - 1; i++) {
+	    // console.log(lineTransition[i], lineTransition[i + 1]);
       watchTransitionEvent(lineTransition[i], lineTransition[i + 1], page);
     }
   }
 
   //页面整体动画完成状态，整体完成后可以滑动到下一页。开始动画前置为false，全部完成后置为true
-  var pageAnimationDone = true;
+  var pageAnimationDone = false;
   var animationCount = 0;
   var count = 0;
-
+	window.parms = parms;
   function mangerAnimation () {
 
     // setTimeout(pageAnimation, 300);
@@ -594,7 +676,7 @@ $(function () {
     var page = parms['page' + parms.pageNow];
     var transitionEvent = whichTransitionEvent();
     var animationEvent = whichAnimationEvent();
-
+	  console.log('animationcount =++ ############## start', page)
     for (var key in page) {
       switch (key) {
         case 'logoAnimation':
@@ -603,6 +685,7 @@ $(function () {
           var pageNow = parms.pageNow;
           transitionEvent && $(lineEl[lineEl.length - 1])[0].addEventListener(transitionEvent, function () {
             $('.page_' + pageNow + ' .logo').css('animation-duration', obj.animationTime).addClass(obj.animationName);
+	          this.removeEventListener(transitionEvent, arguments.callee, false)
           });
 
           break;
@@ -612,11 +695,13 @@ $(function () {
             $('.page_' + pageNow + ' .page-content-bg').css('animation-duration', '1s').addClass('fade-in');
             animationEvent && $('.page_' + pageNow + ' .page-content-bg')[0].addEventListener(animationEvent, function () {
               $('.page_' + pageNow + ' .shuye').css('animation-duration', '0.2s').addClass('fade-in');
+              this.removeEventListener(animationEvent, arguments.callee, false)
             });
             animationEvent && $('.page_' + pageNow + ' .shuye')[0].addEventListener(animationEvent, function () {
               $($('.page_' + parms.pageNow + ' .' + page['bihuaAnimation'].classStr)[0]).css('animation-duration', page['bihuaAnimation'].animationTime).addClass(page['bihuaAnimation'].animationName);
               $('.page_' + parms.pageNow + ' .' + page['bihuaAnimation'].classStr).each(function () {
                 watchAnimationEvent(this, page['bihuaAnimation']);
+	              this.removeEventListener(animationEvent, arguments.callee, false)
               });
             });
           } else {
@@ -634,8 +719,10 @@ $(function () {
             animationEvent && $(bihuaEl[bihuaEl.length - 1])[0].addEventListener(animationEvent, function () {
               $($('.page_' + pageNow + ' .' + page['titleAnimation'].classStr)[0]).css('animation-duration', page['titleAnimation'].animationTime).addClass(page['titleAnimation'].animationName);
               $('.page_' + pageNow + ' .' + page['titleAnimation'].classStr).each(function () {
+              	console.log('animationcount =++ ******', page['titleAnimation'])
                 watchAnimationEvent(this, page['titleAnimation'], 'titleAnimation', pageNow);
               });
+	            this.removeEventListener(animationEvent, arguments.callee, false);
             });
           }
           if (pageNow == 7) {
@@ -659,6 +746,8 @@ $(function () {
           break;
         case 'lineTransition':
           if (!page['bgAnimation']) {
+	          var pageNow = parms.pageNow;
+	          addTransitionClass(pageNow);
             break;
           }
           var bgEl = $('.page_' + parms.pageNow + ' .' + page['titleAnimation'].classStr);
@@ -668,6 +757,7 @@ $(function () {
           var pageNow = parms.pageNow;
           animationEvent && $(bgEl[bgEl.length - 1])[0].addEventListener(animationEvent, function () {
             addTransitionClass(pageNow);
+            this.removeEventListener(animationEvent, arguments.callee, false)
           });
 
           break;
@@ -773,6 +863,7 @@ $(function () {
             isTouchEnd = true; // 标记当前完整的滑动事件已经结束
             return false;
           }
+          if (!pageAnimationDone) return false;
           if (parms.pageNow == 7 && direction === 'top' && !parms.page7Type) {
             $('.page_7 .guding-img').show();
             $('.page_7').find('.' + parms.page7.titleOutAnimation.classStr)
@@ -781,6 +872,7 @@ $(function () {
             animationEvent && $('.page_' + parms.pageNow + ' .' + parms.page7.titleOutAnimation.classStr)[0].addEventListener(animationEvent, function () {
               $(".new-page .sanluo").addClass("Zindex");
               $(".new-page .sanluo .lvye").addClass("lvye-transition");
+	            this.removeEventListener(animationEvent, arguments.callee, false);
             });
             transitionEvent && $('.page_7 .lvye5')[0].addEventListener(transitionEvent, function () {
               $(".new-page .sanluo").addClass("fade-out").css('animation-duration', '1s');
@@ -797,6 +889,7 @@ $(function () {
                   watchAnimationEvent(this, parms.page7['btnAnimation'], 'btnAnimation', parms.pageNow);
                 });
               }, 2000)
+	            this.removeEventListener(transitionEvent, arguments.callee, false);
             });
             return false;
           }
@@ -815,8 +908,10 @@ $(function () {
             return false;
           }
 
+          console.log('direction',direction)
           if (parms.pageNow <= 6 && parms.pageNow > 1 && direction === 'top') {
-            if (!pageAnimationDone) return;
+          	console.log('page animation count', animationCount, count,pageAnimationDone);
+
             // 树叶飞走
             var pageNow = parms.pageNow;
             // $($('.page_' + pageNow + ' .' + parms.shuyeOut.classStr)[0]).find('.shuye-img').hide();
@@ -829,7 +924,7 @@ $(function () {
               $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr + ' .lvye-img')[0] && $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr + ' .lvye-img')[0].removeEventListener(animationEvent, arguments.callee, false);//销毁事件
               setTimeout(function () {
                 // $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr).removeClass('fade-in').removeClass('fade-out');
-                $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr + ' .lvye-img').removeClass(parms.shuyeOut.animationName);
+                // $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr + ' .lvye-img').removeClass(parms.shuyeOut.animationName);
 
                 viewport.style.webkitTransition = '0.3s ease -webkit-transform';
                 translate = direction === 'top' ? parms.currentPosition - pageHeight : parms.currentPosition + pageHeight;
@@ -837,13 +932,16 @@ $(function () {
                 $this.transform.call(viewport, translate);
                 mangerAnimation();
               }, 1100);
+
             });
 
           } else {
+          	console.log('page animation count 2',animationCount, count,pageAnimationDone);
             if (parms.pageNow == 7 && direction === 'bottom') {
               parms.page7Type = false;
             }
             if (parms.pageNow == 8 && direction === 'bottom') {
+	            parms.page7Type = false;
               parms.page8Type = false;
             }
             viewport.style.webkitTransition = '0.3s ease -webkit-transform';

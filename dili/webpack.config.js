@@ -3,7 +3,12 @@ module.exports = {
   //插件项
   plugins: [
     //new webpack.optimize.CommonsChunkPlugin('common.js', ["p1", "p2"]),
-    //new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+	    compress: {
+		    warnings: false,
+		    drop_console: true
+	    }
+    }),
     new webpack.dependencies.LabeledModulesPlugin()
   ],
   //页面入口文件配置
