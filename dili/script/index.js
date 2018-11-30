@@ -486,12 +486,20 @@ $(function () {
     });
 
     //关闭视频弹层
-    $("body").on("click", '.close-btn', function (e) {
+    $(".close-btn").on("click", function (e) {
       e.stopPropagation();
       $('.music-oper').show();
       $(".video-content").hide();
+	    var video = document.getElementById('video');
+	    video.pause();
     });
 
+	  var IH = window.innerHeight;
+	  var IW = window.innerWidth;
+	  var RW = IW<IH ?IW :IH;
+	  var RH = IW<IH ?IH :IW;
+	  var h = RW*720/1280;
+	  $(".video-content").css({'height': h, 'top':RH/2-h/2});
     //播放视频
     $("body .new-page").on("click", '.play-video', function (e) {
       var video = document.getElementById('video');
@@ -502,6 +510,18 @@ $(function () {
       }
       $(".video-content").show();
       video.play();
+	    // Webkit
+	    video.webkitRequestFullScreen && video.webkitRequestFullScreen();//进入全屏
+	    // document.webkitCancelFullScreen();//退出全屏
+
+// Firefox
+	    video.mozRequestFullScreen && video.mozRequestFullScreen();
+	    // document.mozCancelFullScreen();
+
+// W3C
+	    video.requestFullscreen && video.requestFullscreen();
+	    // document.exitFullscreen();
+
     });
 
     // 打开 轮播弹层
@@ -546,19 +566,6 @@ $(function () {
     document.addEventListener("touchstart", play, false);
   }
 
-  /*if (!loadingType) {
-    clearInterval(parms.loadingTimeer);
-    addTransitionClass(parms.pageNow);
-    app.bindTouchEvent(); // 绑定触摸事件
-  } else {
-    parms.loadingTimeer = setInterval(function () {
-      if (!loadingType) {
-        clearInterval(parms.loadingTimeer);
-        addTransitionClass(parms.pageNow);
-        app.bindTouchEvent(); // 绑定触摸事件
-      }
-    }, 20);
-  }*/
 
 
   function addTransitionClass (page) {
@@ -576,7 +583,8 @@ $(function () {
 
   function mangerAnimation () {
 
-    setTimeout(pageAnimation, 300);
+    // setTimeout(pageAnimation, 300);
+	  pageAnimation();
   }
 
   function pageAnimation () {
@@ -713,7 +721,7 @@ $(function () {
         //     e.preventDefault();
         //   }
         // }
-        e.preventDefault();
+        // e.preventDefault();
         // 单手指触摸或者多手指同时触摸，禁止第二个手指延迟操作事件
         if (e.touches.length === 1 || isTouchEnd) {
           var touch = e.touches[0];
@@ -731,6 +739,7 @@ $(function () {
         //     e.preventDefault();
         //   }
         // }
+        e.preventDefault();
         // 如果当前滑动已结束，不管其他手指是否在屏幕上都禁止该事件
         if (isTouchEnd) return;
 
