@@ -48,11 +48,11 @@ a {
   width: 30px;
   height: 30px;
   img {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    left: 0;
-    top: 0;
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	left: 0;
+	top: 0;
   }
 }
 
@@ -83,25 +83,25 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 
 @media all and (orientation: landscape) {
   .landscape .landscapeLayer {
-    background-color: #21313e;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 99999;
-    display: block;
+	background-color: #21313e;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 99999;
+	display: block;
   }
   .landscapeLayer-inner {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    text-align: center;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	text-align: center;
   }
   .size14 {
-    color: #fff;
-    font-size: 14px;
-    margin-top: 20px;
+	color: #fff;
+	font-size: 14px;
+	margin-top: 20px;
   }
 }
 
@@ -113,35 +113,35 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
   background-image: url("../images/page1/bg.jpg");
   @extend .background-public;
   .logo-img {
-    position: relative;
-    @include px2rem(margin-top, 172);
-    @include px2rem(width, 268);
-    @include px2rem(height, 314);
-    margin-left: auto;
-    margin-right: auto;
+	position: relative;
+	@include px2rem(margin-top, 172);
+	@include px2rem(width, 268);
+	@include px2rem(height, 314);
+	margin-left: auto;
+	margin-right: auto;
   }
   .bottom-content {
-    position: relative;
-    @include px2rem(width, 560);
-    @include px2rem(height, 226);
-    @include px2rem(margin-top, 186);
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    .line {
-      width: 1%;
-      background-color: rgba(255, 255, 255, 0.8);
-      @include px2rem(height, 10);
+	position: relative;
+	@include px2rem(width, 560);
+	@include px2rem(height, 226);
+	@include px2rem(margin-top, 186);
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	.line {
+	  width: 1%;
+	  background-color: rgba(255, 255, 255, 0.8);
+	  @include px2rem(height, 10);
 
-    }
-    .num {
-      @include px2rem(font-size, 30);
-      width: 100%;
-      text-align: center;
-      @include px2rem(height, 50);
-      @include px2rem(line-height, 50);
-      color: #ffffff;
-    }
+	}
+	.num {
+	  @include px2rem(font-size, 30);
+	  width: 100%;
+	  text-align: center;
+	  @include px2rem(height, 50);
+	  @include px2rem(line-height, 50);
+	  color: #ffffff;
+	}
 
   }
 }
@@ -177,27 +177,27 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
   @include px2rem(top, 36);
   z-index: 100;
   .music-img {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    right: 0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	right: 0;
   }
   .play-cls {
-    display: block;
+	display: block;
   }
   .suspend-cls {
-    display: none;
+	display: none;
   }
 
   &.suspend {
-    animation-play-state: paused;
-    .suspend-cls {
-      display: block;
-    }
-    .play-cls {
-      display: none;
-    }
+	animation-play-state: paused;
+	.suspend-cls {
+	  display: block;
+	}
+	.play-cls {
+	  display: none;
+	}
   }
 }
 
@@ -210,31 +210,56 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
   z-index: 9999;
   display: none;
   .video-cls {
-    height: 100%;
-    width: 100%;
+	height: 100%;
+	width: 100%;
   }
   .close-btn {
-    position: absolute;
-    right: 0;
-    //top: 0;
-    @include px2rem(width, 42);
-    @include px2rem(height, 42);
-    //@include px2rem(right, 54);
-    //@include px2rem(top, 36);
-    bottom:0;
-    //margin-bottom: .5rem;
-    left:50%;
-    @include px2rem(margin-left,-42/2);
-    @include px2rem(margin-bottom,-52);
-    background-image: url("../images/close.png");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    z-index: 99;
+	position: absolute;
+	right: 0;
+	//top: 0;
+	@include px2rem(width, 42);
+	@include px2rem(height, 42);
+	//@include px2rem(right, 54);
+	//@include px2rem(top, 36);
+	bottom: 0;
+	//margin-bottom: .5rem;
+	left: 50%;
+	@include px2rem(margin-left, -42/2);
+	@include px2rem(margin-bottom, -52);
+	background-image: url("../images/close.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	z-index: 99;
   }
 }
 
 .audio-cls {
   display: none;
+}
+
+.arrow-content {
+  position: absolute;
+  @include px2rem(width, 103);
+  @include px2rem(height, 51);
+  @include px2rem(bottom, 38);
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  z-index: 999;
+  &.arrow-content-transition {
+	opacity: 1;
+  }
+  .arrow-img {
+	width: 100%;
+	height: 100%;
+
+	-webkit-animation: heartbeat 8s;
+	animation: heartbeat 8s;
+	-webkit-animation-timing-function: ease-out;
+	animation-timing-function: ease-out;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+  }
 }
 
 .page_1 {
@@ -246,175 +271,151 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
   @extend .background-public;
 
   .logo-img {
-    position: relative;
-    @include px2rem(margin-top, 172);
-    @include px2rem(width, 268);
-    @include px2rem(height, 314);
-    margin-left: auto;
-    margin-right: auto;
+	position: relative;
+	@include px2rem(margin-top, 172);
+	@include px2rem(width, 268);
+	@include px2rem(height, 314);
+	margin-left: auto;
+	margin-right: auto;
   }
   .bottom-content {
-    position: relative;
-    @include px2rem(width, 560);
-    @include px2rem(height, 226);
-    @include px2rem(margin-top, 186);
-    margin-left: auto;
-    margin-right: auto;
+	position: relative;
+	@include px2rem(width, 560);
+	@include px2rem(height, 226);
+	@include px2rem(margin-top, 186);
+	margin-left: auto;
+	margin-right: auto;
 
-    .title1 {
-      position: absolute;
-      @include px2rem(left, 48);
-      @include px2rem(top, -46);
-      @include px2rem(height, 140);
-      width: 0;
-      background-image: url("../images/page1/title1.png");
-      background-size: cover;
-      @extend .background-public;
-      @include transition1(width, 2s);
-      &.title1-transition {
-        @include px2rem(width, 427);
-      }
+	.title1 {
+	  position: absolute;
+	  @include px2rem(left, 48);
+	  @include px2rem(top, -46);
+	  @include px2rem(height, 140);
+	  width: 0;
+	  background-image: url("../images/page1/title1.png");
+	  background-size: cover;
+	  @extend .background-public;
+	  @include transition1(width, 2s);
+	  &.title1-transition {
+		@include px2rem(width, 427);
+	  }
 
-    }
-    .title2 {
-      position: absolute;
-      @include px2rem(left, 104);
-      @include px2rem(top, 78);
-      @include px2rem(height, 130);
-      width: 0;
-      background-image: url("../images/page1/title2.png");
-      @extend .background-public;
-      background-size: cover;
-      @include transition1(width, 2s);
-      &.title2-transition {
-        @include px2rem(width, 422);
-      }
-    }
-    .title-en {
-      position: absolute;
-      @include px2rem(left, 104);
-      @include px2rem(bottom, -40);
-      @include px2rem(height, 80);
-      @include px2rem(width, 314);
-      //width: 0;
-      opacity:0;
-      background-image: url("../images/page1/title-en.png");
-      @extend .background-public;
-      &.title-en-transition {
-        opacity:1;
-        //@include px2rem(width, 314);
-      }
-    }
-    .line {
-      background-color: #ffffff;
-    }
-    .top-left-line {
-      position: absolute;
-      @include px2rem(right, 521);
-      @include px2rem(top, 0);
-      //@include px2rem(width, 39);
-      @include px2rem(height, 5);
-      width: 0;
-      transform-origin: right top;
-      @include transition1(width, 2s);
+	}
+	.title2 {
+	  position: absolute;
+	  @include px2rem(left, 104);
+	  @include px2rem(top, 78);
+	  @include px2rem(height, 130);
+	  width: 0;
+	  background-image: url("../images/page1/title2.png");
+	  @extend .background-public;
+	  background-size: cover;
+	  @include transition1(width, 2s);
+	  &.title2-transition {
+		@include px2rem(width, 422);
+	  }
+	}
+	.title-en {
+	  position: absolute;
+	  @include px2rem(left, 104);
+	  @include px2rem(bottom, -40);
+	  @include px2rem(height, 80);
+	  @include px2rem(width, 314);
+	  //width: 0;
+	  opacity: 0;
+	  background-image: url("../images/page1/title-en.png");
+	  @extend .background-public;
+	  &.title-en-transition {
+		opacity: 1;
+		//@include px2rem(width, 314);
+	  }
+	}
+	.line {
+	  background-color: #ffffff;
+	}
+	.top-left-line {
+	  position: absolute;
+	  @include px2rem(right, 521);
+	  @include px2rem(top, 0);
+	  //@include px2rem(width, 39);
+	  @include px2rem(height, 5);
+	  width: 0;
+	  transform-origin: right top;
+	  @include transition1(width, 2s);
 
-      &.top-left-line-transition {
-        @include px2rem(width, 39);
-      }
-    }
+	  &.top-left-line-transition {
+		@include px2rem(width, 39);
+	  }
+	}
 
-    .left-line {
-      position: absolute;
-      @include px2rem(left, 0);
-      @include px2rem(top, 5);
-      @include px2rem(width, 5);
-      height: 0;
-      transform-origin: right;
-      @include transition1(height, 2s);
+	.left-line {
+	  position: absolute;
+	  @include px2rem(left, 0);
+	  @include px2rem(top, 5);
+	  @include px2rem(width, 5);
+	  height: 0;
+	  transform-origin: right;
+	  @include transition1(height, 2s);
 
-      &.left-line-transition {
-        @include px2rem(height, 221);
-      }
-    }
+	  &.left-line-transition {
+		@include px2rem(height, 221);
+	  }
+	}
 
-    .bottom-left-line {
-      position: absolute;
-      @include px2rem(left, 0);
-      @include px2rem(bottom, 0);
-      //@include px2rem(width, 96);
-      @include px2rem(height, 5);
-      width: 0;
-      @include transition1(width, 2s);
-      &.bottom-left-line-transition {
-        @include px2rem(width, 96);
-      }
-    }
+	.bottom-left-line {
+	  position: absolute;
+	  @include px2rem(left, 0);
+	  @include px2rem(bottom, 0);
+	  //@include px2rem(width, 96);
+	  @include px2rem(height, 5);
+	  width: 0;
+	  @include transition1(width, 2s);
+	  &.bottom-left-line-transition {
+		@include px2rem(width, 96);
+	  }
+	}
 
-    .bottom--right-line {
-      position: absolute;
-      @include px2rem(left, 438);
-      @include px2rem(bottom, 0);
-      width: 0;
-      //@include px2rem(width, 122);
-      @include px2rem(height, 5);
-      @include transition1(width, 2s);
+	.bottom--right-line {
+	  position: absolute;
+	  @include px2rem(left, 438);
+	  @include px2rem(bottom, 0);
+	  width: 0;
+	  //@include px2rem(width, 122);
+	  @include px2rem(height, 5);
+	  @include transition1(width, 2s);
 
-      &.bottom--right-line-transition {
-        @include px2rem(width, 122);
-      }
-    }
+	  &.bottom--right-line-transition {
+		@include px2rem(width, 122);
+	  }
+	}
 
-    .right-line {
-      position: absolute;
-      @include px2rem(right, 0);
-      @include px2rem(bottom, 5);
-      @include px2rem(width, 5);
-      //@include px2rem(height, 221);
-      height: 0;
-      @include transition1(height, 2s);
+	.right-line {
+	  position: absolute;
+	  @include px2rem(right, 0);
+	  @include px2rem(bottom, 5);
+	  @include px2rem(width, 5);
+	  //@include px2rem(height, 221);
+	  height: 0;
+	  @include transition1(height, 2s);
 
-      &.right-line-transition {
-        @include px2rem(height, 221);
-      }
-    }
+	  &.right-line-transition {
+		@include px2rem(height, 221);
+	  }
+	}
 
-    .top-right-line {
-      position: absolute;
-      @include px2rem(right, 5);
-      @include px2rem(top, 0);
-      //@include px2rem(width, 74);
-      @include px2rem(height, 5);
-      width: 0;
-      @include transition1(width, 2s);
+	.top-right-line {
+	  position: absolute;
+	  @include px2rem(right, 5);
+	  @include px2rem(top, 0);
+	  //@include px2rem(width, 74);
+	  @include px2rem(height, 5);
+	  width: 0;
+	  @include transition1(width, 2s);
 
-      &.top-right-line-transition {
-        @include px2rem(width, 74);
-      }
-    }
-  }
-  .arrow-content {
-    position: absolute;
-    @include px2rem(width, 103);
-    @include px2rem(height, 51);
-    @include px2rem(bottom, 38);
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    &.arrow-content-transition{
-      opacity:1;
-    }
-  }
-
-  .arrow-img {
-    width: 100%;
-    height: 100%;
-
-    -webkit-animation: heartbeat 8s;
-    animation: heartbeat 8s;
-    -webkit-animation-timing-function: ease-out;
-    animation-timing-function: ease-out;
-    -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
+	  &.top-right-line-transition {
+		@include px2rem(width, 74);
+	  }
+	}
   }
 }
 
@@ -422,750 +423,751 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
   //height: 100%;
   width: 100%;
   .bg {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    visibility: hidden;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	visibility: hidden;
   }
   .bg1 {
-    z-index: 1;
-    visibility: visible;
+	z-index: 1;
+	visibility: visible;
   }
 
   .bg2 {
-    z-index: 2;
+	z-index: 2;
   }
   .bg3 {
-    z-index: 3;
+	z-index: 3;
   }
   .bg4 {
-    z-index: 4;
+	z-index: 4;
   }
 
   .page-content {
-    position: absolute;
-    @include px2rem(left, 94);
-    @include px2rem(top, 80);
+	position: absolute;
+	@include px2rem(left, 94);
+	@include px2rem(top, 80);
   }
   .shuye {
-    position: absolute;
-    @include px2rem(width, 56);
-    @include px2rem(height, 139);
-    @include px2rem(left, 0);
-    @include px2rem(top, 0);
-    z-index: 100;
-    opacity: 0;
-    img {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-    }
-    .lvye-img {
-      opacity: 0;
-    }
+	position: absolute;
+	@include px2rem(width, 56);
+	@include px2rem(height, 139);
+	@include px2rem(left, 0);
+	@include px2rem(top, 0);
+	z-index: 100;
+	opacity: 0;
+	img {
+	  position: absolute;
+	  left: 0;
+	  top: 0;
+	  width: 100%;
+	  height: 100%;
+	}
+	.lvye-img {
+	  opacity: 0;
+	}
   }
 
   .text-content {
-    position: absolute;
-    @include px2rem(width, 521);
-    @include px2rem(height, 223);
-    @include px2rem(left, 136);
-    @include px2rem(top, 80);
-    z-index: 100;
+	position: absolute;
+	@include px2rem(width, 521);
+	@include px2rem(height, 223);
+	@include px2rem(left, 136);
+	@include px2rem(top, 80);
+	z-index: 100;
 
-    .every-day-content {
-      position: absolute;
-      @include px2rem(width, 237);
-      @include px2rem(height, 91);
-      @include px2rem(left, -70);
-      @include px2rem(top, -60);
-      .bihua {
-        position: absolute;
-        opacity: 0;
-      }
-      .bihua1 {
-        @include px2rem(width, 20);
-        @include px2rem(height, 37);
-        @include px2rem(left, 24);
-        @include px2rem(top, 0);
-      }
-      .bihua2 {
-        @include px2rem(width, 56);
-        @include px2rem(height, 79);
-        @include px2rem(left, 20);
-        @include px2rem(top, 0);
-      }
-      .bihua3 {
-        @include px2rem(width, 33);
-        @include px2rem(height, 57);
-        @include px2rem(left, 62);
-        @include px2rem(top, 26);
-      }
-      .bihua4 {
-        @include px2rem(width, 98);
-        @include px2rem(height, 23);
-        @include px2rem(left, 0);
-        @include px2rem(top, 44);
-      }
-      .bihua5 {
-        @include px2rem(width, 27);
-        @include px2rem(height, 47);
-        @include px2rem(left, 52);
-        @include px2rem(top, 26);
-      }
-      .bihua6 {
-        @include px2rem(width, 55);
-        @include px2rem(height, 13);
-        @include px2rem(left, 16);
-        @include px2rem(top, 70);
-      }
-      .bihua7 {
-        @include px2rem(width, 51);
-        @include px2rem(height, 17);
-        @include px2rem(left, 108);
-        @include px2rem(top, 34);
-      }
-      .bihua8 {
-        @include px2rem(width, 62);
-        @include px2rem(height, 26);
-        @include px2rem(left, 170);
-        @include px2rem(top, 0);
-      }
-      .bihua9 {
-        @include px2rem(width, 50);
-        @include px2rem(height, 30);
-        @include px2rem(left, 176);
-        @include px2rem(top, 22);
-      }
-      .bihua10 {
-        @include px2rem(width, 48);
-        @include px2rem(height, 66);
-        @include px2rem(left, 172);
-        @include px2rem(top, 14);
-      }
-      .bihua11 {
-        @include px2rem(width, 32);
-        @include px2rem(height, 24);
-        @include px2rem(left, 210);
-        @include px2rem(top, 42);
-      }
-    }
-    .en-img {
-      position: absolute;
-      @include px2rem(width, 122);
-      @include px2rem(height, 36);
-      @include px2rem(left, 178);
-      @include px2rem(top, -36);
-      opacity: 0;
-    }
-    .line {
-      background-color: #ffffff;
-    }
-    .left-line {
-      position: absolute;
-      @include px2rem(width, 4);
-      @include px2rem(height, 0);
-      @include px2rem(left, 0);
-      @include px2rem(top, 53);
-      &.left-line-transition {
-        //@include px2rem(height, 170);
-        @include calcPx2rem(height, 53);
-      }
-    }
-    .bottom-line {
-      position: absolute;
-      @include px2rem(width, 0);
-      @include px2rem(height, 4);
-      @include px2rem(left, 4);
-      @include px2rem(bottom, 0);
-      &.bottom-line-transition {
-        //@include px2rem(width, 517);
-        @include calcPx2rem(width, 4);
-      }
-    }
-    .right-line {
-      position: absolute;
-      @include px2rem(width, 4);
-      @include px2rem(height, 0);
-      @include px2rem(right, 0);
-      @include px2rem(bottom, 4);
-      &.right-line-transition {
-        //@include px2rem(height, 219);
-        @include calcPx2rem(height, 4);
-      }
-    }
-    .top-line {
-      position: absolute;
-      @include px2rem(width, 0);
-      @include px2rem(height, 4);
-      @include px2rem(right, 4);
-      @include px2rem(top, 0);
-      &.top-line-transition {
-        //@include px2rem(width, 338);
-        @include calcPx2rem(width, 186);
-      }
-    }
-    .title {
-      box-sizing: border-box;
-      width: 100%;
-      height: 100%;
-      @include px2rem(font-size, 24);
-      color: #ffffff;
-      @include maginPadding(padding, 30, 20, 30, 20);
-      font-size: 0;
-      text-align: left;
-      .label {
-        opacity: 0;
-        @include px2rem(margin-top, 10);
-      }
-      .img-title {
-        @include px2rem(width, 122);
-      }
-      .img-title2-1 {
-        @include px2rem(width, 128);
-      }
-      .img-title2-2 {
-        @include px2rem(width, 122);
-      }
-      .img-title2-3 {
-        @include px2rem(width, 98);
-      }
-      .img-title3-1 {
-        @include px2rem(width, 98);
-      }
-      .img-title3-2 {
-        @include px2rem(width, 109);
-      }
-      .img-title3-3 {
-        @include px2rem(width, 74);
-      }
-      .img-title3-4 {
-        @include px2rem(width, 100);
-      }
-      .img-title3-5 {
-        @include px2rem(width, 73);
-      }
-      .num {
-        //@include px2rem(margin-left, 5);
-        //@include px2rem(margin-right, 5);
-        @extend .heartbeat;
-      }
-    }
+	.every-day-content {
+	  position: absolute;
+	  @include px2rem(width, 237);
+	  @include px2rem(height, 91);
+	  @include px2rem(left, -70);
+	  @include px2rem(top, -60);
+	  .bihua {
+		position: absolute;
+		opacity: 0;
+	  }
+	  .bihua1 {
+		@include px2rem(width, 20);
+		@include px2rem(height, 37);
+		@include px2rem(left, 34.4);
+		@include px2rem(top, 0);
+	  }
+	  .bihua2 {
+		@include px2rem(width, 56);
+		@include px2rem(height, 79);
+		@include px2rem(left, 20);
+		@include px2rem(top, 0);
+	  }
+	  .bihua3 {
+		@include px2rem(width, 33);
+		@include px2rem(height, 57);
+		@include px2rem(left, 62);
+		@include px2rem(top, 26);
+	  }
+	  .bihua4 {
+		@include px2rem(width, 98);
+		@include px2rem(height, 23);
+		@include px2rem(left, 0);
+		@include px2rem(top, 44);
+	  }
+	  .bihua5 {
+		@include px2rem(width, 27);
+		@include px2rem(height, 47);
+		@include px2rem(left, 52);
+		@include px2rem(top, 26);
+	  }
+	  .bihua6 {
+		@include px2rem(width, 55);
+		@include px2rem(height, 13);
+		@include px2rem(left, 16);
+		@include px2rem(top, 70);
+	  }
+	  .bihua7 {
+		@include px2rem(width, 51);
+		@include px2rem(height, 17);
+		@include px2rem(left, 108);
+		@include px2rem(top, 34);
+	  }
+	  .bihua8 {
+		@include px2rem(width, 62);
+		@include px2rem(height, 26);
+		@include px2rem(left, 170);
+		@include px2rem(top, 0);
+	  }
+	  .bihua9 {
+		@include px2rem(width, 50);
+		@include px2rem(height, 30);
+		@include px2rem(left, 176);
+		@include px2rem(top, 22);
+	  }
+	  .bihua10 {
+		@include px2rem(width, 48);
+		@include px2rem(height, 66);
+		@include px2rem(left, 172);
+		@include px2rem(top, 14);
+	  }
+	  .bihua11 {
+		@include px2rem(width, 32);
+		@include px2rem(height, 24);
+		@include px2rem(left, 210);
+		@include px2rem(top, 42);
+	  }
+	}
+	.en-img {
+	  position: absolute;
+	  @include px2rem(width, 122);
+	  @include px2rem(height, 36);
+	  @include px2rem(left, 178);
+	  @include px2rem(top, -36);
+	  opacity: 0;
+	}
+	.line {
+	  background-color: #ffffff;
+	}
+	.left-line {
+	  position: absolute;
+	  @include px2rem(width, 4);
+	  @include px2rem(height, 0);
+	  @include px2rem(left, 0);
+	  @include px2rem(top, 53);
+	  &.left-line-transition {
+		//@include px2rem(height, 170);
+		@include calcPx2rem(height, 53);
+	  }
+	}
+	.bottom-line {
+	  position: absolute;
+	  @include px2rem(width, 0);
+	  @include px2rem(height, 4);
+	  @include px2rem(left, 4);
+	  @include px2rem(bottom, 0);
+	  &.bottom-line-transition {
+		//@include px2rem(width, 517);
+		@include calcPx2rem(width, 4);
+	  }
+	}
+	.right-line {
+	  position: absolute;
+	  @include px2rem(width, 4);
+	  @include px2rem(height, 0);
+	  @include px2rem(right, 0);
+	  @include px2rem(bottom, 4);
+	  &.right-line-transition {
+		//@include px2rem(height, 219);
+		@include calcPx2rem(height, 4);
+	  }
+	}
+	.top-line {
+	  position: absolute;
+	  @include px2rem(width, 0);
+	  @include px2rem(height, 4);
+	  @include px2rem(right, 4);
+	  @include px2rem(top, 0);
+	  &.top-line-transition {
+		//@include px2rem(width, 338);
+		@include calcPx2rem(width, 186);
+	  }
+	}
+	.title {
+	  box-sizing: border-box;
+	  width: 100%;
+	  height: 100%;
+	  @include px2rem(font-size, 24);
+	  color: #ffffff;
+	  @include maginPadding(padding, 30, 20, 30, 20);
+	  font-size: 0;
+	  text-align: left;
+	  .label {
+		opacity: 0;
+		@include px2rem(margin-top, 10);
+	  }
+	  .img-title {
+		@include px2rem(width, 122);
+	  }
+	  .img-title2-1 {
+		@include px2rem(width, 128);
+	  }
+	  .img-title2-2 {
+		@include px2rem(width, 122);
+	  }
+	  .img-title2-3 {
+		@include px2rem(width, 98);
+	  }
+	  .img-title3-1 {
+		@include px2rem(width, 98);
+	  }
+	  .img-title3-2 {
+		@include px2rem(width, 109);
+	  }
+	  .img-title3-3 {
+		@include px2rem(width, 74);
+	  }
+	  .img-title3-4 {
+		@include px2rem(width, 100);
+	  }
+	  .img-title3-5 {
+		@include px2rem(width, 73);
+	  }
+	  .num {
+		//@include px2rem(margin-left, 5);
+		//@include px2rem(margin-right, 5);
+		@extend .heartbeat;
+	  }
+	}
   }
 }
 
 .page_3 {
   .page-content {
-    position: absolute;
-    @include px2rem(left, 146);
-    @include px2rem(top, 80);
+	position: absolute;
+	@include px2rem(left, 146);
+	@include px2rem(top, 80);
 
-    .text-content {
-      @include px2rem(width, 468);
-      .title {
-        @include maginPadding(padding, 30, 20, 30, 20);
-        .img-title1-1 {
-          @include px2rem(width, 74);
-        }
-        .img-title1-2 {
-          @include px2rem(width, 125);
-        }
-        .img-title1-3 {
-          @include px2rem(width, 74);
-        }
-        .img-title2 {
-          @include px2rem(width, 219);
-        }
-        .img-title3-1 {
-          @include px2rem(width, 50);
-        }
-        .img-title3-2 {
-          @include px2rem(width, 128);
-        }
-        .img-title3-3 {
-          @include px2rem(width, 98);
-        }
-        .img-title3-4 {
-          @include px2rem(width, 94);
-        }
-        .img-title3-5 {
-          @include px2rem(width, 50);
-        }
-      }
-    }
+	.text-content {
+	  @include px2rem(width, 468);
+	  .title {
+		@include maginPadding(padding, 30, 20, 30, 20);
+		.img-title1-1 {
+		  @include px2rem(width, 74);
+		}
+		.img-title1-2 {
+		  @include px2rem(width, 125);
+		}
+		.img-title1-3 {
+		  @include px2rem(width, 74);
+		}
+		.img-title2 {
+		  @include px2rem(width, 219);
+		}
+		.img-title3-1 {
+		  @include px2rem(width, 50);
+		}
+		.img-title3-2 {
+		  @include px2rem(width, 128);
+		}
+		.img-title3-3 {
+		  @include px2rem(width, 98);
+		}
+		.img-title3-4 {
+		  @include px2rem(width, 94);
+		}
+		.img-title3-5 {
+		  @include px2rem(width, 50);
+		}
+	  }
+	}
 
   }
 }
 
 .page_4 {
   .page-content {
-    position: absolute;
-    @include px2rem(left, 50);
-    @include px2rem(top, 800);
-    .text-content {
-      @include px2rem(width, 380);
-      @include px2rem(height, 220);
-      .title {
-        @include maginPadding(padding, 30, 20, 30, 20);
-        .img-title1-1 {
-          @include px2rem(width, 89);
-        }
-        .img-title1-2 {
-          @include px2rem(width, 178);
-        }
-        .img-title2 {
-          @include px2rem(width, 306);
-        }
-        .img-title3-1 {
-          @include px2rem(width, 234);
-        }
-        .img-title3-2 {
-          @include px2rem(width, 99);
-        }
-      }
-    }
+	position: absolute;
+	@include px2rem(left, 50);
+	@include px2rem(top, 800);
+	.text-content {
+	  @include px2rem(width, 380);
+	  @include px2rem(height, 220);
+	  .title {
+		@include maginPadding(padding, 30, 20, 30, 20);
+		.img-title1-1 {
+		  @include px2rem(width, 89);
+		}
+		.img-title1-2 {
+		  @include px2rem(width, 178);
+		}
+		.img-title2 {
+		  @include px2rem(width, 306);
+		}
+		.img-title3-1 {
+		  @include px2rem(width, 234);
+		}
+		.img-title3-2 {
+		  @include px2rem(width, 99);
+		}
+	  }
+	}
   }
 }
 
 .page_5 {
   .page-content {
-    @include px2rem(left, 232);
-    .text-content {
-      @include px2rem(width, 394);
-      @include px2rem(height, 220);
-      .img-title1-1 {
-        @include px2rem(width, 80);
-      }
-      .img-title1-2 {
-        @include px2rem(width, 189);
-      }
-      .img-title1-3 {
-        @include px2rem(width, 54);
-      }
-      .img-title2 {
-        @include px2rem(width, 273);
-      }
-      .img-title3-1 {
-        @include px2rem(width, 127);
-      }
-      .img-title3-2 {
-        @include px2rem(width, 101);
-      }
-    }
+	@include px2rem(left, 232);
+	.text-content {
+	  @include px2rem(width, 394);
+	  @include px2rem(height, 220);
+	  .img-title1-1 {
+		@include px2rem(width, 80);
+	  }
+	  .img-title1-2 {
+		@include px2rem(width, 189);
+	  }
+	  .img-title1-3 {
+		@include px2rem(width, 54);
+	  }
+	  .img-title2 {
+		@include px2rem(width, 273);
+	  }
+	  .img-title3-1 {
+		@include px2rem(width, 127);
+	  }
+	  .img-title3-2 {
+		@include px2rem(width, 101);
+	  }
+	}
   }
 }
 
 .page_6 {
   .page-content {
-    @include px2rem(left, 70);
-    .text-content {
-      @include px2rem(width, 472);
-      @include px2rem(height, 326);
-      .img-title1-1, .img-title2-1 {
-        @include px2rem(width, 55);
-      }
-      .img-title1-2 {
-        @include px2rem(width, 111);
-      }
-      .img-title1-3 {
-        @include px2rem(width, 248);
-      }
-      .img-title2-2 {
-        @include px2rem(width, 138);
-      }
-      .img-title2-3 {
-        @include px2rem(width, 128);
-      }
+	@include px2rem(left, 70);
+	.text-content {
+	  @include px2rem(width, 472);
+	  @include px2rem(height, 326);
+	  .img-title1-1, .img-title2-1 {
+		@include px2rem(width, 55);
+	  }
+	  .img-title1-2 {
+		@include px2rem(width, 111);
+	  }
+	  .img-title1-3 {
+		@include px2rem(width, 248);
+	  }
+	  .img-title2-2 {
+		@include px2rem(width, 138);
+	  }
+	  .img-title2-3 {
+		@include px2rem(width, 128);
+	  }
 
-      .img-title3-1 {
-        @include px2rem(width, 57);
-      }
-      .img-title3-2 {
-        @include px2rem(width, 225);
-      }
-      .img-title4 {
-        @include px2rem(width, 225);
-      }
-      .img-title5-1 {
-        @include px2rem(width, 56);
-      }
-      .img-title5-2 {
-        @include px2rem(width, 99);
-      }
-      .img-title5-3 {
-        @include px2rem(width, 56);
-      }
-    }
+	  .img-title3-1 {
+		@include px2rem(width, 57);
+	  }
+	  .img-title3-2 {
+		@include px2rem(width, 225);
+	  }
+	  .img-title4 {
+		@include px2rem(width, 225);
+	  }
+	  .img-title5-1 {
+		@include px2rem(width, 56);
+	  }
+	  .img-title5-2 {
+		@include px2rem(width, 99);
+	  }
+	  .img-title5-3 {
+		@include px2rem(width, 56);
+	  }
+	}
   }
 }
 
 .page_7 {
 
   .bg {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    visibility: hidden;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	visibility: hidden;
   }
   .bg1 {
-    z-index: 1;
-    visibility: visible;
+	z-index: 1;
+	visibility: visible;
   }
 
   .bg2 {
-    z-index: 2;
+	z-index: 2;
 
   }
   .bg3 {
-    z-index: 3;
+	z-index: 3;
   }
   .bg4 {
-    z-index: 4;
+	z-index: 4;
   }
   .bg5 {
-    z-index: 5;
+	z-index: 5;
   }
   .guding-img {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 99;
-    display: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 99;
+	display: none;
   }
   .page-content {
-    position: absolute;
-    @include px2rem(left, 226);
-    @include px2rem(top, 60);
-    @include px2rem(width, 400);
-    @include px2rem(height, 300);
-    z-index: 100;
+	position: absolute;
+	@include px2rem(left, 226);
+	@include px2rem(top, 60);
+	@include px2rem(width, 400);
+	@include px2rem(height, 300);
+	z-index: 100;
 
-    .title {
-      @include px2rem(width, 472);
-      @include px2rem(height, 326);
-      @include px2rem(font-size, 24);
-      color: #ffffff;
-      @include px2rem(padding-left, 30);
+	.title {
+	  @include px2rem(width, 472);
+	  @include px2rem(height, 326);
+	  @include px2rem(font-size, 24);
+	  color: #ffffff;
+	  @include px2rem(padding-left, 30);
 
-      .label {
-        opacity: 0;
-      }
-      .num {
-        //@include px2rem(margin-left, 5);
-        //@include px2rem(margin-right, 5);
-        @extend .heartbeat;
-      }
-      .img-title1-1 {
-        @include px2rem(width, 57);
-      }
-      .img-title1-2 {
-        @include px2rem(width, 200);
-      }
-      .img-title2-1 {
-        @include px2rem(width, 31);
-      }
-      .img-title2-2 {
-        @include px2rem(width, 87);
-      }
-      .img-title2-3 {
-        @include px2rem(width, 225);
-      }
-      .img-title3-1 {
-        @include px2rem(width, 128);
-      }
-      .img-title3-2 {
-        @include px2rem(width, 162);
-      }
-      .img-title3-3 {
-        @include px2rem(width, 31);
-      }
-      .img-title4-1 {
-        @include px2rem(width, 55);
-      }
-      .img-title4-2 {
-        @include px2rem(width, 58);
-      }
-      .img-title4-3 {
-        @include px2rem(width, 128);
-      }
-      .img-title5-1 {
-        @include px2rem(width, 80);
-      }
-      .img-title5-2 {
-        @include px2rem(width, 100);
-      }
+	  .label {
+		opacity: 0;
+	  }
+	  .num {
+		//@include px2rem(margin-left, 5);
+		//@include px2rem(margin-right, 5);
+		@extend .heartbeat;
+	  }
+	  .img-title1-1 {
+		@include px2rem(width, 57);
+	  }
+	  .img-title1-2 {
+		@include px2rem(width, 200);
+	  }
+	  .img-title2-1 {
+		@include px2rem(width, 31);
+	  }
+	  .img-title2-2 {
+		@include px2rem(width, 87);
+	  }
+	  .img-title2-3 {
+		@include px2rem(width, 225);
+	  }
+	  .img-title3-1 {
+		@include px2rem(width, 128);
+	  }
+	  .img-title3-2 {
+		@include px2rem(width, 162);
+	  }
+	  .img-title3-3 {
+		@include px2rem(width, 31);
+	  }
+	  .img-title4-1 {
+		@include px2rem(width, 55);
+	  }
+	  .img-title4-2 {
+		@include px2rem(width, 58);
+	  }
+	  .img-title4-3 {
+		@include px2rem(width, 128);
+	  }
+	  .img-title5-1 {
+		@include px2rem(width, 80);
+	  }
+	  .img-title5-2 {
+		@include px2rem(width, 100);
+	  }
 
-    }
+	}
   }
   .line {
-    position: absolute;
-    @include px2rem(left, 0);
-    @include px2rem(top, 16);
-    @include px2rem(width, 6);
-    @include px2rem(height, 0);
-    background-color: #ffffff;
-    &.line-transition {
-      @include px2rem(height, 280);
-    }
+	position: absolute;
+	@include px2rem(left, 0);
+	@include px2rem(top, 16);
+	@include px2rem(width, 6);
+	@include px2rem(height, 0);
+	background-color: #ffffff;
+	&.line-transition {
+	  @include px2rem(height, 280);
+	}
   }
   .new-page {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    text-align: center;
-    .new-page-bg {
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 100%;
-    }
-    .top-logo {
-      @include px2rem(width, 268);
-      @include px2rem(height, 313);
-      @include px2rem(margin-top, 78);
-      margin-left: auto;
-      margin-right: auto;
-      position: relative;
-      .logo {
-        @include px2rem(width, 268);
-        @include px2rem(height, 313);
-        opacity: 0;
-        position: relative;
-      }
-      .sanluo {
-        @include px2rem(width, 150);
-        @include px2rem(height, 150);
-        position: absolute;
-        @include px2rem(left, 60);
-        @include px2rem(top, 16);
-        &.Zindex {
-          z-index: 99;
-        }
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	.new-page-bg {
+	  position: absolute;
+	  left: 0;
+	  top: 0;
+	  height: 100%;
+	  width: 100%;
+	}
+	.top-logo {
+	  @include px2rem(width, 268);
+	  @include px2rem(height, 313);
+	  @include px2rem(margin-top, 78);
+	  margin-left: auto;
+	  margin-right: auto;
+	  position: relative;
+	  .logo {
+		@include px2rem(width, 268);
+		@include px2rem(height, 313);
+		opacity: 0;
+		position: relative;
+	  }
+	  .sanluo {
+		@include px2rem(width, 150);
+		@include px2rem(height, 150);
+		position: absolute;
+		@include px2rem(left, 60);
+		@include px2rem(top, 16);
+		&.Zindex {
+		  z-index: 99;
+		}
 
-      }
-      .lvye {
-        @include px2rem(width, 62);
-        //@include px2rem(height, 86);
-        position: absolute;
-        @include transition1('right,top,bottom,left', 2s);
+	  }
+	  .lvye {
+		@include px2rem(width, 62);
+		//@include px2rem(height, 86);
+		position: absolute;
+		@include transition1('right,top,bottom,left', 2s);
 
-      }
-      .lvye1 {
-        @include px2rem(right, -200);
-        @include px2rem(top, 14);
-        &.lvye-transition {
-          @include px2rem(right, -8);
-        }
-      }
-      .lvye2 {
-        @include px2rem(right, -264);
-        @include px2rem(bottom, -308);
-        transform: rotate(74deg);
-        &.lvye-transition {
-          @include px2rem(right, 24);
-          @include px2rem(bottom, -28);
-        }
-      }
-      .lvye3 {
-        @include px2rem(left, -156);
-        @include px2rem(bottom, -266);
-        transform: rotate(144deg);
+	  }
+	  .lvye1 {
+		@include px2rem(right, -200);
+		@include px2rem(top, 14);
+		&.lvye-transition {
+		  @include px2rem(right, -8);
+		}
+	  }
+	  .lvye2 {
+		@include px2rem(right, -264);
+		@include px2rem(bottom, -308);
+		transform: rotate(74deg);
+		&.lvye-transition {
+		  @include px2rem(right, 24);
+		  @include px2rem(bottom, -28);
+		}
+	  }
+	  .lvye3 {
+		@include px2rem(left, -156);
+		@include px2rem(bottom, -266);
+		transform: rotate(144deg);
 
-        &.lvye-transition {
-          @include px2rem(left, 4.8);
-          @include px2rem(bottom, -16);
-        }
-      }
-      .lvye4 {
-        @include px2rem(left, -70);
-        @include px2rem(top, -150);
-        transform: rotate(217deg);
-        &.lvye-transition {
-          @include px2rem(left, -3.2);
-          @include px2rem(top, -8);
-        }
-      }
+		&.lvye-transition {
+		  @include px2rem(left, 4.8);
+		  @include px2rem(bottom, -16);
+		}
+	  }
+	  .lvye4 {
+		@include px2rem(left, -70);
+		@include px2rem(top, -150);
+		transform: rotate(217deg);
+		&.lvye-transition {
+		  @include px2rem(left, -3.2);
+		  @include px2rem(top, -8);
+		}
+	  }
 
-      .lvye5 {
-        @include px2rem(right, 350);
-        @include px2rem(top, -250);
-        transform: rotate(292deg);
-        &.lvye-transition {
-          @include px2rem(right, 32);
-          @include px2rem(top, -33.6);
-        }
-      }
-    }
-    .title1 {
-      position: relative;
-      @include px2rem(margin-top, 54);
-      @include px2rem(width, 685);
-      &.Zindex {
-        z-index: 11;
-      }
-    }
-    .title2 {
-      position: relative;
-      @include px2rem(margin-top, 54);
-      @include px2rem(width, 568);
-      &.Zindex {
-        z-index: 11;
-      }
-    }
-    .btn-content {
-      //position: relative;
+	  .lvye5 {
+		@include px2rem(right, 350);
+		@include px2rem(top, -250);
+		transform: rotate(292deg);
+		&.lvye-transition {
+		  @include px2rem(right, 32);
+		  @include px2rem(top, -33.6);
+		}
+	  }
+	}
+	.title1 {
+	  position: relative;
+	  @include px2rem(margin-top, 54);
+	  @include px2rem(width, 685);
+	  &.Zindex {
+		z-index: 11;
+	  }
+	}
+	.title2 {
+	  position: relative;
+	  @include px2rem(margin-top, 54);
+	  @include px2rem(width, 568);
+	  &.Zindex {
+		z-index: 11;
+	  }
+	}
+	.btn-content {
+	  //position: relative;
 
-      //@include px2rem(margin-top, 320);
-      @include px2rem(height, 220);
-      position: absolute;
-      bottom: 17%;
-      &.Zindex {
-        z-index: 99;
-      }
-      .img-btn {
-        @include px2rem(width, 89);
-        @include px2rem(height, 89);
-        text-align: center;
-        @include px2rem(line-height, 89);
-        .img1 {
-          @include px2rem(width, 73);
-          @include px2rem(height, 73);
-          @include px2rem(left, 8);
-          @include px2rem(top, 8);
-          @include px2rem(width, 73);
-          @include px2rem(height, 73);
-          @extend .scaleout;
-        }
-        .img2 {
-          position: absolute;
-          @include px2rem(left, 8);
-          @include px2rem(top, 8);
-          @include px2rem(width, 73);
-          @include px2rem(height, 73);
-        }
-      }
-      .btn {
-        @include px2rem(width, 80);
-        @include px2rem(height, 120);
-        text-align: center;
-        float: left;
-        opacity: 0;
-        position: relative;
-        img {
-          @include px2rem(width, 56);
-          @include px2rem(height, 31);
-        }
-      }
+	  //@include px2rem(margin-top, 320);
+	  @include px2rem(height, 220);
+	  position: absolute;
+	  bottom: 17%;
+	  width: 100%;
+	  &.Zindex {
+		z-index: 99;
+	  }
+	  .img-btn {
+		@include px2rem(width, 89);
+		@include px2rem(height, 89);
+		text-align: center;
+		@include px2rem(line-height, 89);
+		.img1 {
+		  @include px2rem(width, 73);
+		  @include px2rem(height, 73);
+		  @include px2rem(left, 8);
+		  @include px2rem(top, 8);
+		  @include px2rem(width, 73);
+		  @include px2rem(height, 73);
+		  @extend .scaleout;
+		}
+		.img2 {
+		  position: absolute;
+		  @include px2rem(left, 8);
+		  @include px2rem(top, 8);
+		  @include px2rem(width, 73);
+		  @include px2rem(height, 73);
+		}
+	  }
+	  .btn {
+		@include px2rem(width, 80);
+		@include px2rem(height, 120);
+		text-align: center;
+		float: left;
+		opacity: 0;
+		position: relative;
+		img {
+		  @include px2rem(width, 56);
+		  @include px2rem(height, 31);
+		}
+	  }
 
-      .btn1 {
-        @include px2rem(margin-left, 42);
-        @include px2rem(margin-top, 74);
-      }
-      .btn2 {
-        @include px2rem(margin-left, 56);
-        @include px2rem(margin-top, 26);
-      }
-      .btn3 {
-        @include px2rem(margin-left, 84);
-        @include px2rem(margin-top, 0);
-      }
-      .btn4 {
-        @include px2rem(margin-left, 84);
-        @include px2rem(margin-top, 12);
-      }
-      .btn5 {
-        @include px2rem(margin-left, 80);
-        @include px2rem(margin-top, 82);
-      }
-      .circle {
-        @include px2rem(width, 80);
-        @include px2rem(height, 80);
-        @include px2rem(margin-bottom, 20);
-      }
-      .circle1, .circle2, .circle3, .center {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        @include px2rem(width, 20);
-        @include px2rem(height, 20);
-        @include maginPadding(margin, -10, -10, -10, -10);
-        border-radius: 50%;
-        border: 1px solid #ffffff;
-      }
-      .center {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        @include maginPadding(margin, -13, -13, -13, -13);
-        @include px2rem(width, 26);
-        @include px2rem(height, 26);
-        border-radius: 50%;
-        background: #ffffff;
-        text-align: center;
-      }
-    }
-    .play-video {
-      @include px2rem(width, 113);
-      @include px2rem(margin-top, -54);
-      opacity: 0;
-      position: absolute;
-      left: 50%;
-      margin-top: 0;
-      @include px2rem(top, 210);
-      @include px2rem(margin-left, -56.5);
+	  .btn1 {
+		@include px2rem(margin-left, 42);
+		@include px2rem(margin-top, 74);
+	  }
+	  .btn2 {
+		@include px2rem(margin-left, 56);
+		@include px2rem(margin-top, 26);
+	  }
+	  .btn3 {
+		@include px2rem(margin-left, 84);
+		@include px2rem(margin-top, 0);
+	  }
+	  .btn4 {
+		@include px2rem(margin-left, 84);
+		@include px2rem(margin-top, 12);
+	  }
+	  .btn5 {
+		@include px2rem(margin-left, 80);
+		@include px2rem(margin-top, 82);
+	  }
+	  .circle {
+		@include px2rem(width, 80);
+		@include px2rem(height, 80);
+		@include px2rem(margin-bottom, 20);
+	  }
+	  .circle1, .circle2, .circle3, .center {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		@include px2rem(width, 20);
+		@include px2rem(height, 20);
+		@include maginPadding(margin, -10, -10, -10, -10);
+		border-radius: 50%;
+		border: 1px solid #ffffff;
+	  }
+	  .center {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		@include maginPadding(margin, -13, -13, -13, -13);
+		@include px2rem(width, 26);
+		@include px2rem(height, 26);
+		border-radius: 50%;
+		background: #ffffff;
+		text-align: center;
+	  }
+	}
+	.play-video {
+	  @include px2rem(width, 113);
+	  @include px2rem(margin-top, -54);
+	  opacity: 0;
+	  position: absolute;
+	  left: 50%;
+	  margin-top: 0;
+	  @include px2rem(top, 210);
+	  @include px2rem(margin-left, -56.5);
 
-    }
+	}
   }
   .layer-content {
-    position: absolute;
-    display: none;
-    z-index: 99;
-    @include px2rem(width, 656);
-    @include px2rem(height, 806);
-    @include px2rem(top, 22);
-    @include px2rem(left, 76);
-    @include px2rem(border-radius, 30);
-    @include maginPadding(padding, 34);
-    background-color: #95a2ae;
-    box-sizing: border-box;
-    .img-content {
-      //@include px2rem(width, 580);
-      width: 100%;
-      @include px2rem(height, 360);
-      border: 1px solid #ffffff;
-      @include px2rem(border-width, 2);
-    }
-    .close-img {
-      @include px2rem(width, 114);
-      @include px2rem(height, 37);
-      position: absolute;
-      @include px2rem(right, 34);
-      @include px2rem(bottom, 34);
-    }
-    img {
-      width: 100%;
-      height: 100%;
-    }
-    .text {
-      @include px2rem(margin-top, 22);
-      color: #000000;
-      @include px2rem(font-size, 30);
-      @include px2rem(line-height, 45);
-      text-align: left;
-    }
+	position: absolute;
+	display: none;
+	z-index: 1000;
+	@include px2rem(width, 656);
+	@include px2rem(height, 806);
+	@include px2rem(top, 22);
+	@include px2rem(left, 76);
+	@include px2rem(border-radius, 30);
+	@include maginPadding(padding, 34);
+	background-color: #95a2ae;
+	box-sizing: border-box;
+	.img-content {
+	  //@include px2rem(width, 580);
+	  width: 100%;
+	  @include px2rem(height, 360);
+	  border: 1px solid #ffffff;
+	  @include px2rem(border-width, 2);
+	}
+	.close-img {
+	  @include px2rem(width, 114);
+	  @include px2rem(height, 37);
+	  position: absolute;
+	  @include px2rem(right, 34);
+	  @include px2rem(bottom, 34);
+	}
+	img {
+	  width: 100%;
+	  height: 100%;
+	}
+	.text {
+	  @include px2rem(margin-top, 22);
+	  color: #000000;
+	  @include px2rem(font-size, 30);
+	  @include px2rem(line-height, 45);
+	  text-align: left;
+	}
   }
 }
 
@@ -1173,109 +1175,109 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
   overflow: hidden;
   text-align: center;
   .bgg {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    visibility: hidden;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	visibility: hidden;
   }
   .bg1 {
-    z-index: 1;
-    visibility: visible;
+	z-index: 1;
+	visibility: visible;
   }
   .bg2 {
-    z-index: 22;
+	z-index: 22;
   }
   .page-content-bg {
-    background-image: url("../images/page8/bg3.png");
-    @include px2rem(width, 734);
-    @include px2rem(height, 368);
-    @include px2rem(top, 54);
-    position: absolute;
-    left: 0;
-    z-index: 9;
-    opacity: 0;
+	background-image: url("../images/page8/bg3.png");
+	@include px2rem(width, 734);
+	@include px2rem(height, 368);
+	@include px2rem(top, 54);
+	position: absolute;
+	left: 0;
+	z-index: 9;
+	opacity: 0;
   }
   .page-content {
-    z-index: 9;
-    @include px2rem(width, 734);
-    @include px2rem(height, 368);
-    @include px2rem(margin-top, 54);
-    position: relative;
-    left: 0;
-    top: 0;
+	z-index: 9;
+	@include px2rem(width, 734);
+	@include px2rem(height, 368);
+	@include px2rem(margin-top, 54);
+	position: relative;
+	left: 0;
+	top: 0;
   }
   .shuye {
-    position: absolute;
-    @include px2rem(width, 130);
-    @include px2rem(height, 69);
-    @include px2rem(left, 64);
-    @include px2rem(top, 40);
-    z-index: 100;
-    img {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-    }
+	position: absolute;
+	@include px2rem(width, 130);
+	@include px2rem(height, 69);
+	@include px2rem(left, 64);
+	@include px2rem(top, 40);
+	z-index: 100;
+	img {
+	  position: absolute;
+	  left: 0;
+	  top: 0;
+	  width: 100%;
+	  height: 100%;
+	}
   }
   .text-content {
-    @include px2rem(width, 516);
-    @include px2rem(height, 222);
-    @include px2rem(left, 162);
-    @include px2rem(top, 100);
-    .top-line {
-      &.top-line-transition {
-        @include calcPx2rem(width, 386);
-      }
-    }
-    .left-line {
-      @include px2rem(top, 21);
-      &.left-line-transition {
-        @include calcPx2rem(height, 21);
-      }
-    }
-    .every-day-content {
-      @include px2rem(left, 35)
-    }
-    .en-img {
-      @include px2rem(left, 386);
-    }
-    .zhiwei {
-      position: absolute;
-      @include px2rem(width, 103);
-      @include px2rem(height, 59);
-      @include px2rem(left, 272);
-      @include px2rem(top, -30);
-      opacity: 0;
-    }
-    .title {
-      text-align: center;
-      .label img {
-        @include px2rem(width, 390);
-        @include px2rem(height, 54);
-      }
-    }
+	@include px2rem(width, 516);
+	@include px2rem(height, 222);
+	@include px2rem(left, 162);
+	@include px2rem(top, 100);
+	.top-line {
+	  &.top-line-transition {
+		@include calcPx2rem(width, 386);
+	  }
+	}
+	.left-line {
+	  @include px2rem(top, 21);
+	  &.left-line-transition {
+		@include calcPx2rem(height, 21);
+	  }
+	}
+	.every-day-content {
+	  @include px2rem(left, 35)
+	}
+	.en-img {
+	  @include px2rem(left, 386);
+	}
+	.zhiwei {
+	  position: absolute;
+	  @include px2rem(width, 103);
+	  @include px2rem(height, 59);
+	  @include px2rem(left, 272);
+	  @include px2rem(top, -30);
+	  opacity: 0;
+	}
+	.title {
+	  text-align: center;
+	  .label img {
+		@include px2rem(width, 390);
+		@include px2rem(height, 54);
+	  }
+	}
   }
   .logo-img {
-    @include px2rem(width, 268);
-    @include px2rem(margin-top, 361);
-    position: relative;
-    z-index: 9;
-    opacity: 0;
+	@include px2rem(width, 268);
+	@include px2rem(margin-top, 361);
+	position: relative;
+	z-index: 9;
+	opacity: 0;
   }
   .lv-logo-img {
-    position: absolute;
-    left: 50%;
-    @include px2rem(width, 268);
-    @include px2rem(top, 780);
-    @include px2rem(margin-left, -134);
-    @include transition1(top, 2s);
-    &.lv-logo-img-transition {
-      @include px2rem(top, 312);
-    }
+	position: absolute;
+	left: 50%;
+	@include px2rem(width, 268);
+	@include px2rem(top, 780);
+	@include px2rem(margin-left, -134);
+	@include transition1(top, 2s);
+	&.lv-logo-img-transition {
+	  @include px2rem(top, 312);
+	}
   }
 }
