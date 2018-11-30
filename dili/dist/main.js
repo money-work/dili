@@ -339,6 +339,8 @@
 	    //     audioAutoPlay();
 	    //   }
 	    // });
+	
+	    //音乐暂停事件
 	    $("body").on("click", '.music-oper', function (e) {
 	      e.stopPropagation();
 	      var audio = document.getElementById('audio-cls');
@@ -352,15 +354,21 @@
 	        }
 	      }
 	    });
+	
+	    //关闭 弹窗 轮播
 	    $("body .new-page").on("click", '.close-img', function (e) {
 	      $(".layer-content").hide();
 	      parms.mySwiper.destroy(false);
 	    });
+	
+	    //关闭视频弹层
 	    $("body").on("click", '.close-btn', function (e) {
 	      e.stopPropagation();
 	      $('.music-oper').show();
 	      $(".video-content").hide();
 	    });
+	
+	    //播放视频
 	    $("body .new-page").on("click", '.play-video', function (e) {
 	      var video = document.getElementById('video');
 	      var audio = document.getElementById('audio-cls');
@@ -371,6 +379,8 @@
 	      $(".video-content").show();
 	      video.play();
 	    });
+	
+	    // 打开 轮播弹层
 	    $("body .new-page").on("click", '.btn', function (e) {
 	      e.stopPropagation();
 	      var dataType = $(this).attr('data-type');
