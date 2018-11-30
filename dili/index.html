@@ -12,38 +12,16 @@
     <meta name="screen-orientation" content="portrait">
     <meta name="x5-orientation" content="portrait">
     <title>地利集团</title>
-
     <script type="text/javascript" src="./dist/style.js"></script>
-    <!--<link href="./style/style.css" rel="stylesheet"/>-->
-    <!--<script>
-      var loadingType = true;
-
-      function setLoad (v, el) {
-        var ie5 = (document.all && document.getElementsByTagName);
-        if (ie5 || document.readyState == "complete") {
-          valueEl = el.children[0];
-          valueEl.innerText = v;
-          $('.loading-content .line').css('width', v + '%')
-        }
-      }
-
-      function fakeProgress (v, el) {
-        // $("body").on('touchmove', function (event) {
-        //   event.preventDefault();
-        // }, false);
-        if (v > 100) {
-          loadingType = false;
-          $('.loading-content').hide();
-          $(".content").show();
-          // $("body").off('touchmove');
-        } else {
-          setLoad(v, el);
-          window.setTimeout("fakeProgress(" + (++v) + ", document.all['" + el.id + "'])", 20);
-        }
-      }
-    </script>-->
 </head>
 <body class="landscape">
+<div class="video-content">
+    <div class="close-btn"></div>
+    <video class="video-cls" id="video" x-webkit-airplay="true" preload="auto" x5-video-player-type="h5"
+           x5-video-player-fullscreen="true" playsinline="true" webkit-playsinline="true"
+           x5-video-orientation="portrait" ref="video" controls="controls"
+           src="./music/mp4.mp4"></video>
+</div>
 <div class="preloading-content">
     <img src="./images/page1/bg.jpg">
 </div>
@@ -54,8 +32,12 @@
         <span class="size14">为了更好的体验，请使用竖屏浏览</span>
     </div>
 </div>
-<div class="music-oper hide">
-    <img class="music-img play-cls rotate" src="./images/page1/play.png">
+<div class="music-oper hide rotate">
+    <audio id="audio-cls" class="audio-cls" ref="audio" src="./music/bb.mp3" autoplay
+           loop preload>
+        您的浏览器不支持 audio 标签。
+    </audio>
+    <img class="music-img play-cls" src="./images/page1/play.png">
     <img class="music-img suspend-cls hide" src="./images/page1/suspend.png">
 </div>
 <div class="loading-content">

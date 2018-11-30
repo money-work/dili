@@ -293,6 +293,7 @@
 	      pageAnimationDone = true;
 	    }
 	  }
+	
 	  function watchAnimationEvent(el, obj, type, page) {
 	    var transitionEvent = whichAnimationEvent();
 	    animationCount++;
@@ -323,17 +324,52 @@
 	  addEvent();
 	
 	  function addEvent() {
+	    // const audio = document.getElementById('audio-cls');
+	    // audio.addEventListener('canplay', function () {
+	    //   if (audio.paused) {
+	    //     audio.play();
+	    //   }
+	    // });
+	    // document.addEventListener('DOMContentLoaded', function () {
+	    //   function audioAutoPlay () {
+	    //     audio.play();
+	    //   }
+	    //
+	    //   if (audio.paused) {
+	    //     audioAutoPlay();
+	    //   }
+	    // });
 	    $("body").on("click", '.music-oper', function (e) {
 	      e.stopPropagation();
-	      if ($(this).hasClass('suspend')) {
-	        $(this).removeClass("suspend");
-	      } else {
-	        $(this).addClass("suspend");
+	      var audio = document.getElementById('audio-cls');
+	      if (audio !== null) {
+	        if (audio.paused) {
+	          audio.play(); // 播放
+	          $(this).removeClass("suspend");
+	        } else {
+	          audio.pause(); // 暂停
+	          $(this).addClass("suspend");
+	        }
 	      }
 	    });
 	    $("body .new-page").on("click", '.close-img', function (e) {
 	      $(".layer-content").hide();
 	      parms.mySwiper.destroy(false);
+	    });
+	    $("body").on("click", '.close-btn', function (e) {
+	      e.stopPropagation();
+	      $('.music-oper').show();
+	      $(".video-content").hide();
+	    });
+	    $("body .new-page").on("click", '.play-video', function (e) {
+	      var video = document.getElementById('video');
+	      var audio = document.getElementById('audio-cls');
+	      if (audio !== null) {
+	        $('.music-oper').hide().addClass("suspend");
+	        audio.pause(); // 暂停
+	      }
+	      $(".video-content").show();
+	      video.play();
 	    });
 	    $("body .new-page").on("click", '.btn', function (e) {
 	      e.stopPropagation();
@@ -345,6 +381,7 @@
 	        str += "<div class='swiper-slide'><img src = '" + imgs[i] + "' /></div>";
 	      }
 	      $(".layer-content .swiper-wrapper").html(str);
+	      $(".layer-content").show();
 	      parms.mySwiper = new Swiper('.swiper-container', {
 	        loop: true,
 	        effect: 'fade',
@@ -352,8 +389,29 @@
 	        autoplay: 2000,
 	        autoplayDisableOnInteraction: false
 	      });
-	      $(".layer-content").show();
 	    });
+	  }
+	
+	  audioAutoPlay();
+	
+	  function audioAutoPlay() {
+	    var audio = document.getElementById("audio-cls");
+	    play = function () {
+	      if (audio.paused) {
+	        audio.play();
+	      }
+	      document.removeEventListener("touchstart", play, false);
+	    };
+	    if (audio.paused) {
+	      audio.play();
+	    }
+	    document.addEventListener("WeixinJSBridgeReady", function () {
+	      play();
+	    }, false);
+	    document.addEventListener('YixinJSBridgeReady', function () {
+	      play();
+	    }, false);
+	    document.addEventListener("touchstart", play, false);
 	  }
 	
 	  /*if (!loadingType) {
@@ -382,10 +440,12 @@
 	  var pageAnimationDone = true;
 	  var animationCount = 0;
 	  var count = 0;
+	
 	  function mangerAnimation() {
 	
 	    setTimeout(pageAnimation, 300);
 	  }
+	
 	  function pageAnimation() {
 	    animationCount = 0;
 	    count = 1;

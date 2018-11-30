@@ -9,132 +9,132 @@ $(function () {
   // });
   var loadingType = true;
   var cacheList = [
-	  "images/en.png",
-	  "images/logo.png",
-	  "images/lvye.png",
-	  "images/lvye1.png",
-	  "images/shuye.png",
-	  "images/wrong.png",
-	  "images/everyday/1.png",
-	  "images/everyday/10.png",
-	  "images/everyday/11.png",
-	  "images/everyday/2.png",
-	  "images/everyday/3.png",
-	  "images/everyday/4.png",
-	  "images/everyday/5.png",
-	  "images/everyday/6.png",
-	  "images/everyday/7.png",
-	  "images/everyday/8.png",
-	  "images/everyday/9.png",
-	  "images/page2/bg1.jpg",
-	  "images/page2/bg2.jpg",
-	  "images/page2/bg3.jpg",
-	  "images/page2/title.png",
-	  "images/page2/title2-1.png",
-	  "images/page2/title2-2.png",
-	  "images/page2/title2-3.png",
-	  "images/page2/title3-1.png",
-	  "images/page2/title3-2.png",
-	  "images/page2/title3-3.png",
-	  "images/page2/title3-4.png",
-	  "images/page2/title3-5.png",
-	  "images/page3/bg1.jpg",
-	  "images/page3/bg2.jpg",
-	  "images/page3/bg3.jpg",
-	  "images/page3/bg4.jpg",
-	  "images/page3/title1-1.png",
-	  "images/page3/title1-2.png",
-	  "images/page3/title1-3.png",
-	  "images/page3/title2.png",
-	  "images/page3/title3-1.png",
-	  "images/page3/title3-2.png",
-	  "images/page3/title3-3.png",
-	  "images/page3/title3-4.png",
-	  "images/page3/title3-5.png",
-	  "images/page4/bg1.jpg",
-	  "images/page4/bg2.jpg",
-	  "images/page4/title1-1.png",
-	  "images/page4/title1-2.png",
-	  "images/page4/title2.png",
-	  "images/page4/title3-1.png",
-	  "images/page4/title3-2.png",
-	  "images/page5/bg1.jpg",
-	  "images/page5/bg2.jpg",
-	  "images/page5/title1-1.png",
-	  "images/page5/title1-2.png",
-	  "images/page5/title1-3.png",
-	  "images/page5/title2.png",
-	  "images/page5/title3-1.png",
-	  "images/page5/title3-2.png",
-	  "images/page1/arrow.png",
-	  "images/page1/bg.jpg",
-	  "images/page1/play.png",
-	  "images/page1/suspend.png",
-	  "images/page1/title-en.png",
-	  "images/page1/title1.png",
-	  "images/page1/title2.png",
-	  "images/page8/bg1.jpg",
-	  "images/page8/bg2.jpg",
-	  "images/page8/bg3.png",
-	  "images/page8/dili.png",
-	  "images/page8/lv-logo.png",
-	  "images/page8/title1.png",
-	  "images/page8/title2.png",
-	  "images/page8/zhiwei.png",
-	  "images/page7/bg1.jpg",
-	  "images/page7/bg2.jpg",
-	  "images/page7/bg3.jpg",
-	  "images/page7/bg4.jpg",
-	  "images/page7/bg5.jpg",
-	  "images/page7/bg6.jpg",
-	  "images/page7/btn.png",
-	  "images/page7/close.png",
-	  "images/page7/jiagong.png",
-	  "images/page7/jiance.png",
-	  "images/page7/lingshou.png",
-	  "images/page7/liutong.png",
-	  "images/page7/play-video.png",
-	  "images/page7/title1-1.png",
-	  "images/page7/title1-2.png",
-	  "images/page7/title1.png",
-	  "images/page7/title2-1.png",
-	  "images/page7/title2-2.png",
-	  "images/page7/title2-3.png",
-	  "images/page7/title2.png",
-	  "images/page7/title3-1.png",
-	  "images/page7/title3-2.png",
-	  "images/page7/title3-3.png",
-	  "images/page7/title4-1.png",
-	  "images/page7/title4-2.png",
-	  "images/page7/title4-3.png",
-	  "images/page7/title5-1.png",
-	  "images/page7/title5-2.png",
-	  "images/page7/zhongzhi.png",
-	  "images/page6/bg2.jpg",
-	  "images/page6/bg1.jpg",
-	  "images/page6/title1-2.png",
-	  "images/page6/title1-1.png",
-	  "images/page6/title1-3.png",
-	  "images/page6/title2-2.png",
-	  "images/page6/title2-3.png",
-	  "images/page6/title3-1.png",
-	  "images/page6/title3-2.png",
-	  "images/page6/title4.png",
-	  "images/page6/title5-1.png",
-	  "images/page6/title5-2.png",
-	  "images/page6/title5-3.png",
-	  "images/layer/lingshou/1.jpg",
-	  "images/layer/lingshou/2.jpg",
-	  "images/layer/jiagong/1.jpg",
-	  "images/layer/jiagong/2.jpg",
-	  "images/layer/liutong/1.jpg",
-	  "images/layer/liutong/2.jpg",
-	  "images/layer/liutong/3.jpg",
-	  "images/layer/jiance/1.jpg",
-	  "images/layer/jiance/2.jpg",
-	  "images/layer/zhongzhi/1.jpg",
-	  "images/layer/zhongzhi/2.jpg",
-	  "images/layer/zhongzhi/3.jpg"
+    "images/en.png",
+    "images/logo.png",
+    "images/lvye.png",
+    "images/lvye1.png",
+    "images/shuye.png",
+    "images/wrong.png",
+    "images/everyday/1.png",
+    "images/everyday/10.png",
+    "images/everyday/11.png",
+    "images/everyday/2.png",
+    "images/everyday/3.png",
+    "images/everyday/4.png",
+    "images/everyday/5.png",
+    "images/everyday/6.png",
+    "images/everyday/7.png",
+    "images/everyday/8.png",
+    "images/everyday/9.png",
+    "images/page2/bg1.jpg",
+    "images/page2/bg2.jpg",
+    "images/page2/bg3.jpg",
+    "images/page2/title.png",
+    "images/page2/title2-1.png",
+    "images/page2/title2-2.png",
+    "images/page2/title2-3.png",
+    "images/page2/title3-1.png",
+    "images/page2/title3-2.png",
+    "images/page2/title3-3.png",
+    "images/page2/title3-4.png",
+    "images/page2/title3-5.png",
+    "images/page3/bg1.jpg",
+    "images/page3/bg2.jpg",
+    "images/page3/bg3.jpg",
+    "images/page3/bg4.jpg",
+    "images/page3/title1-1.png",
+    "images/page3/title1-2.png",
+    "images/page3/title1-3.png",
+    "images/page3/title2.png",
+    "images/page3/title3-1.png",
+    "images/page3/title3-2.png",
+    "images/page3/title3-3.png",
+    "images/page3/title3-4.png",
+    "images/page3/title3-5.png",
+    "images/page4/bg1.jpg",
+    "images/page4/bg2.jpg",
+    "images/page4/title1-1.png",
+    "images/page4/title1-2.png",
+    "images/page4/title2.png",
+    "images/page4/title3-1.png",
+    "images/page4/title3-2.png",
+    "images/page5/bg1.jpg",
+    "images/page5/bg2.jpg",
+    "images/page5/title1-1.png",
+    "images/page5/title1-2.png",
+    "images/page5/title1-3.png",
+    "images/page5/title2.png",
+    "images/page5/title3-1.png",
+    "images/page5/title3-2.png",
+    "images/page1/arrow.png",
+    "images/page1/bg.jpg",
+    "images/page1/play.png",
+    "images/page1/suspend.png",
+    "images/page1/title-en.png",
+    "images/page1/title1.png",
+    "images/page1/title2.png",
+    "images/page8/bg1.jpg",
+    "images/page8/bg2.jpg",
+    "images/page8/bg3.png",
+    "images/page8/dili.png",
+    "images/page8/lv-logo.png",
+    "images/page8/title1.png",
+    "images/page8/title2.png",
+    "images/page8/zhiwei.png",
+    "images/page7/bg1.jpg",
+    "images/page7/bg2.jpg",
+    "images/page7/bg3.jpg",
+    "images/page7/bg4.jpg",
+    "images/page7/bg5.jpg",
+    "images/page7/bg6.jpg",
+    "images/page7/btn.png",
+    "images/page7/close.png",
+    "images/page7/jiagong.png",
+    "images/page7/jiance.png",
+    "images/page7/lingshou.png",
+    "images/page7/liutong.png",
+    "images/page7/play-video.png",
+    "images/page7/title1-1.png",
+    "images/page7/title1-2.png",
+    "images/page7/title1.png",
+    "images/page7/title2-1.png",
+    "images/page7/title2-2.png",
+    "images/page7/title2-3.png",
+    "images/page7/title2.png",
+    "images/page7/title3-1.png",
+    "images/page7/title3-2.png",
+    "images/page7/title3-3.png",
+    "images/page7/title4-1.png",
+    "images/page7/title4-2.png",
+    "images/page7/title4-3.png",
+    "images/page7/title5-1.png",
+    "images/page7/title5-2.png",
+    "images/page7/zhongzhi.png",
+    "images/page6/bg2.jpg",
+    "images/page6/bg1.jpg",
+    "images/page6/title1-2.png",
+    "images/page6/title1-1.png",
+    "images/page6/title1-3.png",
+    "images/page6/title2-2.png",
+    "images/page6/title2-3.png",
+    "images/page6/title3-1.png",
+    "images/page6/title3-2.png",
+    "images/page6/title4.png",
+    "images/page6/title5-1.png",
+    "images/page6/title5-2.png",
+    "images/page6/title5-3.png",
+    "images/layer/lingshou/1.jpg",
+    "images/layer/lingshou/2.jpg",
+    "images/layer/jiagong/1.jpg",
+    "images/layer/jiagong/2.jpg",
+    "images/layer/liutong/1.jpg",
+    "images/layer/liutong/2.jpg",
+    "images/layer/liutong/3.jpg",
+    "images/layer/jiance/1.jpg",
+    "images/layer/jiance/2.jpg",
+    "images/layer/zhongzhi/1.jpg",
+    "images/layer/zhongzhi/2.jpg",
+    "images/layer/zhongzhi/3.jpg"
   ];
   baseApp.loading(cacheList, function () {
     $("#num span").text('100%')
@@ -143,9 +143,9 @@ $(function () {
       loadingType = false;
       $('.loading-content').hide();
       $(".content").show();
-      setTimeout(function(){
-	      addTransitionClass(parms.pageNow);
-	      app.bindTouchEvent(); // 绑定触摸事件
+      setTimeout(function () {
+        addTransitionClass(parms.pageNow);
+        app.bindTouchEvent(); // 绑定触摸事件
       }, 200);
     }, 300);
 
@@ -410,27 +410,28 @@ $(function () {
   }
 
 
-  function resetAnimationCount(){
-	  if(animationCount === count){
-		  animationCount = 0;
-		  count = 1;
-		  pageAnimationDone = true;
-	  }
+  function resetAnimationCount () {
+    if (animationCount === count) {
+      animationCount = 0;
+      count = 1;
+      pageAnimationDone = true;
+    }
   }
+
   function watchAnimationEvent (el, obj, type, page) {
     var transitionEvent = whichAnimationEvent();
-	  animationCount++;
+    animationCount++;
     transitionEvent && $(el)[0].addEventListener(transitionEvent, function () {
       if (type == 'bgAnimation') {
         setTimeout(function () {
-        	count++;
-	        resetAnimationCount();
+          count++;
+          resetAnimationCount();
           var animationName = parms.bgAnimationArr[Math.floor(Math.random() * parms.bgAnimationArr.length)] + ' animated ';
           $(el) && $(el).next().length > 0 && $(el).next().css('animation-duration', obj.animationTime).addClass(animationName);
         }, 3000)
       } else {
-      	count++;
-	      resetAnimationCount();
+        count++;
+        resetAnimationCount();
         $(el) && $(el).next().length > 0 && $(el).next().css('animation-duration', obj.animationTime).addClass(obj.animationName);
       }
       // if (type == 'titleAnimation') {
@@ -447,17 +448,52 @@ $(function () {
   addEvent();
 
   function addEvent () {
+    // const audio = document.getElementById('audio-cls');
+    // audio.addEventListener('canplay', function () {
+    //   if (audio.paused) {
+    //     audio.play();
+    //   }
+    // });
+    // document.addEventListener('DOMContentLoaded', function () {
+    //   function audioAutoPlay () {
+    //     audio.play();
+    //   }
+    //
+    //   if (audio.paused) {
+    //     audioAutoPlay();
+    //   }
+    // });
     $("body").on("click", '.music-oper', function (e) {
       e.stopPropagation();
-      if ($(this).hasClass('suspend')) {
-        $(this).removeClass("suspend")
-      } else {
-        $(this).addClass("suspend")
+      var audio = document.getElementById('audio-cls');
+      if (audio !== null) {
+        if (audio.paused) {
+          audio.play();// 播放
+          $(this).removeClass("suspend")
+        } else {
+          audio.pause();// 暂停
+          $(this).addClass("suspend");
+        }
       }
     })
     $("body .new-page").on("click", '.close-img', function (e) {
       $(".layer-content").hide();
       parms.mySwiper.destroy(false);
+    });
+    $("body").on("click", '.close-btn', function (e) {
+      e.stopPropagation();
+      $('.music-oper').show();
+      $(".video-content").hide();
+    });
+    $("body .new-page").on("click", '.play-video', function (e) {
+      var video = document.getElementById('video');
+      var audio = document.getElementById('audio-cls');
+      if (audio !== null) {
+        $('.music-oper').hide().addClass("suspend");
+        audio.pause();// 暂停
+      }
+      $(".video-content").show();
+      video.play();
     });
     $("body .new-page").on("click", '.btn', function (e) {
       e.stopPropagation();
@@ -469,6 +505,7 @@ $(function () {
         str += "<div class='swiper-slide'><img src = '" + imgs[i] + "' /></div>";
       }
       $(".layer-content .swiper-wrapper").html(str);
+      $(".layer-content").show();
       parms.mySwiper = new Swiper('.swiper-container', {
         loop: true,
         effect: 'fade',
@@ -476,8 +513,29 @@ $(function () {
         autoplay: 2000,
         autoplayDisableOnInteraction: false
       });
-      $(".layer-content").show();
     })
+  }
+
+  audioAutoPlay();
+
+  function audioAutoPlay () {
+    var audio = document.getElementById("audio-cls");
+    play = function () {
+      if (audio.paused) {
+        audio.play();
+      }
+      document.removeEventListener("touchstart", play, false);
+    };
+    if (audio.paused) {
+      audio.play();
+    }
+    document.addEventListener("WeixinJSBridgeReady", function () {
+      play();
+    }, false);
+    document.addEventListener('YixinJSBridgeReady', function () {
+      play();
+    }, false);
+    document.addEventListener("touchstart", play, false);
   }
 
   /*if (!loadingType) {
@@ -506,15 +564,17 @@ $(function () {
   //页面整体动画完成状态，整体完成后可以滑动到下一页。开始动画前置为false，全部完成后置为true
   var pageAnimationDone = true;
   var animationCount = 0;
-	var count = 0;
-	function mangerAnimation(){
+  var count = 0;
 
-  	setTimeout(pageAnimation, 300);
-	}
+  function mangerAnimation () {
+
+    setTimeout(pageAnimation, 300);
+  }
+
   function pageAnimation () {
-		animationCount = 0;
-		count = 1;
-	  pageAnimationDone = false;
+    animationCount = 0;
+    count = 1;
+    pageAnimationDone = false;
     var page = parms['page' + parms.pageNow];
     var transitionEvent = whichTransitionEvent();
     var animationEvent = whichAnimationEvent();
@@ -645,7 +705,7 @@ $(function () {
         //     e.preventDefault();
         //   }
         // }
-	      e.preventDefault();
+        e.preventDefault();
         // 单手指触摸或者多手指同时触摸，禁止第二个手指延迟操作事件
         if (e.touches.length === 1 || isTouchEnd) {
           var touch = e.touches[0];
@@ -739,7 +799,7 @@ $(function () {
           }
 
           if (parms.pageNow <= 6 && parms.pageNow > 1 && direction === 'top') {
-	          if(!pageAnimationDone)return;
+            if (!pageAnimationDone) return;
             // 树叶飞走
             var pageNow = parms.pageNow;
             // $($('.page_' + pageNow + ' .' + parms.shuyeOut.classStr)[0]).find('.shuye-img').hide();
