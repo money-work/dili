@@ -1059,13 +1059,17 @@ $(function () {
             return false;
           }
           if (parms.pageNow == 8 && direction === 'top' && !parms.page8Type) {
+            $(".video-content").hide();
             $('.page_8 .arrow-content').removeClass('arrow-content-transition').css({
               'animation-duration': 'inherit',
               'transition-duration': 'inherit'
             });
-            $('.page_8 .logo-img').removeClass('fade-in').addClass('fade-out').css('animation-duration', '1s');
+            $('.page_8 .logo-img').removeClass('fade-in').css('opacity', '0');
+            $('.page_8 .lv-logo-img').css({
+              'opacity': '1',
+              "z-index": '99'
+            }).addClass('lv-logo-img-transition').css('animation-duration', '1s');
             setTimeout(function () {
-              $('.page_8 .lv-logo-img').addClass('fade-in').addClass('lv-logo-img-transition').css('animation-duration', '1s');
               $('.page_8 .bg2').addClass('fade-in').css('animation-duration', '2s');
             }, 1100);
             return false;
