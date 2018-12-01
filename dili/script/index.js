@@ -254,22 +254,26 @@ $(function () {
         {
           'classStr': 'bg2',
           'animationName': 'translationRightIn animated',
-          'animationTime': '2s'
+          'animationTime': '2s',
+          'num': 1
         },
         {
           'classStr': 'bg3',
           'animationName': 'fadeIn animated',
-          'animationTime': '1s'
+          'animationTime': '1s',
+          'num': 2
         },
         {
           'classStr': 'bg4',
           'animationName': 'translationRightIn animated',
-          'animationTime': '2s'
+          'animationTime': '2s',
+          'num': 3
         },
         {
           'classStr': 'bg5',
           'animationName': 'fadeIn animated',
-          'animationTime': '1s'
+          'animationTime': '1s',
+          'num': 4
         }
       ],
       titleAnimation: {
@@ -603,20 +607,21 @@ $(function () {
           count++;
           resetAnimationCount();
           $(el) && $(el).next().length > 0 && $(el).next().css('animation-duration', obj.animationTime).addClass(obj.animationName);
+          if (page == 7) {
+            var titleEl = $(".page_7 .page-content .title .label")[obj.num];
+            $(titleEl) && $(titleEl).length > 0 && $(titleEl).css('animation-duration', '1s').addClass('fade-in');
+          }
         }, 3000)
-      } else if (page == 7 && type == 'titleAnimation') {
-
-        setTimeout(function () {
+      } else {
+        if (page === 7 && type === 'titleAnimation') {
+          count++;
+          resetAnimationCount();
+        } else {
           count++;
           resetAnimationCount();
           console.log('bg2', el, obj.animationName)
           $(el) && $(el).next().length > 0 && $(el).next().css('animation-duration', obj.animationTime).addClass(obj.animationName);
-        }, 3000);
-      } else {
-        count++;
-        resetAnimationCount();
-        console.log('bg2', el, obj.animationName)
-        $(el) && $(el).next().length > 0 && $(el).next().css('animation-duration', obj.animationTime).addClass(obj.animationName);
+        }
       }
       // if (type == 'titleAnimation') {
       //   var num = $(el).attr('data-num');
@@ -880,11 +885,12 @@ $(function () {
             setTimeout(function () {
               // var animationName = parms.bgAnimationArr[Math.floor(Math.random() * parms.bgAnimationArr.length)] + ' animated ';
               $('.page_' + pageNow + ' .' + animationClassArr[0].classStr).css('animation-duration', page['bgAnimation'][0].animationTime).addClass(page['bgAnimation'][0].animationName);
-            }, 3000);
-            for (var i = 0; i < animationClassArr.length; i++) {
-              if (i < animationClassArr.length + 1) {
-                watchAnimationEvent($('.page_' + pageNow + ' .' + animationClassArr[i].classStr), animationClassArr[i + 1], 'bgAnimation', pageNow);
+              if (pageNow == 7) {
+                $($('.page_7 .page-content .title .label')[1]).css('animation-duration', '1s').addClass('fade-in');
               }
+            }, 3000);
+            for (var i = 0; i < animationClassArr.length - 1; i++) {
+              watchAnimationEvent($('.page_' + pageNow + ' .' + animationClassArr[i].classStr), animationClassArr[i + 1], 'bgAnimation', pageNow);
             }
           }
           break;
@@ -1074,6 +1080,11 @@ $(function () {
           }
           if (parms.pageNow == 8 && direction === 'top' && !parms.page8Type) {
             $(".video-content").hide();
+            if (parms.mySwiper) {
+              parms.mySwiper.destroy(false);
+            }
+            $(".layer-content").hide();
+
             $('.page_8 .arrow-content').removeClass('arrow-content-transition').css({
               'animation-duration': 'inherit',
               'transition-duration': 'inherit'

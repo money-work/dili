@@ -10,6 +10,11 @@ html, body {
   right: 0;
 }
 
+img {
+  pointer-events: none;
+  vertical-align: sub;
+}
+
 .content {
   position: fixed;
 }
@@ -150,6 +155,7 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
   color: #ffff00;
   display: inline-block;
   @include px2rem(font-size, 48);
+  text-align: center;
 }
 
 .content {
@@ -684,6 +690,9 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 		  vertical-align: bottom;
 		}
 		@include px2rem(margin-top, 10);
+	  }
+	  .label1 {
+		margin-top: 0;
 	  }
 	  .num {
 		@include px2rem(height, 64);
