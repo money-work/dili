@@ -267,6 +267,7 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 	animation-iteration-count: infinite;
   }
 }
+
 .layer-content {
   position: absolute;
   display: none;
@@ -490,11 +491,17 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 	z-index: 4;
   }
 
-  #num1 {
-	@include px2rem(width, 100);
-  }
-  #num2 {
+  .num1 {
 	@include px2rem(width, 80);
+  }
+  .num2 {
+	@include px2rem(width, 70);
+  }
+  .three-figures {
+	@include px2rem(width, 84);
+  }
+  .label-num {
+	@include px2rem(height, 46);
   }
 
   .page-content {
@@ -673,7 +680,15 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 	  text-align: left;
 	  .label {
 		opacity: 0;
-		//@include px2rem(margin-top, 10);
+		img {
+		  vertical-align: bottom;
+		}
+		@include px2rem(margin-top, 10);
+	  }
+	  .num {
+		@include px2rem(height, 64);
+		box-sizing: border-box;
+		@include px2rem(padding-top, 8);
 	  }
 	  .img-title {
 		@include px2rem(width, 122);
@@ -688,7 +703,10 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 		@include px2rem(width, 98);
 	  }
 	  .img-title3-2 {
-		@include px2rem(width, 291);
+		@include px2rem(width, 45);
+	  }
+	  .img-title3-3 {
+		@include px2rem(width, 246);
 	  }
 	}
   }
@@ -712,6 +730,17 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 	  @include px2rem(width, 468);
 	  .title {
 		@include maginPadding(padding, 30, 20, 30, 20);
+
+		.label1 {
+		  margin-top: 0
+		}
+		.label2 {
+		  @include px2rem(margin-top, 18);
+		}
+		.label3 {
+		  margin-top: 0
+		}
+
 		.img-title1-1 {
 		  @include px2rem(width, 74);
 		}
@@ -743,6 +772,18 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 	  @include px2rem(height, 220);
 	  .title {
 		@include maginPadding(padding, 30, 20, 30, 20);
+		.num5 {
+		  @include px2rem(width, 70);
+		}
+		.label1 {
+		  margin-top: 0;
+		}
+		.label3 {
+		  margin-top: 0;
+		}
+		.num {
+		  padding: 0;
+		}
 		.img-title1-1 {
 		  @include px2rem(width, 89);
 		}
@@ -769,6 +810,15 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 	.text-content {
 	  @include px2rem(width, 394);
 	  @include px2rem(height, 220);
+	  .title {
+		@include px2rem(padding-top, 14);
+	  }
+	  .label1 {
+		margin-top: 0;
+	  }
+	  .num6 {
+		@include px2rem(width, 90);
+	  }
 	  .img-title1-1 {
 		@include px2rem(width, 80);
 	  }
@@ -794,6 +844,18 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 	.text-content {
 	  @include px2rem(width, 472);
 	  @include px2rem(height, 326);
+	  .label {
+		margin-top: 0;
+	  }
+	  .num7 {
+		@include px2rem(width, 120);
+	  }
+	  .num8 {
+		@include px2rem(width, 140);
+	  }
+	  .num9 {
+		@include px2rem(width, 56);
+	  }
 	  .img-title1-1, .img-title2-1 {
 		@include px2rem(width, 55);
 	  }
@@ -890,12 +952,29 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 
 	  .label {
 		opacity: 0;
+		img {
+		  vertical-align: bottom;
+		}
+		//@include px2rem(margin-top, 10);
 	  }
-	  //.num {
-	  ////@include px2rem(margin-left, 5);
-	  ////@include px2rem(margin-right, 5);
-	  //@extend .heartbeat;
-	  //}
+	  .num {
+		@include px2rem(height, 64);
+		box-sizing: border-box;
+		@include px2rem(padding-top, 8);
+	  }
+
+	  .num10 {
+		@include px2rem(width, 56);
+	  }
+	  .num11 {
+		@include px2rem(width, 80);
+	  }
+	  .num12 {
+		@include px2rem(width, 120);
+	  }
+	  .num13 {
+		@include px2rem(width, 56);
+	  }
 	  .img-title1-1 {
 		@include px2rem(width, 57);
 	  }
@@ -938,7 +1017,7 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
   .line {
 	position: absolute;
 	@include px2rem(left, 0);
-	@include px2rem(top, 16);
+	@include px2rem(top, 35);
 	@include px2rem(width, 6);
 	@include px2rem(height, 0);
 	background-color: #ffffff;
