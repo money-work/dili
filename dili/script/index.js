@@ -207,11 +207,18 @@ $(function () {
       ]
     },
     page2: {
-      bgAnimation: {
-        'classStr': 'bg',
-        'animationName': 'slide-in-right',
-        'animationTime': '0.5s'
-      },
+      bgAnimation: [
+        {
+          'classStr': 'bg2',
+          'animationName': 'fadeIn animated',
+          'animationTime': '1s'
+        },
+        {
+          'classStr': 'bg3',
+          'animationName': 'zoomIn animated',
+          'animationTime': '1s'
+        },
+      ],
       bihuaAnimation: {
         'classStr': 'bihua',
         'animationName': 'fade-in',
@@ -247,11 +254,28 @@ $(function () {
       }
     },
     page7: {
-      bgAnimation: {
-        'classStr': 'bg',
-        'animationName': 'slide-in-right',
-        'animationTime': '0.5s'
-      },
+      bgAnimation: [
+        {
+          'classStr': 'bg2',
+          'animationName': 'translationRightIn animated',
+          'animationTime': '2s'
+        },
+        {
+          'classStr': 'bg3',
+          'animationName': 'fadeIn animated',
+          'animationTime': '1s'
+        },
+        {
+          'classStr': 'bg4',
+          'animationName': 'translationRightIn animated',
+          'animationTime': '2s'
+        },
+        {
+          'classStr': 'bg5',
+          'animationName': 'fadeIn animated',
+          'animationTime': '1s'
+        }
+      ],
       titleAnimation: {
         'classStr': 'label',
         'animationName': 'fade-in',
@@ -369,12 +393,50 @@ $(function () {
         'animationTime': '0.5s'
       }
     },
-    bgAnimationArr: ['bounceInDown', 'bounceInLeft', 'bounceInRight', 'bounceInUp', 'fadeIn', 'fadeInDown', 'flip', 'lightSpeedIn', 'rotateIn', 'rotateInDownLeft', 'rotateInDownRight', 'zoomIn', 'zoomInLeft', 'zoomInRight', 'rollIn',]
+    bgAnimationArr: ['zoomIn', 'fadeIn', 'translationRightIn']
   };
-  parms.page3 = parms.page2;
-  parms.page4 = parms.page2;
-  parms.page5 = parms.page2;
-  parms.page6 = parms.page2;
+  parms.page3 = deepClone(parms.page2);
+  parms.page4 = deepClone(parms.page2);
+  parms.page5 = deepClone(parms.page2);
+  parms.page6 = deepClone(parms.page2);
+  parms.page3.bgAnimation = [
+    {
+      'classStr': 'bg2',
+      'animationName': 'fadeIn animated',
+      'animationTime': '1s'
+    },
+    {
+      'classStr': 'bg3',
+      'animationName': 'translationRightIn animated',
+      'animationTime': '2s'
+    },
+    {
+      'classStr': 'bg4',
+      'animationName': 'fadeIn animated',
+      'animationTime': '1s'
+    },
+  ];
+  parms.page4.bgAnimation = [
+    {
+      'classStr': 'bg2',
+      'animationName': 'fadeIn animated',
+      'animationTime': '1s'
+    }
+  ];
+  parms.page5.bgAnimation = [
+    {
+      'classStr': 'bg2',
+      'animationName': 'fadeIn animated',
+      'animationTime': '1s'
+    }
+  ];
+  parms.page6.bgAnimation = [
+    {
+      'classStr': 'bg2',
+      'animationName': 'fadeIn animated',
+      'animationTime': '1s'
+    }
+  ];
 
   function whichAnimationEvent () {
     var t,
@@ -468,7 +530,8 @@ $(function () {
           'transition-duration': 'inherit'
         });
         if (key == 'bgAnimation') {
-          var _el = $('.page_' + pageNum + ' .' + obj.classStr);
+          // var _el = $('.page_' + pageNum + ' .' + obj.classStr);
+          var _el = $('.page_' + pageNum + ' .bg');
           _el.removeClass('animated');
           for (var j = 0; j < parms.bgAnimationArr.length; j++) {
             _el.removeClass(parms.bgAnimationArr[j]);
@@ -499,10 +562,11 @@ $(function () {
       'transition-duration': 'inherit'
     });
 
-    if(parms.mySwiper){
+    if (parms.mySwiper) {
       parms.mySwiper.destroy(false);
     }
     $(".layer-content").hide();
+    $(".video-content").hide();
 
     $('.page_' + pageNum + ' .shuye .lvye-img').removeClass('scale-enlarge').css({ 'animation-duration': 'inherit' });
     if (pageNum == 7) {
@@ -528,9 +592,14 @@ $(function () {
         setTimeout(function () {
           count++;
           resetAnimationCount();
-          var animationName = parms.bgAnimationArr[Math.floor(Math.random() * parms.bgAnimationArr.length)] + ' animated ';
-          console.log('bg', el, animationName)
-          $(el) && $(el).next().length > 0 && $(el).next().css('animation-duration', obj.animationTime).addClass(animationName);
+          $(el) && $(el).next().length > 0 && $(el).next().css('animation-duration', obj.animationTime).addClass(obj.animationName);
+        }, 3000)
+      } else if (page == 7 && type == 'titleAnimation') {
+        setTimeout(function () {
+          count++;
+          resetAnimationCount();
+          console.log('bg2', el, obj.animationName)
+          $(el) && $(el).next().length > 0 && $(el).next().css('animation-duration', obj.animationTime).addClass(obj.animationName);
         }, 3000)
       } else {
         count++;
@@ -794,14 +863,16 @@ $(function () {
           break;
         case 'bgAnimation':
           var pageNow = parms.pageNow;
+          var animationClassArr = page['bgAnimation'];
           setTimeout(function () {
-            var animationName = parms.bgAnimationArr[Math.floor(Math.random() * parms.bgAnimationArr.length)] + ' animated ';
-            $($('.page_' + pageNow + ' .' + page['bgAnimation'].classStr)[1]).css('animation-duration', page['bgAnimation'].animationTime).addClass(animationName);
+            // var animationName = parms.bgAnimationArr[Math.floor(Math.random() * parms.bgAnimationArr.length)] + ' animated ';
+            $('.page_' + pageNow + ' .' + animationClassArr[0].classStr).css('animation-duration', page['bgAnimation'][0].animationTime).addClass(page['bgAnimation'][0].animationName);
           }, 3000);
-          $('.page_' + pageNow + ' .' + page['bgAnimation'].classStr).each(function () {
-            watchAnimationEvent(this, page['bgAnimation'], 'bgAnimation', pageNow);
-          });
-
+          for (var i = 0; i < animationClassArr.length; i++) {
+            if (i < animationClassArr.length + 1) {
+              watchAnimationEvent($('.page_' + pageNow + ' .' + animationClassArr[i].classStr), animationClassArr[i + 1], 'bgAnimation', pageNow);
+            }
+          }
           break;
         case 'lineTransition':
           if (!page['bgAnimation']) {
@@ -842,6 +913,37 @@ $(function () {
   }
 
   var isTouchEnd = true; // 标记当前滑动是否结束(手指已离开屏幕)
+
+  function deepClone (obj) {
+    var result;
+    var oClass = isClass(obj);
+    if (oClass === "Object") {
+      result = {};
+    } else if (oClass === "Array") {
+      result = [];
+    } else {
+      return obj;
+    }
+    for (var key in obj) {
+      var copy = obj[key];
+      if (isClass(copy) == "Object") {
+        result[key] = arguments.callee(copy);//递归调用
+      } else if (isClass(copy) == "Array") {
+        result[key] = arguments.callee(copy);
+      } else {
+        result[key] = obj[key];
+      }
+    }
+    return result;
+  }
+
+//判断对象的数据类型
+  function isClass (o) {
+    if (o === null) return "Null";
+    if (o === undefined) return "Undefined";
+    return Object.prototype.toString.call(o).slice(8, -1);
+  }
+
 
   var app = {
 
@@ -951,13 +1053,12 @@ $(function () {
                 $('.page_7 .' + parms.page7.btnAnimation.classStr).each(function () {
                   watchAnimationEvent(this, parms.page7['btnAnimation'], 'btnAnimation', parms.pageNow);
                 });
-              }, 2000)
+              }, 3500)
               this.removeEventListener(transitionEvent, arguments.callee, false);
             });
             return false;
           }
           if (parms.pageNow == 8 && direction === 'top' && !parms.page8Type) {
-            $(".page_8 .layer-content").hide();
             $('.page_8 .arrow-content').removeClass('arrow-content-transition').css({
               'animation-duration': 'inherit',
               'transition-duration': 'inherit'
@@ -1021,5 +1122,4 @@ $(function () {
     }
   };
 
-})
-;
+});

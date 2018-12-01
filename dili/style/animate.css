@@ -2301,8 +2301,8 @@ Copyright (c) 2014 Daniel Eden
 @-webkit-keyframes zoomIn {
 	0% {
 		opacity: 0;
-		-webkit-transform: scale3d(.3, .3, .3);
-		transform: scale3d(.3, .3, .3)
+		-webkit-transform: scale3d(1.5, 1.5, 1.5);
+		transform: scale3d(1.5, 1.5, 1.5)
 	}
 	50% {
 		opacity: 1
@@ -2312,8 +2312,8 @@ Copyright (c) 2014 Daniel Eden
 @keyframes zoomIn {
 	0% {
 		opacity: 0;
-		-webkit-transform: scale3d(.3, .3, .3);
-		transform: scale3d(.3, .3, .3)
+		-webkit-transform: scale3d(1.5, 1.5, 1.5);
+		transform: scale3d(1.5, 1.5, 1.5)
 	}
 	50% {
 		opacity: 1
@@ -2900,4 +2900,37 @@ Copyright (c) 2014 Daniel Eden
 .slideOutUp {
 	-webkit-animation-name: slideOutUp;
 	animation-name: slideOutUp
+}
+
+@-webkit-keyframes translationRightIn {
+	0% {
+		background-position: 0% 0;
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 1;
+		background-position: 100% 0;
+	}
+}
+
+@keyframes translationRightIn {
+	0% {
+		opacity: 0;
+		background-position: 0% 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 1;
+		background-position: 100% 0;
+	}
+}
+
+.translationRightIn {
+	-webkit-animation-name: translationRightIn;
+	animation-name: translationRightIn
 }
