@@ -32,25 +32,17 @@ $(function () {
     "images/page2/title.png",
     "images/page2/title2-1.png",
     "images/page2/title2-2.png",
-    "images/page2/title2-3.png",
     "images/page2/title3-1.png",
     "images/page2/title3-2.png",
-    "images/page2/title3-3.png",
-    "images/page2/title3-4.png",
-    "images/page2/title3-5.png",
     "images/page3/bg1.jpg",
     "images/page3/bg2.jpg",
     "images/page3/bg3.jpg",
     "images/page3/bg4.jpg",
     "images/page3/title1-1.png",
     "images/page3/title1-2.png",
-    "images/page3/title1-3.png",
     "images/page3/title2.png",
     "images/page3/title3-1.png",
     "images/page3/title3-2.png",
-    "images/page3/title3-3.png",
-    "images/page3/title3-4.png",
-    "images/page3/title3-5.png",
     "images/page4/bg1.jpg",
     "images/page4/bg2.jpg",
     "images/page4/title1-1.png",
@@ -62,7 +54,6 @@ $(function () {
     "images/page5/bg2.jpg",
     "images/page5/title1-1.png",
     "images/page5/title1-2.png",
-    "images/page5/title1-3.png",
     "images/page5/title2.png",
     "images/page5/title3-1.png",
     "images/page5/title3-2.png",
@@ -103,7 +94,6 @@ $(function () {
     "images/page7/title2.png",
     "images/page7/title3-1.png",
     "images/page7/title3-2.png",
-    "images/page7/title3-3.png",
     "images/page7/title4-1.png",
     "images/page7/title4-2.png",
     "images/page7/title4-3.png",
@@ -155,6 +145,12 @@ $(function () {
     $('.loading-content .line').css('width', progress + '%')
   });
   var parms = {
+    options: {
+      useEasing: true,
+      useGrouping: false,
+      separator: ',',
+      decimal: '.',
+    },
     page7Type: false,
     page8Type: false,
     loadingTimeer: null,// 记录当前页面位置
@@ -350,11 +346,7 @@ $(function () {
     },
     mySwiper: null,
     page8: {
-      bgAnimation: {
-        'classStr': 'bg',
-        'animationName': 'slide-in-right',
-        'animationTime': '0.5s'
-      },
+      bgAnimation: [],
       bihuaAnimation: {
         'classStr': 'bihua',
         'animationName': 'fade-in',
@@ -576,7 +568,10 @@ $(function () {
       $(".page_8 .page-content-bg").removeClass('fade-in');
       $(".page_8 .bg2").removeClass('fade-in');
       $(".page_8 .logo").removeClass('fade-out');
-      $(".page_8 .lv-logo-img").removeClass('fade-in lv-logo-img-transition');
+      $(".page_8 .lv-logo-img").removeClass('fade-in lv-logo-img-transition').css({
+        'opacity': '0',
+        "z-index": '1'
+      });
       // $('.page_8 .logo-img').addClass('fade-in').removeClass('fade-out').removeAttr('style');
       //  $('.page_8 .lv-logo-img').removeClass('fade-in').removeClass('lv-logo-img-transition').removeAttr('style');
       //  $('.page_8 .bg2').addClass('fade-in').removeAttr('style');
@@ -588,6 +583,21 @@ $(function () {
     animationCount++;
     console.log('animationcount =++', animationCount, type, page);
     transitionEvent && $(el)[0].addEventListener(transitionEvent, function () {
+      if (type == 'titleAnimation') {
+        $(el).find(".num").each(function () {
+          var id = $(this).attr("data-id");
+          var decima = $(this).attr("data-num-decima");
+          var time = $(this).attr("data-num-time");
+          var start = $(this).attr("data-num-start");
+          var end = $(this).attr("data-num-end");
+          var demo = new CountUp(id, start, end, decima, time, parms.options);
+          if (!demo.error) {
+            demo.start();
+          } else {
+            console.error(demo.error);
+          }
+        });
+      }
       if (type == 'bgAnimation') {
         setTimeout(function () {
           count++;
@@ -595,12 +605,13 @@ $(function () {
           $(el) && $(el).next().length > 0 && $(el).next().css('animation-duration', obj.animationTime).addClass(obj.animationName);
         }, 3000)
       } else if (page == 7 && type == 'titleAnimation') {
+
         setTimeout(function () {
           count++;
           resetAnimationCount();
           console.log('bg2', el, obj.animationName)
           $(el) && $(el).next().length > 0 && $(el).next().css('animation-duration', obj.animationTime).addClass(obj.animationName);
-        }, 3000)
+        }, 3000);
       } else {
         count++;
         resetAnimationCount();
@@ -653,7 +664,7 @@ $(function () {
     })
 
     //关闭 弹窗 轮播
-    $("body .new-page").on("click", '.close-img', function (e) {
+    $("body").on("click", '.close-img', function (e) {
       parms.mySwiper.destroy(false);
       $(".layer-content").hide();
     });
@@ -864,13 +875,16 @@ $(function () {
         case 'bgAnimation':
           var pageNow = parms.pageNow;
           var animationClassArr = page['bgAnimation'];
-          setTimeout(function () {
-            // var animationName = parms.bgAnimationArr[Math.floor(Math.random() * parms.bgAnimationArr.length)] + ' animated ';
-            $('.page_' + pageNow + ' .' + animationClassArr[0].classStr).css('animation-duration', page['bgAnimation'][0].animationTime).addClass(page['bgAnimation'][0].animationName);
-          }, 3000);
-          for (var i = 0; i < animationClassArr.length; i++) {
-            if (i < animationClassArr.length + 1) {
-              watchAnimationEvent($('.page_' + pageNow + ' .' + animationClassArr[i].classStr), animationClassArr[i + 1], 'bgAnimation', pageNow);
+          if (animationClassArr.length > 0) {
+
+            setTimeout(function () {
+              // var animationName = parms.bgAnimationArr[Math.floor(Math.random() * parms.bgAnimationArr.length)] + ' animated ';
+              $('.page_' + pageNow + ' .' + animationClassArr[0].classStr).css('animation-duration', page['bgAnimation'][0].animationTime).addClass(page['bgAnimation'][0].animationName);
+            }, 3000);
+            for (var i = 0; i < animationClassArr.length; i++) {
+              if (i < animationClassArr.length + 1) {
+                watchAnimationEvent($('.page_' + pageNow + ' .' + animationClassArr[i].classStr), animationClassArr[i + 1], 'bgAnimation', pageNow);
+              }
             }
           }
           break;
