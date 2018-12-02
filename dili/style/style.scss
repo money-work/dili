@@ -1243,7 +1243,9 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 	  margin-top: 0;
 	  @include px2rem(top, 210);
 	  @include px2rem(margin-left, -56.5);
-
+	  img {
+		width: 100%;
+	  }
 	}
   }
 }

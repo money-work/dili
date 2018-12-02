@@ -670,7 +670,9 @@ $(function () {
 
     //关闭 弹窗 轮播
     $("body").on("click", '.close-img', function (e) {
-      parms.mySwiper.destroy(false);
+      if(parms.mySwiper){
+        parms.mySwiper.destroy(false);
+      }
       $(".layer-content").hide();
     });
 
@@ -1045,6 +1047,10 @@ $(function () {
             return false;
           }
           if (!pageAnimationDone) return false;
+
+          $(".close-img").trigger("click");
+          $(".close-btn").trigger("click")
+
           if (parms.pageNow == 7 && direction === 'top' && !parms.page7Type) {
             $('.page_7 .guding-img').show();
             $('.page_7 .arrow-content').removeClass('arrow-content-transition').css({
