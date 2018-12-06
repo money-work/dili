@@ -26,6 +26,8 @@ $(function () {
     "images/everyday/7.png",
     "images/everyday/8.png",
     "images/everyday/9.png",
+    "images/page1/title1.png",
+    "images/page1/title2.png",
     "images/page2/bg1.jpg",
     "images/page2/bg2.jpg",
     "images/page2/bg3.jpg",
@@ -228,19 +230,19 @@ $(function () {
       lineTransition: [
         {
           'classStr': 'left-line',
-          'time': '0.6s'
+          'time': '0.4s'
         },
         {
           'classStr': 'bottom-line',
-          'time': '1.2s'
-        },
-        {
-          'classStr': 'right-line',
           'time': '0.8s'
         },
         {
+          'classStr': 'right-line',
+          'time': '0.5s'
+        },
+        {
           'classStr': 'top-line',
-          'time': '1s'
+          'time': '0.7s'
         }
       ],
       logoAnimation: {
@@ -288,7 +290,7 @@ $(function () {
       },
       sanluoTransition: {
         'classStr': 'lvye',
-        'animationTime': '1.5s'
+        'animationTime': '1.3s'
       },
 
       lineTransition: [
@@ -307,7 +309,7 @@ $(function () {
       'classStr': 'shuye',
       'showClassStr': 'lvye',
       'animationName': 'scale-enlarge',
-      'animationTime': '1.5s'
+      'animationTime': '1s'
     },
     layerData: {
       "zhongzhi": {
@@ -669,8 +671,8 @@ $(function () {
     })
 
     //关闭 弹窗 轮播
-    $("body").on("click", '.close-img', function (e) {
-      if(parms.mySwiper){
+    $("body .layer-content").on("click", '.close-img', function (e) {
+      if (parms.mySwiper) {
         parms.mySwiper.destroy(false);
       }
       $(".layer-content").hide();
@@ -724,6 +726,9 @@ $(function () {
       var str = "";
       for (var i = 0; i < imgs.length; i++) {
         str += "<div class='swiper-slide'><img src = '" + imgs[i] + "' /></div>";
+      }
+      if (parms.mySwiper) {
+        parms.mySwiper.destroy(false);
       }
       $(".layer-content .swiper-wrapper").html(str);
       $(".layer-content").show();
@@ -786,7 +791,7 @@ $(function () {
     var pageNow = parms.pageNow;
     if (pageNow >= 2 && pageNow <= 7) {
       var el = $('.page_' + pageNow + ' .bg-content .bg');
-      if (el.length < 4) {
+      if (el.length < 3) {
         animationEvent && $('.page_' + pageNow + ' .en-img').length > 0 && $('.page_' + pageNow + ' .en-img')[0].addEventListener(animationEvent, function () {
           $('.page_' + pageNow + ' .arrow-content').css('transition-duration', '1s').addClass('arrow-content-transition');
           this.removeEventListener(animationEvent, arguments.callee, false)
@@ -1133,7 +1138,7 @@ $(function () {
                 parms.pageNow = Math.round(Math.abs(translate) / pageHeight) + 1;
                 $this.transform.call(viewport, translate);
                 mangerAnimation();
-              }, 1100);
+              }, 100);
 
             });
 
