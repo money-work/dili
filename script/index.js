@@ -220,7 +220,7 @@ $(function () {
       bihuaAnimation: {
         'classStr': 'bihua',
         'animationName': 'fade-in',
-        'animationTime': '0.1s'
+        'animationTime': '0.09s'
       },
       titleAnimation: {
         'classStr': 'label',
