@@ -342,17 +342,17 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 	  @include px2rem(left, 48);
 	  @include px2rem(top, -46);
 	  @include px2rem(height, 140);
-	  width: 0;
+	  @include px2rem(width, 440);
 	  background-image: url("../images/page1/title1.png");
 	  background-size: cover;
 	  overflow: hidden;
 	  @extend .background-public;
-	  @include transition1(width, 2s);
-	  img{
+	  opacity: 0;
+	  img {
 		@include px2rem(width, 440);
 	  }
 	  &.title1-transition {
-		@include px2rem(width, 440);
+		opacity: 1;
 	  }
 
 	}
@@ -361,17 +361,17 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 	  @include px2rem(left, 26);
 	  @include px2rem(top, 78);
 	  @include px2rem(height, 130);
-	  width: 0;
+	  @include px2rem(width, 510);
 	  overflow: hidden;
+	  opacity: 0;
 	  //background-image: url("../images/page1/title2.png");
 	  @extend .background-public;
 	  background-size: cover;
-	  @include transition1(width, 2s);
-	  img{
+	  img {
 		@include px2rem(width, 510);
 	  }
 	  &.title2-transition {
-		@include px2rem(width, 510);
+		opacity: 1;
 	  }
 	}
 	.title-en {
@@ -731,13 +731,6 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 
 .page_3 {
 
-  .bg3 {
-	background-size: 200% 100%;
-	background-position: 0% 0%;
-	background-image: url("../images/page3/bg3.jpg");
-	background-repeat: no-repeat;
-  }
-
   .page-content {
 	position: absolute;
 	@include px2rem(left, 146);
@@ -921,9 +914,6 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 	right: 0;
 	z-index: 1;
 	visibility: hidden;
-	background-size: 200% 100%;
-	background-position: 0% 0%;
-	background-repeat: no-repeat;
   }
   .bg1 {
 	z-index: 1;
@@ -931,13 +921,11 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
   }
   .bg2 {
 	z-index: 2;
-	background-image: url("../images/page7/bg2.jpg");
   }
   .bg3 {
 	z-index: 3;
   }
   .bg4 {
-	background-image: url("../images/page7/bg4.jpg");
 	z-index: 4;
   }
   .bg5 {
@@ -1249,7 +1237,7 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 	  position: absolute;
 	  left: 50%;
 	  margin-top: 0;
-	  @include px2rem(top, 210);
+	  @include px2rem(top, 190);
 	  @include px2rem(margin-left, -56.5);
 	  img {
 		width: 100%;

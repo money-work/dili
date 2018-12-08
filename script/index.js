@@ -163,11 +163,11 @@ $(function () {
       lineTransition: [
         {
           'classStr': 'title1',
-          'time': '2s'
+          'time': '0.8s'
         },
         {
           'classStr': 'title2',
-          'time': '2s'
+          'time': '0.8s'
         },
         {
           'classStr': 'top-left-line',
@@ -175,20 +175,20 @@ $(function () {
         },
         {
           'classStr': 'left-line',
-          'time': '0.8s'
+          'time': '0.6s'
         },
         {
           'classStr': 'bottom-left-line',
-          'time': '0.4s'
+          'time': '0.2s'
         },
         {
           'classStr': 'bottom--right-line',
           'addClassStr': 'right-line',
-          'time': '0.4s'
+          'time': '0.2s'
         },
         {
           'classStr': 'right-line',
-          'time': '0.8s'
+          'time': '0.6s'
         },
         {
           'classStr': 'top-right-line',
@@ -196,11 +196,11 @@ $(function () {
         },
         {
           'classStr': 'title-en',
-          'time': '1s'
+          'time': '0.8s'
         },
         {
           'classStr': 'arrow-content',
-          'time': '1s'
+          'time': '0.8s'
         }
       ]
     },
@@ -213,50 +213,50 @@ $(function () {
         },
         {
           'classStr': 'bg3',
-          'animationName': 'zoomIn animated',
+          'animationName': 'fadeIn animated',
           'animationTime': '1s'
         },
       ],
       bihuaAnimation: {
         'classStr': 'bihua',
         'animationName': 'fade-in',
-        'animationTime': '0.09s'
+        'animationTime': '0.08s'
       },
       titleAnimation: {
         'classStr': 'label',
         'animationName': 'fade-in',
-        'animationTime': '1s'
+        'animationTime': '0.8s'
       },
       lineTransition: [
         {
           'classStr': 'left-line',
-          'time': '0.4s'
+          'time': '0.3s'
         },
         {
           'classStr': 'bottom-line',
-          'time': '0.8s'
+          'time': '0.6s'
         },
         {
           'classStr': 'right-line',
-          'time': '0.5s'
+          'time': '0.3s'
         },
         {
           'classStr': 'top-line',
-          'time': '0.7s'
+          'time': '0.5s'
         }
       ],
       logoAnimation: {
         'classStr': 'logo',
         'animationName': 'fade-in',
-        'animationTime': '0.5s'
+        'animationTime': '0.4s'
       }
     },
     page7: {
       bgAnimation: [
         {
           'classStr': 'bg2',
-          'animationName': 'translationRightIn animated',
-          'animationTime': '2s',
+          'animationName': 'fadeIn animated',
+          'animationTime': '1s',
           'num': 1
         },
         {
@@ -267,8 +267,8 @@ $(function () {
         },
         {
           'classStr': 'bg4',
-          'animationName': 'translationRightIn animated',
-          'animationTime': '2s',
+          'animationName': 'fadeIn animated',
+          'animationTime': '1s',
           'num': 3
         },
         {
@@ -290,7 +290,7 @@ $(function () {
       },
       sanluoTransition: {
         'classStr': 'lvye',
-        'animationTime': '1.3s'
+        'animationTime': '1s'
       },
 
       lineTransition: [
@@ -391,7 +391,7 @@ $(function () {
         'animationTime': '0.5s'
       }
     },
-    bgAnimationArr: ['zoomIn', 'fadeIn', 'translationRightIn']
+    bgAnimationArr: ['zoomIn', 'fadeIn']
   };
   parms.page3 = deepClone(parms.page2);
   parms.page4 = deepClone(parms.page2);
@@ -405,8 +405,8 @@ $(function () {
     },
     {
       'classStr': 'bg3',
-      'animationName': 'translationRightIn animated',
-      'animationTime': '2s'
+      'animationName': 'fadeIn animated',
+      'animationTime': '1s'
     },
     {
       'classStr': 'bg4',
@@ -541,7 +541,7 @@ $(function () {
           $(".new-page .logo").removeClass("fade-in").removeAttr('style');
           $(".new-page .title1").removeClass("fade-in").removeAttr('style');
           $(".new-page .title1").show();
-          $(".new-page .title2").removeClass("fade-in").removeAttr('style');
+          // $(".new-page .title2").removeClass("fade-in").removeAttr('style');
           $(".new-page .new-page-bg").removeClass("fade-in").removeAttr('style');
           $(".new-page .btn-content").removeClass("Zindex");
 
@@ -613,7 +613,7 @@ $(function () {
             var titleEl = $(".page_7 .page-content .title .label")[obj.num];
             $(titleEl) && $(titleEl).length > 0 && $(titleEl).css('animation-duration', '1s').addClass('fade-in');
           }
-        }, 3000)
+        }, 2000)
       } else {
         if (page === 7 && type === 'titleAnimation') {
           count++;
@@ -895,7 +895,7 @@ $(function () {
               if (pageNow == 7) {
                 $($('.page_7 .page-content .title .label')[1]).css('animation-duration', '1s').addClass('fade-in');
               }
-            }, 3000);
+            }, 2000);
             for (var i = 0; i < animationClassArr.length - 1; i++) {
               watchAnimationEvent($('.page_' + pageNow + ' .' + animationClassArr[i].classStr), animationClassArr[i + 1], 'bgAnimation', pageNow);
             }
@@ -1076,7 +1076,7 @@ $(function () {
               $(".new-page .title1").addClass("fade-in").css('animation-duration', '1s');
               setTimeout(function () {
                 $(".new-page .title1").hide();
-                $(".new-page .title2").addClass("fade-in").css('animation-duration', '1s');
+                // $(".new-page .title2").addClass("fade-in").css('animation-duration', '1s');
                 $(".new-page .new-page-bg").addClass("fade-in").css('animation-duration', '1s');
                 $(".new-page .btn-content").addClass("Zindex");
 
