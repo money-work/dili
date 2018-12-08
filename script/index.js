@@ -356,33 +356,33 @@ $(function () {
       bihuaAnimation: {
         'classStr': 'bihua',
         'animationName': 'fade-in',
-        'animationTime': '0.2s'
+        'animationTime': '0.1s'
       },
       titleAnimation: {
         'classStr': 'label',
         'animationName': 'fade-in',
-        'animationTime': '1s'
+        'animationTime': '0.8s'
       },
       lineTransition: [
         {
           'classStr': 'left-line',
-          'time': '0.6s'
+          'time': '0.4s'
         },
         {
           'classStr': 'bottom-line',
-          'time': '1.2s'
-        },
-        {
-          'classStr': 'right-line',
           'time': '0.8s'
         },
         {
+          'classStr': 'right-line',
+          'time': '0.6s'
+        },
+        {
           'classStr': 'top-line',
-          'time': '1s'
+          'time': '0.3s'
         },
         {
           'classStr': 'arrow-content',
-          'time': '1s'
+          'time': '0.8s'
         }
       ],
       logoAnimation: {
