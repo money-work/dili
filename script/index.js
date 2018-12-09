@@ -747,9 +747,7 @@ $(function () {
   function audioAutoPlay () {
     var audio = document.getElementById("audio-cls");
     var play = function () {
-      if (audio.paused) {
-        audio.play();
-      }
+      audio.play();
       document.removeEventListener("touchstart", play, false);
     };
     play();
