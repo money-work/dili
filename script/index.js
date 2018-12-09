@@ -639,22 +639,6 @@ $(function () {
   addEvent();
 
   function addEvent () {
-    // const audio = document.getElementById('audio-cls');
-    // audio.addEventListener('canplay', function () {
-    //   if (audio.paused) {
-    //     audio.play();
-    //   }
-    // });
-    // document.addEventListener('DOMContentLoaded', function () {
-    //   function audioAutoPlay () {
-    //     audio.play();
-    //   }
-    //
-    //   if (audio.paused) {
-    //     audioAutoPlay();
-    //   }
-    // });
-
     //音乐暂停事件
     $(".music-oper").on("click", function (e) {
       // e.stopPropagation();
@@ -758,6 +742,17 @@ $(function () {
       play();
     }, false);
     document.addEventListener("touchstart", play, false);
+
+    audio.addEventListener('canplay', function () {
+      audio.play();
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+      function audioAutoPlay () {
+        audio.play();
+      }
+
+      audioAutoPlay();
+    });
   }
 
 
