@@ -162,41 +162,12 @@ $(function () {
     page1: {
       lineTransition: [
         {
-          'classStr': 'title1',
-          'time': '0.8s'
+          'classStr': 'test1',
+          'time': '0.5s'
         },
         {
           'classStr': 'title2',
-          'time': '0.8s'
-        },
-        {
-          'classStr': 'top-left-line',
-          'time': '0.2s'
-        },
-        {
-          'classStr': 'left-line',
-          'time': '0.6s'
-        },
-        {
-          'classStr': 'bottom-left-line',
-          'time': '0.2s'
-        },
-        {
-          'classStr': 'bottom--right-line',
-          'addClassStr': 'right-line',
-          'time': '0.2s'
-        },
-        {
-          'classStr': 'right-line',
-          'time': '0.6s'
-        },
-        {
-          'classStr': 'top-right-line',
-          'time': '0.3s'
-        },
-        {
-          'classStr': 'title-en',
-          'time': '0.8s'
+          'time': '0.5s'
         },
         {
           'classStr': 'arrow-content',
@@ -207,62 +178,62 @@ $(function () {
     page2: {
       bgAnimation: [
         {
-          'classStr': 'bg2',
-          'animationName': 'fadeIn animated',
+          'classStr': 'bg1',
+          'animationName': 'zoomIn animated',
           'animationTime': '1s'
         },
         {
-          'classStr': 'bg3',
-          'animationName': 'fadeIn animated',
+          'classStr': 'bg2',
+          'animationName': 'zoomOutIn animated',
           'animationTime': '1s'
         },
       ],
       bihuaAnimation: {
         'classStr': 'bihua',
         'animationName': 'fade-in',
-        'animationTime': '0.08s'
+        'animationTime': '0.05s'
       },
       titleAnimation: {
         'classStr': 'label',
         'animationName': 'fade-in',
         'animationTime': '0.8s'
       },
-      lineTransition: [
-        {
-          'classStr': 'left-line',
-          'time': '0.3s'
-        },
-        {
-          'classStr': 'bottom-line',
-          'time': '0.6s'
-        },
-        {
-          'classStr': 'right-line',
-          'time': '0.3s'
-        },
-        {
-          'classStr': 'top-line',
-          'time': '0.5s'
-        }
-      ],
-      logoAnimation: {
-        'classStr': 'logo',
-        'animationName': 'fade-in',
-        'animationTime': '0.4s'
-      }
+      // lineTransition: [
+      //   {
+      //     'classStr': 'left-line',
+      //     'time': '0.3s'
+      //   },
+      //   {
+      //     'classStr': 'bottom-line',
+      //     'time': '0.6s'
+      //   },
+      //   {
+      //     'classStr': 'right-line',
+      //     'time': '0.3s'
+      //   },
+      //   {
+      //     'classStr': 'top-line',
+      //     'time': '0.5s'
+      //   }
+      // ],
+      // logoAnimation: {
+      //   'classStr': 'logo',
+      //   'animationName': 'fade-in',
+      //   'animationTime': '0.4s'
+      // }
     },
     page7: {
       bgAnimation: [
         {
           'classStr': 'bg2',
           'animationName': 'fadeIn animated',
-          'animationTime': '1s',
+          'animationTime': '1.5s',
           'num': 1
         },
         {
           'classStr': 'bg3',
           'animationName': 'fadeIn animated',
-          'animationTime': '1s',
+          'animationTime': '1.5s',
           'num': 2
         },
         {
@@ -391,7 +362,7 @@ $(function () {
         'animationTime': '0.5s'
       }
     },
-    bgAnimationArr: ['zoomIn', 'fadeIn']
+    bgAnimationArr: ['zoomIn', 'fadeIn', 'zoomOutIn']
   };
   parms.page3 = deepClone(parms.page2);
   parms.page4 = deepClone(parms.page2);
@@ -622,7 +593,9 @@ $(function () {
           count++;
           resetAnimationCount();
           console.log('bg2', el, obj.animationName)
-          $(el) && $(el).next().length > 0 && $(el).next().css('animation-duration', obj.animationTime).addClass(obj.animationName);
+          if(type !== 'titleAnimation'){
+            $(el) && $(el).next().length > 0 && $(el).next().css('animation-duration', obj.animationTime).addClass(obj.animationName);
+          }
         }
       }
       // if (type == 'titleAnimation') {
@@ -861,7 +834,7 @@ $(function () {
           if (pageNow <= 6 && pageNow > 1 || pageNow == 8) {
             var bihuaEl = $('.page_' + pageNow + ' .' + page['bihuaAnimation'].classStr);
             animationEvent && $(bihuaEl[bihuaEl.length - 1])[0].addEventListener(animationEvent, function () {
-              $($('.page_' + pageNow + ' .' + page['titleAnimation'].classStr)[0]).css('animation-duration', page['titleAnimation'].animationTime).addClass(page['titleAnimation'].animationName);
+              $($('.page_' + pageNow + ' .' + page['titleAnimation'].classStr)).css('animation-duration', page['titleAnimation'].animationTime).addClass(page['titleAnimation'].animationName);
               $('.page_' + pageNow + ' .' + page['titleAnimation'].classStr).each(function () {
                 console.log('animationcount =++ ******', page['titleAnimation'])
                 watchAnimationEvent(this, page['titleAnimation'], 'titleAnimation', pageNow);
@@ -882,13 +855,13 @@ $(function () {
           var animationClassArr = page['bgAnimation'];
           if (animationClassArr.length > 0) {
 
-            setTimeout(function () {
+            // setTimeout(function () {
               // var animationName = parms.bgAnimationArr[Math.floor(Math.random() * parms.bgAnimationArr.length)] + ' animated ';
               $('.page_' + pageNow + ' .' + animationClassArr[0].classStr).css('animation-duration', page['bgAnimation'][0].animationTime).addClass(page['bgAnimation'][0].animationName);
               if (pageNow == 7) {
                 $($('.page_7 .page-content .title .label')[1]).css('animation-duration', '1s').addClass('fade-in');
               }
-            }, 2000);
+            // }, 2000);
             for (var i = 0; i < animationClassArr.length - 1; i++) {
               watchAnimationEvent($('.page_' + pageNow + ' .' + animationClassArr[i].classStr), animationClassArr[i + 1], 'bgAnimation', pageNow);
             }
