@@ -177,9 +177,9 @@ $(function () {
         }
       ],
       titleAnimation: {
-          'classStr': 'title2',
-          'animationName': 'bounceInLeft animated',
-          'animationTime': '0.5s'
+        'classStr': 'title2',
+        'animationName': 'bounceInLeft animated',
+        'animationTime': '0.5s'
       },
     },
     page2: {
@@ -205,29 +205,6 @@ $(function () {
         'animationName': 'fade-in',
         'animationTime': '0.8s'
       },
-      // lineTransition: [
-      //   {
-      //     'classStr': 'left-line',
-      //     'time': '0.3s'
-      //   },
-      //   {
-      //     'classStr': 'bottom-line',
-      //     'time': '0.6s'
-      //   },
-      //   {
-      //     'classStr': 'right-line',
-      //     'time': '0.3s'
-      //   },
-      //   {
-      //     'classStr': 'top-line',
-      //     'time': '0.5s'
-      //   }
-      // ],
-      // logoAnimation: {
-      //   'classStr': 'logo',
-      //   'animationName': 'fade-in',
-      //   'animationTime': '0.4s'
-      // }
     },
     page7: {
       bgAnimation: [
@@ -334,35 +311,13 @@ $(function () {
       bihuaAnimation: {
         'classStr': 'bihua',
         'animationName': 'fade-in',
-        'animationTime': '0.1s'
+        'animationTime': '0.05s'
       },
       titleAnimation: {
         'classStr': 'label',
         'animationName': 'fade-in',
         'animationTime': '0.8s'
       },
-      lineTransition: [
-        {
-          'classStr': 'left-line',
-          'time': '0.4s'
-        },
-        {
-          'classStr': 'bottom-line',
-          'time': '0.8s'
-        },
-        {
-          'classStr': 'right-line',
-          'time': '0.6s'
-        },
-        {
-          'classStr': 'top-line',
-          'time': '0.3s'
-        },
-        {
-          'classStr': 'arrow-content',
-          'time': '0.8s'
-        }
-      ],
       logoAnimation: {
         'classStr': 'logo',
         'animationName': 'fade-in',
@@ -450,10 +405,10 @@ $(function () {
   function watchTransitionEvent (el, nextel, pageNum) {
     var transitionEvent = whichTransitionEvent();
     animationCount++;
-    console.log(transitionEvent, (".page_" + pageNum + ' .' + el.classStr), nextel);
+    console.log('watchTransitionEvent----animationCount--->', animationCount)
     transitionEvent && $(".page_" + pageNum + ' .' + el.classStr)[0].addEventListener(transitionEvent, function () {
-      console.log('animation done', nextel.classStr, this.className);
       count++;
+      console.log('watchTransitionEvent---count----------->', count)
       resetAnimationCount();
       $(".page_" + pageNum + ' .' + nextel.classStr).css('transition-duration', nextel.time).addClass(nextel.classStr + '-transition');
       $(".page_" + pageNum + ' .' + el.classStr)[0].removeEventListener(transitionEvent, arguments.callee, false);//销毁事件
@@ -462,16 +417,14 @@ $(function () {
 
 
   function resetAnimationCount () {
-    console.log('reset animation count ', animationCount, count);
     if (animationCount === count) {
+      console.log('resetAnimationCount', animationCount, 'count', count)
       animationCount = 0;
       count = 1;
       pageAnimationDone = true;
       var page = parms.pageNow;
 
-      console.log('reset css page ', page);
       if (page > 1) {
-
         resetAnimationCss(page - 1);
         resetAnimationCss(page + 1);
       } else {
@@ -485,9 +438,6 @@ $(function () {
 
   function resetAnimationCss (pageNum) {
     var page = parms['page' + pageNum];
-    if (pageNum == 8) {
-      console.log('aaaaa ppp888')
-    }
     for (var key in page) {
       if (key == 'lineTransition') {
         var lineTransition = page[key];
@@ -565,10 +515,12 @@ $(function () {
   function watchAnimationEvent (el, obj, type, page) {
     var transitionEvent = whichAnimationEvent();
     animationCount++;
-    console.log('animationcount =++', animationCount, type, page);
+    console.log('watchAnimationEvent----animationCount---->', animationCount)
     transitionEvent && $(el)[0].addEventListener(transitionEvent, function () {
       if (type == 'titleAnimation') {
+        var i = 0, len = $(el).find(".num").length;
         $(el).find(".num").each(function () {
+          i++;
           var id = $(this).attr("data-id");
           var decima = $(this).attr("data-num-decima");
           var time = $(this).attr("data-num-time");
@@ -576,7 +528,12 @@ $(function () {
           var end = $(this).attr("data-num-end");
           var demo = new CountUp(id, start, end, decima, time, parms.options);
           if (!demo.error) {
-            demo.start();
+            demo.start(function () {
+              if (i == len) {
+                $($('.page_' + page + ' .' + parms.shuyeOut.classStr)[0]).css('opacity', '1');
+                $($('.page_' + page + ' .' + parms.shuyeOut.classStr)[0]).find('.lvye-img').css('animation-duration', parms.shuyeOut.animationTime).addClass(parms.shuyeOut.animationName);
+              }
+            });
           } else {
             console.error(demo.error);
           }
@@ -591,6 +548,7 @@ $(function () {
             var titleEl = $(".page_7 .page-content .title .label")[obj.num];
             $(titleEl) && $(titleEl).length > 0 && $(titleEl).css('animation-duration', '1s').addClass('fade-in');
           }
+          console.log('watchAnimationEvent---setTimeout-count------------>', count)
         }, 2000)
       } else {
         if (page === 7 && type === 'titleAnimation') {
@@ -599,12 +557,12 @@ $(function () {
         } else {
           count++;
           resetAnimationCount();
-          console.log('bg2', el, obj.animationName)
-          if(type !== 'titleAnimation'){
+          if (type !== 'titleAnimation') {
             $(el) && $(el).next().length > 0 && $(el).next().css('animation-duration', obj.animationTime).addClass(obj.animationName);
           }
         }
       }
+      console.log('watchAnimationEvent---count------------>', count)
       // if (type == 'titleAnimation') {
       //   var num = $(el).attr('data-num');
       //   var bgAnimationEl = $('.page_' + page + ' .' + parms['page' + page].bgAnimation.classStr)[num];
@@ -843,7 +801,6 @@ $(function () {
             animationEvent && $(bihuaEl[bihuaEl.length - 1])[0].addEventListener(animationEvent, function () {
               $($('.page_' + pageNow + ' .' + page['titleAnimation'].classStr)).css('animation-duration', page['titleAnimation'].animationTime).addClass(page['titleAnimation'].animationName);
               $('.page_' + pageNow + ' .' + page['titleAnimation'].classStr).each(function () {
-                console.log('animationcount =++ ******', page['titleAnimation'])
                 watchAnimationEvent(this, page['titleAnimation'], 'titleAnimation', pageNow);
               });
               this.removeEventListener(animationEvent, arguments.callee, false);
@@ -851,6 +808,11 @@ $(function () {
           }
           if (pageNow == 7) {
             $($('.page_' + pageNow + ' .' + page['titleAnimation'].classStr)[0]).css('animation-duration', page['titleAnimation'].animationTime).addClass(page['titleAnimation'].animationName);
+            $('.page_' + pageNow + ' .' + page['titleAnimation'].classStr).each(function () {
+              watchAnimationEvent(this, page['titleAnimation'], 'titleAnimation', pageNow);
+            });
+          }
+          if(pageNow == 1){
             $('.page_' + pageNow + ' .' + page['titleAnimation'].classStr).each(function () {
               watchAnimationEvent(this, page['titleAnimation'], 'titleAnimation', pageNow);
             });
@@ -863,11 +825,11 @@ $(function () {
           if (animationClassArr.length > 0) {
 
             // setTimeout(function () {
-              // var animationName = parms.bgAnimationArr[Math.floor(Math.random() * parms.bgAnimationArr.length)] + ' animated ';
-              $('.page_' + pageNow + ' .' + animationClassArr[0].classStr).css('animation-duration', page['bgAnimation'][0].animationTime).addClass(page['bgAnimation'][0].animationName);
-              if (pageNow == 7) {
-                $($('.page_7 .page-content .title .label')[1]).css('animation-duration', '1s').addClass('fade-in');
-              }
+            // var animationName = parms.bgAnimationArr[Math.floor(Math.random() * parms.bgAnimationArr.length)] + ' animated ';
+            $('.page_' + pageNow + ' .' + animationClassArr[0].classStr).css('animation-duration', page['bgAnimation'][0].animationTime).addClass(page['bgAnimation'][0].animationName);
+            if (pageNow == 7) {
+              $($('.page_7 .page-content .title .label')[1]).css('animation-duration', '1s').addClass('fade-in');
+            }
             // }, 2000);
             for (var i = 0; i < animationClassArr.length - 1; i++) {
               watchAnimationEvent($('.page_' + pageNow + ' .' + animationClassArr[i].classStr), animationClassArr[i + 1], 'bgAnimation', pageNow);
@@ -1088,35 +1050,31 @@ $(function () {
             return false;
           }
 
-          console.log('direction', direction)
           if (parms.pageNow <= 6 && parms.pageNow > 1 && direction === 'top') {
-            console.log('page animation count', animationCount, count, pageAnimationDone);
-
             // 树叶飞走
             var pageNow = parms.pageNow;
             // $($('.page_' + pageNow + ' .' + parms.shuyeOut.classStr)[0]).find('.shuye-img').hide();
-            $($('.page_' + pageNow + ' .' + parms.shuyeOut.classStr)[0]).css('opacity', '1');
-            $($('.page_' + pageNow + ' .' + parms.shuyeOut.classStr)[0]).find('.lvye-img').css('animation-duration', parms.shuyeOut.animationTime).addClass(parms.shuyeOut.animationName);
+            // $($('.page_' + pageNow + ' .' + parms.shuyeOut.classStr)[0]).css('opacity', '1');
+            // $($('.page_' + pageNow + ' .' + parms.shuyeOut.classStr)[0]).find('.lvye-img').css('animation-duration', parms.shuyeOut.animationTime).addClass(parms.shuyeOut.animationName);
             var $this = this;
-            animationEvent && $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr + ' .lvye-img')[0].addEventListener(animationEvent, function () {
-              // $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr).removeClass('fade-in').addClass('fade-out').css('animation-duration', '1s');
-              // $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr)[0] && $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr)[0].removeEventListener(animationEvent, arguments.callee, false);//销毁事件
-              $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr + ' .lvye-img')[0] && $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr + ' .lvye-img')[0].removeEventListener(animationEvent, arguments.callee, false);//销毁事件
-              setTimeout(function () {
-                // $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr).removeClass('fade-in').removeClass('fade-out');
-                // $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr + ' .lvye-img').removeClass(parms.shuyeOut.animationName);
+            // animationEvent && $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr + ' .lvye-img')[0].addEventListener(animationEvent, function () {
+            // $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr).removeClass('fade-in').addClass('fade-out').css('animation-duration', '1s');
+            // $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr)[0] && $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr)[0].removeEventListener(animationEvent, arguments.callee, false);//销毁事件
+            // $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr + ' .lvye-img')[0] && $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr + ' .lvye-img')[0].removeEventListener(animationEvent, arguments.callee, false);//销毁事件
+            setTimeout(function () {
+              // $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr).removeClass('fade-in').removeClass('fade-out');
+              // $('.page_' + pageNow + ' .' + parms.shuyeOut.classStr + ' .lvye-img').removeClass(parms.shuyeOut.animationName);
 
-                viewport.style.webkitTransition = '0.3s ease -webkit-transform';
-                translate = direction === 'top' ? parms.currentPosition - pageHeight : parms.currentPosition + pageHeight;
-                parms.pageNow = Math.round(Math.abs(translate) / pageHeight) + 1;
-                $this.transform.call(viewport, translate);
-                mangerAnimation();
-              }, 100);
+              viewport.style.webkitTransition = '0.3s ease -webkit-transform';
+              translate = direction === 'top' ? parms.currentPosition - pageHeight : parms.currentPosition + pageHeight;
+              parms.pageNow = Math.round(Math.abs(translate) / pageHeight) + 1;
+              $this.transform.call(viewport, translate);
+              mangerAnimation();
+            }, 100);
 
-            });
+            // });
 
           } else {
-            console.log('page animation count 2', animationCount, count, pageAnimationDone);
             if (parms.pageNow == 7 && direction === 'bottom') {
               parms.page7Type = false;
             }

@@ -1283,11 +1283,13 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
     @include px2rem(left, 162);
     @include px2rem(top, 100);
     .top-line {
+      @include calcPx2rem(width, 386);
       &.top-line-transition {
         @include calcPx2rem(width, 386);
       }
     }
     .left-line {
+      @include calcPx2rem(height, 21);
       @include px2rem(top, 21);
       &.left-line-transition {
         @include calcPx2rem(height, 21);
