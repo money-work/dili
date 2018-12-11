@@ -576,6 +576,7 @@ Copyright (c) 2014 Daniel Eden
 		transform: translate3d(5px, 0, 0)
 	}
 	100% {
+		opacity: 1;
 		-webkit-transform: none;
 		transform: none
 	}
@@ -605,6 +606,7 @@ Copyright (c) 2014 Daniel Eden
 		transform: translate3d(5px, 0, 0)
 	}
 	100% {
+		opacity: 1;
 		-webkit-transform: none;
 		transform: none
 	}

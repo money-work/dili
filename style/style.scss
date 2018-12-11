@@ -359,19 +359,20 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
       @include px2rem(left, 26);
       @include px2rem(top, 78);
       @include px2rem(height, 130);
-      @include px2rem(width, 0);
+      //@include px2rem(width, 0);
       overflow: hidden;
-      //opacity: 0;
+      opacity: 0;
       //background-image: url("../images/page1/title2.png");
       @extend .background-public;
       background-size: cover;
       img {
         @include px2rem(width, 510);
       }
-      &.title2-transition {
-        @include px2rem(width, 510);
-        //opacity: 1;
-      }
+      @include px2rem(width, 510);
+      //&.title2-transition {
+      //  @include px2rem(width, 510);
+      //  opacity: 1;
+      //}
     }
     .title-en {
       position: absolute;

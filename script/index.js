@@ -137,6 +137,12 @@ $(function () {
       $(".content").show();
       setTimeout(function () {
         addTransitionClass(parms.pageNow);
+
+        var transitionEvent = whichTransitionEvent();
+        transitionEvent && $('.page_1 .title1')[0].addEventListener(transitionEvent, function () {
+          $('.page_1 .' + parms.page1.titleAnimation.classStr).css('animation-duration', parms.page1['titleAnimation'].animationTime).addClass(parms.page1['titleAnimation'].animationName);
+        });
+
         app.bindTouchEvent(); // 绑定触摸事件
       }, 200);
     }, 300);
@@ -166,14 +172,15 @@ $(function () {
           'time': '0.5s'
         },
         {
-          'classStr': 'title2',
-          'time': '0.5s'
-        },
-        {
           'classStr': 'arrow-content',
           'time': '0.8s'
         }
-      ]
+      ],
+      titleAnimation: {
+          'classStr': 'title2',
+          'animationName': 'bounceInLeft animated',
+          'animationTime': '0.5s'
+      },
     },
     page2: {
       bgAnimation: [
@@ -362,7 +369,7 @@ $(function () {
         'animationTime': '0.5s'
       }
     },
-    bgAnimationArr: ['zoomIn', 'fadeIn', 'zoomOutIn']
+    bgAnimationArr: ['zoomIn', 'fadeIn', 'zoomOutIn', 'bounceInLeft']
   };
   parms.page3 = deepClone(parms.page2);
   parms.page4 = deepClone(parms.page2);
