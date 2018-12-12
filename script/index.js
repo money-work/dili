@@ -137,12 +137,6 @@ $(function () {
       $(".content").show();
       setTimeout(function () {
         addTransitionClass(parms.pageNow);
-
-        var transitionEvent = whichTransitionEvent();
-        transitionEvent && $('.page_1 .title1')[0].addEventListener(transitionEvent, function () {
-          $('.page_1 .' + parms.page1.titleAnimation.classStr).css('animation-duration', parms.page1['titleAnimation'].animationTime).addClass(parms.page1['titleAnimation'].animationName);
-        });
-
         app.bindTouchEvent(); // 绑定触摸事件
       }, 200);
     }, 300);
@@ -172,15 +166,19 @@ $(function () {
           'time': '0.5s'
         },
         {
+          'classStr': 'title2',
+          'time': '0.5s'
+        },
+        {
           'classStr': 'arrow-content',
           'time': '0.8s'
         }
       ],
-      titleAnimation: {
-        'classStr': 'title2',
-        'animationName': 'bounceInLeft animated',
-        'animationTime': '0.5s'
-      },
+      // titleAnimation: {
+      //   'classStr': 'title2',
+      //   'animationName': 'bounceInLeft animated',
+      //   'animationTime': '0.5s'
+      // },
     },
     page2: {
       bgAnimation: [
@@ -191,8 +189,8 @@ $(function () {
         },
         {
           'classStr': 'bg2',
-          'animationName': 'zoomOutIn animated',
-          'animationTime': '1s'
+          'animationName': 'zoomOutFadeIn animated',
+          'animationTime': '3s'
         },
       ],
       bihuaAnimation: {
@@ -324,7 +322,7 @@ $(function () {
         'animationTime': '0.5s'
       }
     },
-    bgAnimationArr: ['zoomIn', 'fadeIn', 'zoomOutIn', 'bounceInLeft']
+    bgAnimationArr: ['zoomIn', 'fadeIn', 'zoomOutIn']
   };
   parms.page3 = deepClone(parms.page2);
   parms.page4 = deepClone(parms.page2);
