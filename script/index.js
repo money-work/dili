@@ -185,12 +185,12 @@ $(function () {
         {
           'classStr': 'bg1',
           'animationName': 'zoomIn animated',
-          'animationTime': '1s'
+          'animationTime': '3s'
         },
         {
           'classStr': 'bg2',
           'animationName': 'zoomOutFadeIn animated',
-          'animationTime': '3s'
+          'animationTime': '4s'
         },
       ],
       bihuaAnimation: {
