@@ -344,6 +344,7 @@ $(function () {
     }
   ];
 
+  window.parms = parms;
   function whichAnimationEvent () {
     var t,
       el = document.createElement('surface'),
@@ -465,7 +466,7 @@ $(function () {
       'animation-duration': 'inherit',
       'transition-duration': 'inherit'
     });
-
+	  $('.page_' + pageNum + ' .num').text('0');
     if (parms.mySwiper) {
       parms.mySwiper.destroy(false);
     }
@@ -743,9 +744,9 @@ $(function () {
           var lineEl = $('.page_' + parms.pageNow + ' .line');
           var obj = page['logoAnimation'];
           var pageNow = parms.pageNow;
-          transitionEvent && $(lineEl[lineEl.length - 1])[0].addEventListener(transitionEvent, function () {
+          animationEvent && $(lineEl[lineEl.length - 1])[0].addEventListener(animationEvent, function () {
             $('.page_' + pageNow + ' .logo').css('animation-duration', obj.animationTime).addClass(obj.animationName);
-            this.removeEventListener(transitionEvent, arguments.callee, false)
+            this.removeEventListener(animationEvent, arguments.callee, false)
           });
 
           break;
