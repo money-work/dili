@@ -142,7 +142,7 @@ $(function () {
         {
           'classStr': 'bg1',
           'animationName': 'zoomIn animated',
-          'animationTime': '3s'
+          'animationTime': '2s'
         },
         {
           'classStr': 'bg2',
@@ -519,7 +519,7 @@ $(function () {
         });
       }
       if (type == 'bgAnimation') {
-        setTimeout(function () {
+        // setTimeout(function () {
           count++;
           resetAnimationCount();
           $(el) && $(el).next().length > 0 && $(el).next().css('animation-duration', obj.animationTime).addClass(obj.animationName);
@@ -528,7 +528,7 @@ $(function () {
             $(titleEl) && $(titleEl).length > 0 && $(titleEl).css('animation-duration', '1s').addClass('fade-in');
           }
           console.log('watchAnimationEvent---setTimeout-count------------>', count)
-        }, 2000)
+        // }, 2000)
       } else {
         if (page === 7 && type === 'titleAnimation') {
           count++;
