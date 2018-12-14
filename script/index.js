@@ -142,7 +142,7 @@ $(function () {
         {
           'classStr': 'bg1',
           'animationName': 'zoomIn animated',
-          'animationTime': '3s'
+          'animationTime': '4s'
         },
         {
           'classStr': 'bg2',
