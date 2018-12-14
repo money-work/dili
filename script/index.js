@@ -16,7 +16,6 @@ $(function () {
 	  "images/wrong.png",
 	  "images/logo.png",
 	  "images/page7/close.png",
-	  "images/page7/bg5.jpg",
 	  "images/page7/title1-2.png",
 	  "images/page7/title2-1.png",
 	  "images/page7/title2-3.png",
@@ -164,6 +163,12 @@ $(function () {
     page7: {
       bgAnimation: [
         {
+          'classStr': 'bg1',
+          'animationName': 'fadeIn animated',
+          'animationTime': '1.5s',
+          'num': 1
+        },
+        {
           'classStr': 'bg2',
           'animationName': 'fadeIn animated',
           'animationTime': '1.5s',
@@ -198,17 +203,19 @@ $(function () {
         'animationName': 'fade-out',
         'animationTime': '0.6s'
       },
-      sanluoTransition: {
-        'classStr': 'lvye',
-        'animationTime': '1s'
-      },
-
       lineTransition: [
         {
           'classStr': 'line',
           'time': '0.6s'
         }
       ],
+
+    },
+    page8:{
+      sanluoTransition: {
+        'classStr': 'lvye',
+        'animationTime': '1s'
+      },
       btnAnimation: {
         'classStr': 'btn-oper',
         'animationName': 'fade-in',
@@ -243,7 +250,7 @@ $(function () {
           "images/layer/lingshou/1.jpg",
           "images/layer/lingshou/2.jpg"
         ],
-        text: "地利生鲜是一家全国性的专业生鲜零售连锁企业，目前在东北、华北、西南地区拥有近500家终端门店，总经营面积超过25万平方米，是东北地区规模最大的社区生鲜连锁超市品牌。"
+        text: "地利生鲜是一家全国性的专业生鲜零售连锁企业，目前在东北、华北、西南地区拥有近500家终端门店，总经营面积超过50万平方米，是东北地区规模最大的社区生鲜连锁超市品牌。"
       },
       "jiagong": {
         imgs: [
@@ -261,7 +268,7 @@ $(function () {
       }
     },
     mySwiper: null,
-    page8: {
+    page9: {
       bgAnimation: [],
       bihuaAnimation: {
         'classStr': 'bihua',
@@ -477,17 +484,17 @@ $(function () {
     if (pageNum == 7) {
       $('.page_7 .guding-img').removeAttr('style');
     }
-    if (pageNum == 8) {
-      $(".page_8 .page-content-bg").removeClass('fade-in');
-      $(".page_8 .bg2").removeClass('fade-in');
-      $(".page_8 .logo").removeClass('fade-out');
-      $(".page_8 .lv-logo-img").removeClass('fade-in lv-logo-img-transition').css({
+    if (pageNum == 9) {
+      $(".page_9 .page-content-bg").removeClass('fade-in');
+      $(".page_9 .bg2").removeClass('fade-in');
+      $(".page_9 .logo").removeClass('fade-out');
+      $(".page_9 .lv-logo-img").removeClass('fade-in lv-logo-img-transition').css({
         'opacity': '0',
         "z-index": '1'
       });
-      // $('.page_8 .logo-img').addClass('fade-in').removeClass('fade-out').removeAttr('style');
-      //  $('.page_8 .lv-logo-img').removeClass('fade-in').removeClass('lv-logo-img-transition').removeAttr('style');
-      //  $('.page_8 .bg2').addClass('fade-in').removeAttr('style');
+      // $('.page_9 .logo-img').addClass('fade-in').removeClass('fade-out').removeAttr('style');
+      //  $('.page_9 .lv-logo-img').removeClass('fade-in').removeClass('lv-logo-img-transition').removeAttr('style');
+      //  $('.page_9 .bg2').addClass('fade-in').removeAttr('style');
     }
   }
 
@@ -573,6 +580,7 @@ $(function () {
 
     //关闭 弹窗 轮播
     $("body .layer-content").on("click", '.close-img', function (e) {
+      $(".btn").removeClass('active');
       if (parms.mySwiper) {
         parms.mySwiper.destroy(false);
       }
@@ -580,47 +588,49 @@ $(function () {
     });
 
     //关闭视频弹层
-    $(".close-btn").on("click", function (e) {
-      e.stopPropagation();
-      $('.music-oper').show();
-      $(".video-content").hide();
-      var video = document.getElementById('video');
-      video.pause();
-    });
+    // $(".close-btn").on("click", function (e) {
+    //   e.stopPropagation();
+    //   $('.music-oper').show();
+    //   $(".video-content").hide();
+    //   var video = document.getElementById('video');
+    //   video.pause();
+    // });
 
-    var IH = window.innerHeight;
-    var IW = window.innerWidth;
-    var RW = IW < IH ? IW : IH;
-    var RH = IW < IH ? IH : IW;
-    var h = RW * 720 / 1280;
-    $(".video-content").css({ 'height': h, 'top': RH / 2 - h / 2 });
+    // var IH = window.innerHeight;
+    // var IW = window.innerWidth;
+    // var RW = IW < IH ? IW : IH;
+    // var RH = IW < IH ? IH : IW;
+    // var h = RW * 720 / 1280;
+    // $(".video-content").css({ 'height': h, 'top': RH / 2 - h / 2 });
     //播放视频
-    $("body .new-page").on("click", '.play-video', function (e) {
-      var video = document.getElementById('video');
-      var audio = document.getElementById('audio-cls');
-      if (audio !== null) {
-        $('.music-oper').hide().addClass("suspend");
-        audio.pause();// 暂停
-      }
-      $(".video-content").show();
-      video.play();
-      // Webkit
-      video.webkitRequestFullScreen && video.webkitRequestFullScreen();//进入全屏
-      // document.webkitCancelFullScreen();//退出全屏
-
-// Firefox
-      video.mozRequestFullScreen && video.mozRequestFullScreen();
-      // document.mozCancelFullScreen();
-
-// W3C
-      video.requestFullscreen && video.requestFullscreen();
-      // document.exitFullscreen();
-
-    });
+//     $("body .new-page").on("click", '.play-video', function (e) {
+//       var video = document.getElementById('video');
+//       var audio = document.getElementById('audio-cls');
+//       if (audio !== null) {
+//         $('.music-oper').hide().addClass("suspend");
+//         audio.pause();// 暂停
+//       }
+//       $(".video-content").show();
+//       video.play();
+//       // Webkit
+//       video.webkitRequestFullScreen && video.webkitRequestFullScreen();//进入全屏
+//       // document.webkitCancelFullScreen();//退出全屏
+//
+// // Firefox
+//       video.mozRequestFullScreen && video.mozRequestFullScreen();
+//       // document.mozCancelFullScreen();
+//
+// // W3C
+//       video.requestFullscreen && video.requestFullscreen();
+//       // document.exitFullscreen();
+//
+//     });
 
     // 打开 轮播弹层
     $("body .new-page").on("click", '.btn', function (e) {
       e.stopPropagation();
+      $(".btn").removeClass('active');
+      $(this).addClass('active');
       var dataType = $(this).attr('data-type');
       $(".layer-content .text").text(parms.layerData[dataType].text);
       var imgs = parms.layerData[dataType].imgs;
@@ -714,7 +724,7 @@ $(function () {
       }
     }
 
-    if (pageNow == 7) {
+    if (pageNow == 8) {
       var btnel = $('.page_' + pageNow + ' .btn-oper');
       animationEvent && $(btnel[btnel.length - 1])[0].addEventListener(animationEvent, function () {
         $('.page_' + pageNow + ' .arrow-content').css('transition-duration', '1s').addClass('arrow-content-transition');
@@ -722,8 +732,8 @@ $(function () {
       });
 
     }
-    if (pageNow == 8) {
-      animationEvent && $('.page_8 .logo-img')[0].addEventListener(animationEvent, function () {
+    if (pageNow == 9) {
+      animationEvent && $('.page_9 .logo-img')[0].addEventListener(animationEvent, function () {
         $('.page_' + parms.pageNow + ' .arrow-content').css('transition-duration', '1s').addClass('arrow-content-transition');
         this.removeEventListener(animationEvent, arguments.callee, false)
       });
@@ -738,6 +748,7 @@ $(function () {
     var page = parms['page' + parms.pageNow];
     var transitionEvent = whichTransitionEvent();
     var animationEvent = whichAnimationEvent();
+    var pageNow = parms.pageNow;
     for (var key in page) {
       switch (key) {
         case 'logoAnimation':
@@ -752,19 +763,24 @@ $(function () {
           break;
         case 'bihuaAnimation':
           var pageNow = parms.pageNow;
-          if (pageNow == 8) {
+          if (pageNow == 9) {
             $('.page_' + pageNow + ' .page-content-bg').css('animation-duration', '1s').addClass('fade-in');
             animationEvent && $('.page_' + pageNow + ' .page-content-bg')[0].addEventListener(animationEvent, function () {
-              $('.page_' + pageNow + ' .shuye').css('animation-duration', '0.2s').addClass('fade-in');
-              this.removeEventListener(animationEvent, arguments.callee, false)
-            });
-            animationEvent && $('.page_' + pageNow + ' .shuye')[0].addEventListener(animationEvent, function () {
+              // $('.page_' + pageNow + ' .shuye').css('animation-duration', '0.2s').addClass('fade-in');
               $($('.page_' + parms.pageNow + ' .' + page['bihuaAnimation'].classStr)[0]).css('animation-duration', page['bihuaAnimation'].animationTime).addClass(page['bihuaAnimation'].animationName);
               $('.page_' + parms.pageNow + ' .' + page['bihuaAnimation'].classStr).each(function () {
                 watchAnimationEvent(this, page['bihuaAnimation']);
                 this.removeEventListener(animationEvent, arguments.callee, false)
               });
+              this.removeEventListener(animationEvent, arguments.callee, false)
             });
+            // animationEvent && $('.page_' + pageNow + ' .shuye')[0].addEventListener(animationEvent, function () {
+            //   $($('.page_' + parms.pageNow + ' .' + page['bihuaAnimation'].classStr)[0]).css('animation-duration', page['bihuaAnimation'].animationTime).addClass(page['bihuaAnimation'].animationName);
+            //   $('.page_' + parms.pageNow + ' .' + page['bihuaAnimation'].classStr).each(function () {
+            //     watchAnimationEvent(this, page['bihuaAnimation']);
+            //     this.removeEventListener(animationEvent, arguments.callee, false)
+            //   });
+            // });
           } else {
             $($('.page_' + parms.pageNow + ' .' + page['bihuaAnimation'].classStr)[0]).css('animation-duration', page['bihuaAnimation'].animationTime).addClass(page['bihuaAnimation'].animationName);
             $('.page_' + parms.pageNow + ' .' + page['bihuaAnimation'].classStr).each(function () {
@@ -774,8 +790,7 @@ $(function () {
           break;
         case 'titleAnimation':
 
-          var pageNow = parms.pageNow;
-          if (pageNow <= 6 && pageNow > 1 || pageNow == 8) {
+          if (pageNow <= 6 && pageNow > 1 || pageNow == 9) {
             var bihuaEl = $('.page_' + pageNow + ' .' + page['bihuaAnimation'].classStr);
             animationEvent && $(bihuaEl[bihuaEl.length - 1])[0].addEventListener(animationEvent, function () {
               $($('.page_' + pageNow + ' .' + page['titleAnimation'].classStr)).css('animation-duration', page['titleAnimation'].animationTime).addClass(page['titleAnimation'].animationName);
@@ -831,6 +846,31 @@ $(function () {
             this.removeEventListener(animationEvent, arguments.callee, false)
           });
 
+          break;
+        case 'sanluoTransition':
+          $(".new-page .new-page-bg").addClass("fade-in").css('animation-duration', '1s');
+          setTimeout(function () {
+            $(".new-page .sanluo").addClass("Zindex");
+            $(".new-page .sanluo .lvye").css('opacity', '1').addClass("lvye-transition");
+          }, 1100);
+          break;
+        case 'btnAnimation':
+          transitionEvent && $('.page_8 .lvye5')[0].addEventListener(transitionEvent, function () {
+            $(".new-page .sanluo").addClass("fade-out").css('animation-duration', '1s');
+            $(".new-page .logo").addClass("fade-in").css('animation-duration', '1s');
+            $(".new-page .title1").addClass("fade-in").css('animation-duration', '1s');
+            setTimeout(function () {
+              $(".new-page .title1").removeClass("fade-in").addClass("fade-out").css('animation-duration', '1s');
+              // $(".new-page .title2").addClass("fade-in").css('animation-duration', '1s');
+              $(".new-page .btn-content").addClass("Zindex");
+
+              $(".new-page .btn1").addClass("fade-in").css('animation-duration', parms.page8.btnAnimation.animationTime);
+              $('.page_8 .' + parms.page8.btnAnimation.classStr).each(function () {
+                watchAnimationEvent(this, parms.page8['btnAnimation'], 'btnAnimation', parms.pageNow);
+              });
+            }, 1100);
+            this.removeEventListener(transitionEvent, arguments.callee, false);
+          });
           break;
       }
     }
@@ -968,59 +1008,46 @@ $(function () {
           if (!pageAnimationDone) return false;
 
           $(".close-img").trigger("click");
-          $(".close-btn").trigger("click")
+          // $(".close-btn").trigger("click")
 
-          if (parms.pageNow == 7 && direction === 'top' && !parms.page7Type) {
-            $('.page_7 .guding-img').show();
-            $('.page_7 .arrow-content').removeClass('arrow-content-transition').css({
-              'animation-duration': 'inherit',
-              'transition-duration': 'inherit'
-            });
+          if (parms.pageNow == 7 && direction === 'top' ) {
             $('.page_7').find('.' + parms.page7.titleOutAnimation.classStr)
               .css('animation-duration', parms.page7.titleOutAnimation.animationTime).addClass(parms.page7.titleOutAnimation.animationName);
-            parms.page7Type = true;
+            var $this = this;
             animationEvent && $('.page_' + parms.pageNow + ' .' + parms.page7.titleOutAnimation.classStr)[0].addEventListener(animationEvent, function () {
-              $(".new-page .sanluo").addClass("Zindex");
-              $(".new-page .sanluo .lvye").addClass("lvye-transition");
-              this.removeEventListener(animationEvent, arguments.callee, false);
-            });
-            transitionEvent && $('.page_7 .lvye5')[0].addEventListener(transitionEvent, function () {
-              $(".new-page .sanluo").addClass("fade-out").css('animation-duration', '1s');
-              $(".new-page .logo").addClass("fade-in").css('animation-duration', '1s');
-              $(".new-page .title1").addClass("fade-in").css('animation-duration', '1s');
-              setTimeout(function () {
-                $(".new-page .title1").hide();
-                // $(".new-page .title2").addClass("fade-in").css('animation-duration', '1s');
-                $(".new-page .new-page-bg").addClass("fade-in").css('animation-duration', '1s');
-                $(".new-page .btn-content").addClass("Zindex");
+              $('.guding-img').css('opacity', '1');
+              viewport.style.webkitTransition = '0.3s ease -webkit-transform';
+              translate = direction === 'top' ? parms.currentPosition - pageHeight : parms.currentPosition + pageHeight;
+              parms.pageNow = Math.round(Math.abs(translate) / pageHeight) + 1;
+              $this.transform.call(viewport, translate);
 
-                $(".new-page .btn1").addClass("fade-in").css('animation-duration', parms.page7.btnAnimation.animationTime);
-                $('.page_7 .' + parms.page7.btnAnimation.classStr).each(function () {
-                  watchAnimationEvent(this, parms.page7['btnAnimation'], 'btnAnimation', parms.pageNow);
-                });
-              }, 3500)
-              this.removeEventListener(transitionEvent, arguments.callee, false);
+              setTimeout( function(){
+                $('.guding-img').addClass("fade-out").css('animation-duration', '1s');
+                mangerAnimation();
+              },400);
+
+              this.removeEventListener(animationEvent, arguments.callee, false);
             });
             return false;
           }
-          if (parms.pageNow == 8 && direction === 'top' && !parms.page8Type) {
+          if (parms.pageNow ==9 && direction === 'top' && !parms.page8Type) {
             $(".video-content").hide();
             if (parms.mySwiper) {
               parms.mySwiper.destroy(false);
             }
             $(".layer-content").hide();
 
-            $('.page_8 .arrow-content').removeClass('arrow-content-transition').css({
+            $('.page_9 .arrow-content').removeClass('arrow-content-transition').css({
               'animation-duration': 'inherit',
               'transition-duration': 'inherit'
             });
-            $('.page_8 .logo-img').removeClass('fade-in').css('opacity', '0');
-            $('.page_8 .lv-logo-img').css({
+            $('.page_9 .logo-img').removeClass('fade-in').css('opacity', '0');
+            $('.page_9 .lv-logo-img').css({
               'opacity': '1',
               "z-index": '99'
             }).addClass('lv-logo-img-transition').css('animation-duration', '1s');
             setTimeout(function () {
-              $('.page_8 .bg2').addClass('fade-in').css('animation-duration', '2s');
+              $('.page_9 .bg2').addClass('fade-in').css('animation-duration', '2s');
             }, 1100);
             return false;
           }
@@ -1057,7 +1084,7 @@ $(function () {
             if (parms.pageNow == 7 && direction === 'bottom') {
               parms.page7Type = false;
             }
-            if (parms.pageNow == 8 && direction === 'bottom') {
+            if (parms.pageNow == 9 && direction === 'bottom') {
               parms.page7Type = false;
               parms.page8Type = false;
             }
