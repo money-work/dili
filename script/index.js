@@ -9,124 +9,95 @@ $(function () {
   // });
   var loadingType = true;
   var cacheList = [
-    "images/en.png",
-    "images/logo.png",
-    "images/lvye.png",
-    "images/lvye1.png",
-    "images/shuye.png",
-    "images/wrong.png",
-    "images/everyday/1.png",
-    "images/everyday/10.png",
-    "images/everyday/11.png",
-    "images/everyday/2.png",
-    "images/everyday/3.png",
-    "images/everyday/4.png",
-    "images/everyday/5.png",
-    "images/everyday/6.png",
-    "images/everyday/7.png",
-    "images/everyday/8.png",
-    "images/everyday/9.png",
-    "images/page1/title1.png",
-    "images/page1/title2.png",
-    "images/page2/bg1.jpg",
-    "images/page2/bg2.jpg",
-    "images/page2/bg3.jpg",
-    "images/page2/title.png",
-    "images/page2/title2-1.png",
-    "images/page2/title2-2.png",
-    "images/page2/title3-1.png",
-    "images/page2/title3-2.png",
-    "images/page3/bg1.jpg",
-    "images/page3/bg2.jpg",
-    "images/page3/bg3.jpg",
-    "images/page3/bg4.jpg",
-    "images/page3/title1-1.png",
-    "images/page3/title1-2.png",
-    "images/page3/title2.png",
-    "images/page3/title3-1.png",
-    "images/page3/title3-2.png",
-    "images/page4/bg1.jpg",
-    "images/page4/bg2.jpg",
-    "images/page4/title1-1.png",
-    "images/page4/title1-2.png",
-    "images/page4/title2.png",
-    "images/page4/title3-1.png",
-    "images/page4/title3-2.png",
-    "images/page5/bg1.jpg",
-    "images/page5/bg2.jpg",
-    "images/page5/title1-1.png",
-    "images/page5/title1-2.png",
-    "images/page5/title2.png",
-    "images/page5/title3-1.png",
-    "images/page5/title3-2.png",
-    "images/page1/arrow.png",
-    "images/page1/bg.jpg",
-    "images/page1/play.png",
-    "images/page1/suspend.png",
-    "images/page1/title-en.png",
-    "images/page1/title1.png",
-    "images/page1/title2.png",
-    "images/page8/bg1.jpg",
-    "images/page8/bg2.jpg",
-    "images/page8/bg3.png",
-    "images/page8/dili.png",
-    "images/page8/lv-logo.png",
-    "images/page8/title1.png",
-    "images/page8/title2.png",
-    "images/page8/zhiwei.png",
-    "images/page7/bg1.jpg",
-    "images/page7/bg2.jpg",
-    "images/page7/bg3.jpg",
-    "images/page7/bg4.jpg",
-    "images/page7/bg5.jpg",
-    "images/page7/bg6.jpg",
-    "images/page7/btn.png",
-    "images/page7/close.png",
-    "images/page7/jiagong.png",
-    "images/page7/jiance.png",
-    "images/page7/lingshou.png",
-    "images/page7/liutong.png",
-    "images/page7/play-video.png",
-    "images/page7/title1-1.png",
-    "images/page7/title1-2.png",
-    "images/page7/title1.png",
-    "images/page7/title2-1.png",
-    "images/page7/title2-2.png",
-    "images/page7/title2-3.png",
-    "images/page7/title2.png",
-    "images/page7/title3-1.png",
-    "images/page7/title3-2.png",
-    "images/page7/title4-1.png",
-    "images/page7/title4-2.png",
-    "images/page7/title4-3.png",
-    "images/page7/title5-1.png",
-    "images/page7/title5-2.png",
-    "images/page7/zhongzhi.png",
-    "images/page6/bg2.jpg",
-    "images/page6/bg1.jpg",
-    "images/page6/title1-2.png",
-    "images/page6/title1-1.png",
-    "images/page6/title1-3.png",
-    "images/page6/title2-2.png",
-    "images/page6/title2-3.png",
-    "images/page6/title3-1.png",
-    "images/page6/title3-2.png",
-    "images/page6/title4.png",
-    "images/page6/title5-1.png",
-    "images/page6/title5-2.png",
-    "images/page6/title5-3.png",
-    "images/layer/lingshou/1.jpg",
-    "images/layer/lingshou/2.jpg",
-    "images/layer/jiagong/1.jpg",
-    "images/layer/jiagong/2.jpg",
-    "images/layer/liutong/1.jpg",
-    "images/layer/liutong/2.jpg",
-    "images/layer/liutong/3.jpg",
-    "images/layer/jiance/1.jpg",
-    "images/layer/jiance/2.jpg",
-    "images/layer/zhongzhi/1.jpg",
-    "images/layer/zhongzhi/2.jpg",
-    "images/layer/zhongzhi/3.jpg"
+	  "images/page1/suspend.png",
+	  "images/page1/title1.png",
+	  "images/page1/title2.png",
+	  "images/page1/arrow.png",
+	  "images/wrong.png",
+	  "images/logo.png",
+	  "images/page7/close.png",
+	  "images/page7/bg5.jpg",
+	  "images/page7/bg1.jpg",
+	  "images/page7/bg2.jpg",
+	  "images/page7/bg3.jpg",
+	  "images/page7/title1-2.png",
+	  "images/page7/bg4.jpg",
+	  "images/page7/title2-1.png",
+	  "images/page7/title2-3.png",
+	  "images/page7/title3-1.png",
+	  "images/page7/title3-2.png",
+	  "images/page7/title4-1.png",
+	  "images/page7/title4-3.png",
+	  "images/page7/title5-1.png",
+	  "images/page7/title5-2.png",
+	  "images/page7/bg6.jpg",
+	  "images/page7/title1.png",
+	  "images/page7/zhongzhi.png",
+	  "images/page7/liutong.png",
+	  "images/page7/lingshou.png",
+	  "images/page7/jiagong.png",
+	  "images/page7/jiance.png",
+	  "images/page7/play-video.png",
+	  "images/page2/bg1.jpg",
+	  "images/page2/bg2.jpg",
+	  "images/page2/title.png",
+	  "images/page2/title2-1.png",
+	  "images/page2/title2-2.png",
+	  "images/page2/title3-1.png",
+	  "images/page2/title3-2.png",
+	  "images/page2/title3-3.png",
+	  "images/shuye.png",
+	  "images/lvye.png",
+	  "images/everyday/1.png",
+	  "images/everyday/2.png",
+	  "images/everyday/3.png",
+	  "images/everyday/4.png",
+	  "images/everyday/5.png",
+	  "images/everyday/6.png",
+	  "images/everyday/7.png",
+	  "images/everyday/8.png",
+	  "images/everyday/9.png",
+	  "images/everyday/10.png",
+	  "images/everyday/11.png",
+	  "images/en.png",
+	  "images/page3/bg2.jpg",
+	  "images/page3/bg4.jpg",
+	  "images/page3/title1-1.png",
+	  "images/page3/title1-2.png",
+	  "images/page3/title2.png",
+	  "images/page3/title3-1.png",
+	  "images/page3/title3-2.png",
+	  "images/page4/bg1.jpg",
+	  "images/page4/bg2.jpg",
+	  "images/page4/title1-1.png",
+	  "images/page4/title1-2.png",
+	  "images/page4/title2.png",
+	  "images/page4/title3-1.png",
+	  "images/page4/title3-2.png",
+	  "images/page5/bg1.jpg",
+	  "images/page5/bg2.jpg",
+	  "images/page5/title1-1.png",
+	  "images/page5/title1-2.png",
+	  "images/page5/title2.png",
+	  "images/page5/title3-1.png",
+	  "images/page5/title3-2.png",
+	  "images/page6/bg1.jpg",
+	  "images/page6/bg2.jpg",
+	  "images/page6/title1-1.png",
+	  "images/page6/title1-3.png",
+	  "images/page6/title2-3.png",
+	  "images/page6/title3-2.png",
+	  "images/page6/title4.png",
+	  "images/page6/title5-1.png",
+	  "images/page6/title5-2.png",
+	  "images/page6/title5-3.png",
+	  "images/page8/bg1.jpg",
+	  "images/page8/bg2.jpg",
+	  "images/page8/dili.png",
+	  "images/page8/zhiwei.png",
+	  "images/page8/title1.png",
+	  "images/page8/title2.png",
+	  "images/page8/lv-logo.png",
   ];
   baseApp.loading(cacheList, function () {
     $("#num span").text('100%')
@@ -322,48 +293,68 @@ $(function () {
         'animationTime': '0.5s'
       }
     },
-    bgAnimationArr: ['zoomIn', 'fadeIn', 'zoomOutIn']
+    bgAnimationArr: ['zoomIn', 'fadeIn', 'zoomOutIn','zoomOutFadeIn']
   };
   parms.page3 = deepClone(parms.page2);
   parms.page4 = deepClone(parms.page2);
   parms.page5 = deepClone(parms.page2);
   parms.page6 = deepClone(parms.page2);
   parms.page3.bgAnimation = [
-    {
-      'classStr': 'bg2',
-      'animationName': 'fadeIn animated',
-      'animationTime': '1s'
-    },
-    {
-      'classStr': 'bg3',
-      'animationName': 'fadeIn animated',
-      'animationTime': '1s'
-    },
+	  {
+		  'classStr': 'bg2',
+		  'animationName': 'zoomIn animated',
+		  'animationTime': '3s'
+	  },
+    // {
+    //   'classStr': 'bg2',
+    //   'animationName': 'fadeIn animated',
+    //   'animationTime': '1s'
+    // },
+    // {
+    //   'classStr': 'bg3',
+    //   'animationName': 'fadeIn animated',
+    //   'animationTime': '1s'
+    // },
     {
       'classStr': 'bg4',
       'animationName': 'fadeIn animated',
-      'animationTime': '1s'
+      'animationTime': '3s'
     },
   ];
   parms.page4.bgAnimation = [
+	  {
+		  'classStr': 'bg1',
+		  'animationName': 'zoomIn animated',
+		  'animationTime': '3s'
+	  },
     {
       'classStr': 'bg2',
-      'animationName': 'fadeIn animated',
-      'animationTime': '1s'
+      'animationName': 'zoomOutFadeIn animated',
+      'animationTime': '3s'
     }
   ];
   parms.page5.bgAnimation = [
+	  {
+		  'classStr': 'bg1',
+		  'animationName': 'zoomIn animated',
+		  'animationTime': '3s'
+	  },
     {
       'classStr': 'bg2',
-      'animationName': 'fadeIn animated',
-      'animationTime': '1s'
+      'animationName': 'zoomOutFadeIn animated',
+      'animationTime': '3s'
     }
   ];
   parms.page6.bgAnimation = [
+	  {
+		  'classStr': 'bg1',
+		  'animationName': 'zoomIn animated',
+		  'animationTime': '3s'
+	  },
     {
       'classStr': 'bg2',
       'animationName': 'fadeIn animated',
-      'animationTime': '1s'
+      'animationTime': '3s'
     }
   ];
 
@@ -456,7 +447,10 @@ $(function () {
         if (key == 'bgAnimation') {
           // var _el = $('.page_' + pageNum + ' .' + obj.classStr);
           var _el = $('.page_' + pageNum + ' .bg');
-          _el.removeClass('animated');
+	        _el.removeClass('animated').css({
+		        'animation-duration': 'inherit',
+		        'transition-duration': 'inherit'
+	        });
           for (var j = 0; j < parms.bgAnimationArr.length; j++) {
             _el.removeClass(parms.bgAnimationArr[j]);
           }
