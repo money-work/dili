@@ -178,6 +178,11 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 
   position: relative;
   overflow:hidden;
+  .bg{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+  }
 }
 
 .music-oper {
@@ -709,7 +714,14 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
     }
   }
 }
-
+.page_2{
+  .bg1{
+    background-image: url(../images/page2/bg1.jpg);
+  }
+  .bg2{
+    background-image: url(../images/page2/bg2.jpg);
+  }
+}
 .page_3 {
 
   .page-content {
@@ -750,6 +762,12 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
       }
     }
 
+  }
+  .bg2{
+    background-image: url(../images/page3/bg2.jpg);
+  }
+  .bg4{
+    background-image: url(../images/page3/bg4.jpg);
   }
 }
 
@@ -793,6 +811,12 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
       }
     }
   }
+  .bg1{
+    background-image: url(../images/page4/bg1.jpg);
+  }
+  .bg2{
+    background-image: url(../images/page4/bg2.jpg);
+  }
 }
 
 .page_5 {
@@ -826,6 +850,12 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
         @include px2rem(width, 101);
       }
     }
+  }
+  .bg1{
+    background-image: url(../images/page5/bg1.jpg);
+  }
+  .bg2{
+    background-image: url(../images/page5/bg2.jpg);
   }
 }
 
@@ -883,6 +913,12 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
       }
     }
   }
+  .bg1{
+    background-image: url(../images/page6/bg1.jpg);
+  }
+  .bg2{
+    background-image: url(../images/page6/bg2.jpg);
+  }
 }
 
 .page_7 {
@@ -899,18 +935,23 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
   .bg1 {
     z-index: 1;
     visibility: visible;
+    background-image: url(../images/page7/bg1.jpg);
   }
   .bg2 {
     z-index: 2;
+    background-image: url(../images/page7/bg2.jpg);
   }
   .bg3 {
     z-index: 3;
+    background-image: url(../images/page7/bg3.jpg);
   }
   .bg4 {
     z-index: 4;
+    background-image: url(../images/page7/bg4.jpg);
   }
   .bg5 {
     z-index: 5;
+    background-image: url(../images/page7/bg5.jpg);
   }
   .guding-img {
     position: absolute;
@@ -919,6 +960,8 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
     height: 100%;
     width: 100%;
     z-index: 99;
+    background: url(../images/page7/bg5.jpg) no-repeat center center;
+    background-size:cover;
     display: none;
   }
   .page-content {
@@ -1242,9 +1285,11 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
   .bg1 {
     z-index: 1;
     visibility: visible;
+    //background-image: url(../images/page8/bg1.jpg);
   }
   .bg2 {
     z-index: 22;
+    //background-image: url(../images/page8/bg2.jpg);
   }
   .page-content-bg {
     background-image: url("../images/page8/bg3.png");
