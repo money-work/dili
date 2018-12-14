@@ -142,7 +142,7 @@ $(function () {
         {
           'classStr': 'bg1',
           'animationName': 'zoomIn animated',
-          'animationTime': '2s'
+          'animationTime': '3s'
         },
         {
           'classStr': 'bg2',
@@ -303,8 +303,8 @@ $(function () {
     // },
     {
       'classStr': 'bg4',
-      'animationName': 'fadeIn animated',
-      'animationTime': '3s'
+      'animationName': 'zoomOutFadeIn animated',
+      'animationTime': '4s'
     },
   ];
   parms.page4.bgAnimation = [
@@ -316,7 +316,7 @@ $(function () {
     {
       'classStr': 'bg2',
       'animationName': 'zoomOutFadeIn animated',
-      'animationTime': '3s'
+      'animationTime': '4s'
     }
   ];
   parms.page5.bgAnimation = [
@@ -328,7 +328,7 @@ $(function () {
     {
       'classStr': 'bg2',
       'animationName': 'zoomOutFadeIn animated',
-      'animationTime': '3s'
+      'animationTime': '4s'
     }
   ];
   parms.page6.bgAnimation = [
@@ -339,8 +339,8 @@ $(function () {
 	  },
     {
       'classStr': 'bg2',
-      'animationName': 'fadeIn animated',
-      'animationTime': '3s'
+      'animationName': 'zoomOutFadeIn animated',
+      'animationTime': '4s'
     }
   ];
 
