@@ -585,6 +585,8 @@ $(function () {
         parms.mySwiper.destroy(false);
       }
       $(".layer-content").hide();
+      $(".page_8 .title1").show();
+      $(".page_8 .top-logo").show();
     });
 
     //关闭视频弹层
@@ -629,6 +631,8 @@ $(function () {
     // 打开 轮播弹层
     $("body .new-page").on("click", '.btn', function (e) {
       e.stopPropagation();
+      $(".page_8 .title1").hide();
+      $(".page_8 .top-logo").hide();
       $(".btn").removeClass('active');
       $(this).addClass('active');
       var dataType = $(this).attr('data-type');
@@ -860,7 +864,7 @@ $(function () {
             $(".new-page .logo").addClass("fade-in").css('animation-duration', '1s');
             $(".new-page .title1").addClass("fade-in").css('animation-duration', '1s');
             setTimeout(function () {
-              $(".new-page .title1").removeClass("fade-in").addClass("fade-out").css('animation-duration', '1s');
+              // $(".new-page .title1").removeClass("fade-in").addClass("fade-out").css('animation-duration', '1s');
               // $(".new-page .title2").addClass("fade-in").css('animation-duration', '1s');
               $(".new-page .btn-content").addClass("Zindex");
 
@@ -1015,14 +1019,15 @@ $(function () {
               .css('animation-duration', parms.page7.titleOutAnimation.animationTime).addClass(parms.page7.titleOutAnimation.animationName);
             var $this = this;
             animationEvent && $('.page_' + parms.pageNow + ' .' + parms.page7.titleOutAnimation.classStr)[0].addEventListener(animationEvent, function () {
-              $('.guding-img').css('opacity', '1');
+              $('.guding-img').show().css('opacity', '1');
               viewport.style.webkitTransition = '0.3s ease -webkit-transform';
               translate = direction === 'top' ? parms.currentPosition - pageHeight : parms.currentPosition + pageHeight;
               parms.pageNow = Math.round(Math.abs(translate) / pageHeight) + 1;
               $this.transform.call(viewport, translate);
 
               setTimeout( function(){
-                $('.guding-img').addClass("fade-out").css('animation-duration', '1s');
+                // $('.guding-img').addClass("fade-out").css('animation-duration', '1s');
+                $('.guding-img').css('opacity', '0').hide();
                 mangerAnimation();
               },400);
 
