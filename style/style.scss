@@ -1439,6 +1439,11 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
         @include px2rem(width, 347);
         @include px2rem(height, 47);
       }
+
+	  .title1{
+		@include px2rem(margin-top, 40);
+
+	  }
     }
   }
   .logo-img {

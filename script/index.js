@@ -103,6 +103,7 @@ $(function () {
     $('.loading-content .line').css('width', progress + '%')
   });
   var parms = {
+    page9AnimationType: false,
     options: {
       useEasing: true,
       useGrouping: false,
@@ -110,7 +111,7 @@ $(function () {
       decimal: '.',
     },
     page7Type: false,
-    page8Type: false,
+    page9Type: false,
     loadingTimeer: null,// 记录当前页面位置
     currentPosition: 0,
     pageNow: 1,// 当前页码
@@ -1071,8 +1072,22 @@ $(function () {
             });
 
           }
-          if (parms.pageNow ==9 && direction === 'top' && !parms.page8Type) {
+
+          if (parms.pageNow ==9 && direction === 'bottom' && parms.page9Type) {
+            if(!parms.page9AnimationType){
+              return false
+            }
+            $('.page_9 .fade-in').removeClass('fade-in').removeAttr('style');
+            $('.page_9 .lv-logo-img').removeClass('lv-logo-img-transition').removeAttr('style');
+            mangerAnimation();
+            parms.page9Type = false;
+            return false;
+          }
+
+          if (parms.pageNow ==9 && direction === 'top' && !parms.page9Type) {
+            parms.page9AnimationType = false;
             $(".video-content").hide();
+            parms.page9Type = true;
             if (parms.mySwiper) {
               parms.mySwiper.destroy(false);
             }
@@ -1090,6 +1105,15 @@ $(function () {
             setTimeout(function () {
               $('.page_9 .bg2').addClass('fade-in').css('animation-duration', '2s');
             }, 1100);
+
+            animationEvent && $('.page_9 .bg2')[0].addEventListener(animationEvent, function () {
+              $('.page_9 .page-content-bg').removeClass('fade-in').removeAttr('style');
+              $('.page_9 .page-content .fade-in').removeClass('fade-in').removeAttr('style');
+              $('.page_9 .logo-img').removeClass('fade-in').removeAttr('style');
+              parms.page9AnimationType = true;
+              this.removeEventListener(animationEvent, arguments.callee, false);
+            });
+
             return false;
           }
           if (-parms.currentPosition == maxHeight && direction === 'top') {
@@ -1127,7 +1151,7 @@ $(function () {
             }
             if (parms.pageNow == 9 && direction === 'bottom') {
               parms.page7Type = false;
-              parms.page8Type = false;
+              parms.page9Type = false;
             }
             viewport.style.webkitTransition = '0.3s ease -webkit-transform';
             translate = direction === 'top' ? parms.currentPosition - pageHeight : parms.currentPosition + pageHeight;
