@@ -1108,6 +1108,17 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
       width: 100%;
 	  opacity: 0;
     }
+    .guodu-img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+	  display: none;
+	  z-index: 99;
+	  background: url(../images/page7/bg4.jpg) no-repeat center center;
+	  background-size:cover;
+    }
     .top-logo {
       @include px2rem(width, 268);
       @include px2rem(height, 313);

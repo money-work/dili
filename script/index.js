@@ -579,14 +579,19 @@ $(function () {
     })
 
     //关闭 弹窗 轮播
-    $("body .layer-content").on("click", '.close-img', function (e) {
+    $("body .layer-content").on("click", '.close-img', function (e, type) {
       $(".btn").removeClass('active');
       if (parms.mySwiper) {
         parms.mySwiper.destroy(false);
       }
       $(".layer-content").hide();
-      $(".page_8 .title1").show();
-      $(".page_8 .top-logo").show();
+      if(!type){
+        $(".page_8 .title1").show().css({"opacity": 1 , 'z-index': 99});
+        $(".page_8 .top-logo").show().find('.logo').css({"opacity": 1 , 'z-index': 99});
+      }else{
+        $(".page_8 .title1").show();
+        $(".page_8 .top-logo").show();
+      }
     });
 
     //关闭视频弹层
@@ -633,6 +638,9 @@ $(function () {
       e.stopPropagation();
       $(".page_8 .title1").hide();
       $(".page_8 .top-logo").hide();
+      $(".new-page .sanluo").removeClass("fade-out Zindex").removeAttr('style');
+      $(".new-page .logo").removeClass("fade-in").removeAttr('style');
+      $(".new-page .title1").removeClass("fade-in").removeAttr('style');
       $(".btn").removeClass('active');
       $(this).addClass('active');
       var dataType = $(this).attr('data-type');
@@ -825,9 +833,9 @@ $(function () {
             // setTimeout(function () {
             // var animationName = parms.bgAnimationArr[Math.floor(Math.random() * parms.bgAnimationArr.length)] + ' animated ';
             $('.page_' + pageNow + ' .' + animationClassArr[0].classStr).css('animation-duration', page['bgAnimation'][0].animationTime).addClass(page['bgAnimation'][0].animationName);
-            if (pageNow == 7) {
-              $($('.page_7 .page-content .title .label')[1]).css('animation-duration', '1s').addClass('fade-in');
-            }
+            // if (pageNow == 7) {
+            //   $($('.page_7 .page-content .title .label')[0]).css('animation-duration', '1s').addClass('fade-in');
+            // }
             // }, 2000);
             for (var i = 0; i < animationClassArr.length - 1; i++) {
               watchAnimationEvent($('.page_' + pageNow + ' .' + animationClassArr[i].classStr), animationClassArr[i + 1], 'bgAnimation', pageNow);
@@ -852,7 +860,6 @@ $(function () {
 
           break;
         case 'sanluoTransition':
-          $(".new-page .new-page-bg").addClass("fade-in").css('animation-duration', '1s');
           setTimeout(function () {
             $(".new-page .sanluo").addClass("Zindex");
             $(".new-page .sanluo .lvye").css('opacity', '1').addClass("lvye-transition");
@@ -866,13 +873,17 @@ $(function () {
             setTimeout(function () {
               // $(".new-page .title1").removeClass("fade-in").addClass("fade-out").css('animation-duration', '1s');
               // $(".new-page .title2").addClass("fade-in").css('animation-duration', '1s');
+              $(".new-page .new-page-bg").addClass("fade-in").css('animation-duration', '1s');
               $(".new-page .btn-content").addClass("Zindex");
 
-              $(".new-page .btn1").addClass("fade-in").css('animation-duration', parms.page8.btnAnimation.animationTime);
-              $('.page_8 .' + parms.page8.btnAnimation.classStr).each(function () {
-                watchAnimationEvent(this, parms.page8['btnAnimation'], 'btnAnimation', parms.pageNow);
-              });
-            }, 1100);
+              setTimeout(function () {
+                // resetAnimationCss(pageNow);
+                $(".new-page .btn1").addClass("fade-in").css('animation-duration', parms.page8.btnAnimation.animationTime);
+                $('.page_8 .' + parms.page8.btnAnimation.classStr).each(function () {
+                  watchAnimationEvent(this, parms.page8['btnAnimation'], 'btnAnimation', parms.pageNow);
+                });
+              })
+            }, 1050);
             this.removeEventListener(transitionEvent, arguments.callee, false);
           });
           break;
@@ -1011,7 +1022,7 @@ $(function () {
           }
           if (!pageAnimationDone) return false;
 
-          $(".close-img").trigger("click");
+          $(".close-img").trigger("click", 'trigger');
           // $(".close-btn").trigger("click")
 
           if (parms.pageNow == 7 && direction === 'top' ) {
@@ -1026,14 +1037,39 @@ $(function () {
               $this.transform.call(viewport, translate);
 
               setTimeout( function(){
-                // $('.guding-img').addClass("fade-out").css('animation-duration', '1s');
+                $('.guodu-img').show();
                 $('.guding-img').css('opacity', '0').hide();
+                // $('.guding-img').addClass("fade-out").css('animation-duration', '1s');
                 mangerAnimation();
               },400);
 
               this.removeEventListener(animationEvent, arguments.callee, false);
             });
             return false;
+
+            animationEvent && $('.page_' + parms.pageNow + ' .' + parms.page7.titleOutAnimation.classStr)[0].addEventListener(animationEvent, function () {
+              $(".new-page .sanluo").addClass("Zindex");
+              $(".new-page .sanluo .lvye").addClass("lvye-transition");
+              this.removeEventListener(animationEvent, arguments.callee, false);
+            });
+            transitionEvent && $('.page_7 .lvye5')[0].addEventListener(transitionEvent, function () {
+              $(".new-page .sanluo").addClass("fade-out").css('animation-duration', '1s');
+              $(".new-page .logo").addClass("fade-in").css('animation-duration', '1s');
+              $(".new-page .title1").addClass("fade-in").css('animation-duration', '1s');
+              setTimeout(function () {
+                $(".new-page .title1").hide();
+                // $(".new-page .title2").addClass("fade-in").css('animation-duration', '1s');
+                $(".new-page .new-page-bg").addClass("fade-in").css('animation-duration', '1s');
+                $(".new-page .btn-content").addClass("Zindex");
+
+                $(".new-page .btn1").addClass("fade-in").css('animation-duration', parms.page7.btnAnimation.animationTime);
+                $('.page_7 .' + parms.page7.btnAnimation.classStr).each(function () {
+                  watchAnimationEvent(this, parms.page7['btnAnimation'], 'btnAnimation', parms.pageNow);
+                });
+              }, 3500)
+              this.removeEventListener(transitionEvent, arguments.callee, false);
+            });
+
           }
           if (parms.pageNow ==9 && direction === 'top' && !parms.page8Type) {
             $(".video-content").hide();
