@@ -270,7 +270,13 @@ $(function () {
     },
     mySwiper: null,
     page9: {
-      bgAnimation: [],
+      bgAnimation: [
+        {
+          'classStr': 'bg1',
+          'animationName': 'zoomIn animated',
+          'animationTime': '4s'
+        }
+      ],
       bihuaAnimation: {
         'classStr': 'bihua',
         'animationName': 'fade-in',
@@ -442,6 +448,16 @@ $(function () {
         if (key == 'bgAnimation') {
           // var _el = $('.page_' + pageNum + ' .' + obj.classStr);
           var _el = $('.page_' + pageNum + ' .bg');
+          if(pageNum == 9){
+            var _bgg = $('.page_' + pageNum + ' .bgg');
+            _bgg.removeClass('animated').css({
+              'animation-duration': 'inherit',
+              'transition-duration': 'inherit'
+            });
+            for (var j = 0; j < parms.bgAnimationArr.length; j++) {
+              _bgg.removeClass(parms.bgAnimationArr[j]);
+            }
+          }
 	        _el.removeClass('animated').css({
 		        'animation-duration': 'inherit',
 		        'transition-duration': 'inherit'
@@ -1077,8 +1093,8 @@ $(function () {
             if(!parms.page9AnimationType){
               return false
             }
-            $('.page_9 .fade-in').removeClass('fade-in').removeAttr('style');
-            $('.page_9 .lv-logo-img').removeClass('lv-logo-img-transition').removeAttr('style');
+            $('.page_9 .fade-in').removeAttr('style').removeClass('fade-in');
+            $('.page_9 .lv-logo-img').removeAttr('style').removeClass('lv-logo-img-transition');
             mangerAnimation();
             parms.page9Type = false;
             return false;
@@ -1110,6 +1126,7 @@ $(function () {
               $('.page_9 .page-content-bg').removeClass('fade-in').removeAttr('style');
               $('.page_9 .page-content .fade-in').removeClass('fade-in').removeAttr('style');
               $('.page_9 .logo-img').removeClass('fade-in').removeAttr('style');
+              $('.page_9 .bg-content .zoomIn').removeClass('zoomIn animated').removeAttr('style');
               parms.page9AnimationType = true;
               this.removeEventListener(animationEvent, arguments.callee, false);
             });
