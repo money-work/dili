@@ -215,7 +215,7 @@ $(function () {
     page8:{
       sanluoTransition: {
         'classStr': 'lvye',
-        'animationTime': '1s'
+        'animationTime': '0.6s'
       },
       btnAnimation: {
         'classStr': 'btn-oper',
@@ -318,7 +318,10 @@ $(function () {
     {
       'classStr': 'bg4',
       'animationName': 'zoomOutFadeIn animated',
-      'animationTime': '4s'
+      'animationTime': '4s',
+      'renClass': 'ren-bg',
+      'renAnimationName': 'Zoom animated',
+      'renAnimationTime': '10s',
     },
   ];
   parms.page4.bgAnimation = [
@@ -342,7 +345,10 @@ $(function () {
     {
       'classStr': 'bg2',
       'animationName': 'zoomOutFadeIn animated',
-      'animationTime': '4s'
+      'animationTime': '4s',
+      'renClass': 'ren-bg',
+      'renAnimationName': 'Zoom animated',
+      'renAnimationTime': '10s',
     }
   ];
   parms.page6.bgAnimation = [
@@ -354,7 +360,10 @@ $(function () {
     {
       'classStr': 'bg2',
       'animationName': 'zoomOutFadeIn animated',
-      'animationTime': '4s'
+      'animationTime': '4s',
+      'renClass': 'ren-bg',
+      'renAnimationName': 'Zoom animated',
+      'renAnimationTime': '10s',
     }
   ];
 
@@ -406,6 +415,29 @@ $(function () {
   }
 
 
+  var  Cloud  =  {
+    resetAttr: function (el) {
+      el.css({
+        'left': window.screen.width
+      })
+    },
+    init: function(el){
+      this.move($(el));
+    },
+    move: function (el) {
+      var _this = this;
+      el.animate({ 'left': -el.width() }, 10000, 'Linear', function () {
+        _this.resetAttr(el);
+        _this.move(el);
+      });
+    }
+
+  }
+  Cloud.init('.page_4 .yun');
+  setTimeout(function () {
+    Cloud.init('.page_5 .yun');
+  },1200);
+
   function resetAnimationCount () {
     if (animationCount === count) {
       console.log('resetAnimationCount', animationCount, 'count', count)
@@ -454,6 +486,7 @@ $(function () {
               'animation-duration': 'inherit',
               'transition-duration': 'inherit'
             });
+            $('.page_9 .guang').hide();
             for (var j = 0; j < parms.bgAnimationArr.length; j++) {
               _bgg.removeClass(parms.bgAnimationArr[j]);
             }
@@ -490,7 +523,9 @@ $(function () {
       'animation-duration': 'inherit',
       'transition-duration': 'inherit'
     });
-	  $('.page_' + pageNum + ' .num').text('0');
+	  $('.page_' + pageNum + ' .num').each(function (e) {
+      $(this).text($(this).attr('data-num-start'))
+    });
     if (parms.mySwiper) {
       parms.mySwiper.destroy(false);
     }
@@ -504,7 +539,7 @@ $(function () {
     if (pageNum == 9) {
       $(".page_9 .page-content-bg").removeClass('fade-in');
       $(".page_9 .bg2").removeClass('fade-in');
-      $(".page_9 .logo").removeClass('fade-out');
+      $(".page_9 .logo").removeClass('fade-out logo-img-transition');
       $(".page_9 .lv-logo-img").removeClass('fade-in lv-logo-img-transition').css({
         'opacity': '0',
         "z-index": '1'
@@ -551,6 +586,15 @@ $(function () {
             var titleEl = $(".page_7 .page-content .title .label")[obj.num];
             $(titleEl) && $(titleEl).length > 0 && $(titleEl).css('animation-duration', '1s').addClass('fade-in');
           }
+
+          if(obj.renClass){
+            (function(el, obj){
+              setTimeout(function () {
+                $(el) && $(el).next().length > 0 &&  $(el).next().find('.ren-bg').css('animation-duration', obj.renAnimationTime).addClass(obj.renAnimationName);
+              }, 3500);
+            }(el, obj));
+          }
+
           console.log('watchAnimationEvent---setTimeout-count------------>', count)
         // }, 2000)
       } else {
@@ -850,6 +894,9 @@ $(function () {
             // setTimeout(function () {
             // var animationName = parms.bgAnimationArr[Math.floor(Math.random() * parms.bgAnimationArr.length)] + ' animated ';
             $('.page_' + pageNow + ' .' + animationClassArr[0].classStr).css('animation-duration', page['bgAnimation'][0].animationTime).addClass(page['bgAnimation'][0].animationName);
+           if(pageNow == 9){
+             $('.page_9 .guang').show();
+           }
             // if (pageNow == 7) {
             //   $($('.page_7 .page-content .title .label')[0]).css('animation-duration', '1s').addClass('fade-in');
             // }
@@ -895,6 +942,7 @@ $(function () {
 
               setTimeout(function () {
                 // resetAnimationCss(pageNow);
+                $('.diqiu').show();
                 $(".new-page .btn1").addClass("fade-in").css('animation-duration', parms.page8.btnAnimation.animationTime);
                 $('.page_8 .' + parms.page8.btnAnimation.classStr).each(function () {
                   watchAnimationEvent(this, parms.page8['btnAnimation'], 'btnAnimation', parms.pageNow);
@@ -1093,8 +1141,9 @@ $(function () {
             if(!parms.page9AnimationType){
               return false
             }
-            $('.page_9 .fade-in').removeAttr('style').removeClass('fade-in');
+            $('.page_9 .fade-in').removeAttr('style').removeClass('fade-in').removeClass('logo-img-transition');
             $('.page_9 .lv-logo-img').removeAttr('style').removeClass('lv-logo-img-transition');
+            $('.page_9 .logo-img').removeAttr('style').removeClass('logo-img-transition');
             mangerAnimation();
             parms.page9Type = false;
             return false;
@@ -1108,19 +1157,20 @@ $(function () {
               parms.mySwiper.destroy(false);
             }
             $(".layer-content").hide();
-
+            $('.page_9 .guang').hide();
             $('.page_9 .arrow-content').removeClass('arrow-content-transition').css({
               'animation-duration': 'inherit',
               'transition-duration': 'inherit'
             });
-            $('.page_9 .logo-img').removeClass('fade-in').css('opacity', '0');
-            $('.page_9 .lv-logo-img').css({
-              'opacity': '1',
-              "z-index": '99'
-            }).addClass('lv-logo-img-transition').css('animation-duration', '1s');
+            $('.page_9 .logo-img').removeAttr('style').addClass('logo-img-transition').css('animation-duration', '1s');
             setTimeout(function () {
+              $('.page_9 .logo-img').removeClass('fade-in').css('opacity', '0');
+              $('.page_9 .lv-logo-img').css({
+                'opacity': '1',
+                "z-index": '99'
+              });
               $('.page_9 .bg2').addClass('fade-in').css('animation-duration', '2s');
-            }, 1100);
+            }, 2100);
 
             animationEvent && $('.page_9 .bg2')[0].addEventListener(animationEvent, function () {
               $('.page_9 .page-content-bg').removeClass('fade-in').removeAttr('style');
