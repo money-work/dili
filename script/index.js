@@ -83,6 +83,31 @@ $(function () {
 	  "images/page8/title1.png",
 	  "images/page8/title2.png",
 	  "images/page8/lv-logo.png",
+    "images/layer/jiance/1.jpg",
+    "images/layer/jiance/2.jpg",
+    "images/layer/jiagong/1.jpg",
+    "images/layer/jiagong/2.jpg",
+    "images/layer/lingshou/1.jpg",
+    "images/layer/lingshou/2.jpg",
+    "images/layer/liutong/1.jpg",
+    "images/layer/liutong/2.jpg",
+    "images/layer/liutong/3.jpg",
+    "images/layer/zhongzhi/1.jpg",
+    "images/layer/zhongzhi/2.jpg",
+    "images/layer/zhongzhi/3.jpg",
+    "images/diqiu/01.png",
+    "images/diqiu/02.png",
+    "images/diqiu/03.png",
+    "images/diqiu/04.png",
+    "images/diqiu/05.png",
+    "images/diqiu/06.png",
+    "images/everyday/9.png",
+    "images/diqiu/07.png",
+    "images/diqiu/08.png",
+    "images/diqiu/10.png",
+    "images/diqiu/09.png",
+    "images/diqiu/13.png",
+    "images/diqiu/14.png",
   ];
   baseApp.loading(cacheList, function () {
     $("#num span").text('100%')
@@ -244,7 +269,7 @@ $(function () {
           "images/layer/liutong/2.jpg",
           "images/layer/liutong/3.jpg",
         ],
-        text: "地利集团在东北、华东、西南地区拥有18家农副产品物流园，分别位于哈尔滨、长春、沈阳、齐齐哈尔、牡丹江、寿光、杭州、成都、贵阳等核心城市，并运营30多个各类型功能仓储中心，年交易额近3000亿元。"
+        text: "地利集团在东北、华东、西南地区拥有18家农副产品物流园，分别位于哈尔滨、长春、沈阳、齐齐哈尔、牡丹江、寿光、杭州、成都、贵阳等核心城市，并运营30多个各类型功能仓储中心，年交易额近1500亿元。"
       },
       "lingshou": {
         imgs: [
@@ -293,7 +318,7 @@ $(function () {
         'animationTime': '0.5s'
       }
     },
-    bgAnimationArr: ['zoomIn', 'fadeIn', 'zoomOutIn','zoomOutFadeIn']
+    bgAnimationArr: ['zoomIn', 'fadeIn', 'zoomOutIn','zoomOutFadeIn', 'Zoom']
   };
   parms.page3 = deepClone(parms.page2);
   parms.page4 = deepClone(parms.page2);
@@ -480,6 +505,7 @@ $(function () {
         if (key == 'bgAnimation') {
           // var _el = $('.page_' + pageNum + ' .' + obj.classStr);
           var _el = $('.page_' + pageNum + ' .bg');
+          var _renEl = $('.page_' + pageNum + ' .ren-bg');
           if(pageNum == 9){
             var _bgg = $('.page_' + pageNum + ' .bgg');
             _bgg.removeClass('animated').css({
@@ -495,8 +521,13 @@ $(function () {
 		        'animation-duration': 'inherit',
 		        'transition-duration': 'inherit'
 	        });
+          _renEl.removeClass('animated').css({
+		        'animation-duration': 'inherit',
+		        'transition-duration': 'inherit'
+	        });
           for (var j = 0; j < parms.bgAnimationArr.length; j++) {
             _el.removeClass(parms.bgAnimationArr[j]);
+            _renEl.removeClass(parms.bgAnimationArr[j]);
           }
         }
         if (key == 'sanluoTransition') {
@@ -507,6 +538,7 @@ $(function () {
           $(".new-page .title1").show();
           // $(".new-page .title2").removeClass("fade-in").removeAttr('style');
           $(".new-page .new-page-bg").removeClass("fade-in").removeAttr('style');
+          $(".new-page .diqiu-dong").hide();
           $(".new-page .btn-content").removeClass("Zindex");
 
           $(".new-page .btn1").removeClass("fade-in").removeAttr('style');
@@ -939,10 +971,9 @@ $(function () {
               // $(".new-page .title2").addClass("fade-in").css('animation-duration', '1s');
               $(".new-page .new-page-bg").addClass("fade-in").css('animation-duration', '1s');
               $(".new-page .btn-content").addClass("Zindex");
-
               setTimeout(function () {
                 // resetAnimationCss(pageNow);
-                $('.diqiu').show();
+                $(".new-page .diqiu-dong").show();
                 $(".new-page .btn1").addClass("fade-in").css('animation-duration', parms.page8.btnAnimation.animationTime);
                 $('.page_8 .' + parms.page8.btnAnimation.classStr).each(function () {
                   watchAnimationEvent(this, parms.page8['btnAnimation'], 'btnAnimation', parms.pageNow);
@@ -1125,6 +1156,9 @@ $(function () {
                 $(".new-page .title1").hide();
                 // $(".new-page .title2").addClass("fade-in").css('animation-duration', '1s');
                 $(".new-page .new-page-bg").addClass("fade-in").css('animation-duration', '1s');
+                setTimeout(function () {
+                  $(".new-page .diqiu-dong").show();
+                },1000)
                 $(".new-page .btn-content").addClass("Zindex");
 
                 $(".new-page .btn1").addClass("fade-in").css('animation-duration', parms.page7.btnAnimation.animationTime);
