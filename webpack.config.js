@@ -32,7 +32,7 @@ module.exports = {
       { test: /\.less$/, loader: 'style!css!less?sourceMap' },
       //{ test: /\.js?$/, loaders: ['babel'], exclude: /node_modules/ },
       { test: /\.js$/, loader: 'babel-loader' },
-      { test: /\.(png|jpg)$/, loader: 'url-loader?limit=819200' },
+      { test: /\.(png|jpg)$/, loader: 'url-loader?limit=20480' },
       {test: /\.scss$/, loader: "style!css!sass"}
       // {
       //   test: /\.scss$/,

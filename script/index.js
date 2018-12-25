@@ -1,132 +1,174 @@
 // require('./jquery-3.3.1');
 // require('./zoom');
 var baseApp = require('./baseApp').up;
+var loadingType = true;
+var cacheList = [
+	"images/page1/suspend.png",
+	"images/page1/bg.jpg",
+	"images/page1/play.png",
+	"images/page1/suspend.png",
+	"images/page1/title1.png",
+	"images/page1/title2.png",
+	"images/page1/arrow.png",
+	"images/wrong.png",
+	"images/logo.png",
+	"images/page7/shan-lin-left.png",
+	"images/page7/shan-line-right.png",
+	"images/page7/close.png",
+	"images/page7/title1-2.png",
+	"images/page7/title2-1.png",
+	"images/page7/title2-3.png",
+	"images/page7/title3-1.png",
+	"images/page7/title3-2.png",
+	"images/page7/title4-1.png",
+	"images/page7/title4-3.png",
+	"images/page7/title5-1.png",
+	"images/page7/title5-2.png",
+	"images/page7/title1.png",
+	"images/page7/zhongzhi.png",
+	"images/page7/zhongzhi-active.png",
+	"images/page7/liutong.png",
+	"images/page7/liutong-active.png",
+	"images/page7/lingshou.png",
+	"images/page7/lingshou-active.png",
+	"images/page7/jiagong.png",
+	"images/page7/jiagong-active.png",
+	"images/page7/jiance.png",
+	"images/page7/jiance-active.png",
+	"images/page2/guang.png",
+	"images/page2/title.png",
+	"images/page2/title2-1.png",
+	"images/page2/title2-2.png",
+	"images/page2/title3-2.png",
+	"images/page2/title3-1.png",
+	"images/page2/title3-3.png",
+	"images/shuye.png",
+	"images/lvye.png",
+	"images/everyday/1.png",
+	"images/everyday/2.png",
+	"images/everyday/3.png",
+	"images/everyday/4.png",
+	"images/everyday/5.png",
+	"images/everyday/6.png",
+	"images/everyday/7.png",
+	"images/everyday/8.png",
+	"images/everyday/9.png",
+	"images/everyday/10.png",
+	"images/everyday/11.png",
+	"images/en.png",
+	"images/page3/title1-1.png",
+	"images/page3/title1-2.png",
+	"images/page3/title2.png",
+	"images/page3/title3-1.png",
+	"images/page3/title3-2.png",
+	"images/yun.png",
+	"images/page4/title1-1.png",
+	"images/page4/title1-2.png",
+	"images/page4/title2.png",
+	"images/page4/title3-1.png",
+	"images/page4/title3-2.png",
+	"images/page5/title1-1.png",
+	"images/page5/title1-2.png",
+	"images/page5/title2.png",
+	"images/page5/title3-1.png",
+	"images/page5/title3-2.png",
+	"images/page6/title1-1.png",
+	"images/page6/title1-3.png",
+	"images/page6/title2-3.png",
+	"images/page6/title3-2.png",
+	"images/page6/title4.png",
+	"images/page6/title5-1.png",
+	"images/page6/title5-2.png",
+	"images/page6/title5-3.png",
+	"images/page8/guang.png",
+	"images/page8/bg2.jpg",
+	"images/page8/dili.png",
+	"images/page8/zhiwei.png",
+	"images/page8/title1.png",
+	"images/page8/title2.png",
+	"images/page8/lv-logo.png",
+	"images/layer/jiance/1.jpg",
+	"images/layer/jiance/2.jpg",
+	"images/layer/jiagong/1.jpg",
+	"images/layer/jiagong/2.jpg",
+	"images/layer/lingshou/1.jpg",
+	"images/layer/lingshou/2.jpg",
+	"images/layer/liutong/1.jpg",
+	"images/layer/liutong/2.jpg",
+	"images/layer/liutong/3.jpg",
+	"images/layer/zhongzhi/1.jpg",
+	"images/layer/zhongzhi/2.jpg",
+	"images/layer/zhongzhi/3.jpg",
+	"images/diqiu/01.jpg",
+	"images/diqiu/02.jpg",
+	"images/diqiu/03.jpg",
+	"images/diqiu/04.jpg",
+	"images/diqiu/05.jpg",
+	"images/diqiu/06.jpg",
+	"images/diqiu/07.jpg",
+	"images/diqiu/08.jpg",
+	"images/diqiu/09.jpg",
+	"images/diqiu/10.jpg",
+	"images/diqiu/11.jpg",
+	"images/diqiu/12.jpg",
+	"images/diqiu/13.jpg",
+	"images/diqiu/14.jpg",
+	"dist/5e2e136b4141cc9b039d1e05572dc524.jpg",
+	"dist/6aef0f3595e4a5a74427cbf73b86b46c.png",
+	"dist/7cecc3047342e754472919f10ad52445.jpg",
+	"dist/8c27f739c2c8ea961df9005b303706ae.jpg",
+	"dist/8f06b206a83ee6f85ba25082d3cbb798.jpg",
+	"dist/28c1fee189db923b2cc050aca19a9867.png",
+	"dist/34aa08d26ff4feec4531ab63ec7b76f2.jpg",
+	"dist/62a48dc0a3a2db0ffb7e90ca368e4055.jpg",
+	"dist/63f57da784eb1407ab2531e81b0070d7.jpg",
+	"dist/96bb4081972efe7dc267846a91e78cb7.jpg",
+	"dist/187a6f0bcb0314147138388cefc2383c.jpg",
+	"dist/984e69fa12b45bf3e624443c960b8e98.jpg",
+	"dist/3446dafb4b5455e0f0389aaf53218cf5.jpg",
+	"dist/7756dc2756d44ee7a2bf340a4fa85f38.jpg",
+	"dist/327396db2178dc4019fa4b02aebe7054.jpg",
+	"dist/8272495c25f0e029cb2be4c7e6cbb5fe.jpg",
+	"dist/f4ba3d1413f4b5f813a6ad18ec2313c3.jpg",
+	"dist/f7f66d93b686221e681922d259a18a23.jpg",
+	"dist/fd00533fb962948bdf436d8e612b686c.png",
+
+
+
+
+
+];
+$("#audio-cls").on('load', function(){
+	console.log('mp3 load')
+	this.play();
+})
+baseApp.loading(cacheList, function () {
+	$("#num span").text('100%')
+	$('.loading-content .line').css('width', '100%');
+	setTimeout(function () {
+		loadingType = false;
+		$('.loading-content').hide();
+		$(".content").show();
+		setTimeout(function () {
+			$('body').trigger('loaded')
+		}, 200);
+	}, 300);
+
+
+}, function (progress) {
+	$("#num span").text(progress + '%')
+	$('.loading-content .line').css('width', progress + '%')
+});
 $(function () {
   // orient();
 //用户变化屏幕方向时调用
 //   $(window).bind('orientationchange', function (e) {
 //     orient();
   // });
-  var loadingType = true;
-  var cacheList = [
-	  "images/page1/suspend.png",
-	  "images/page1/title1.png",
-	  "images/page1/title2.png",
-	  "images/page1/arrow.png",
-	  "images/wrong.png",
-	  "images/logo.png",
-	  "images/page7/close.png",
-	  "images/page7/title1-2.png",
-	  "images/page7/title2-1.png",
-	  "images/page7/title2-3.png",
-	  "images/page7/title3-1.png",
-	  "images/page7/title3-2.png",
-	  "images/page7/title4-1.png",
-	  "images/page7/title4-3.png",
-	  "images/page7/title5-1.png",
-	  "images/page7/title5-2.png",
-	  "images/page7/bg6.jpg",
-	  "images/page7/title1.png",
-	  "images/page7/zhongzhi.png",
-	  "images/page7/liutong.png",
-	  "images/page7/lingshou.png",
-	  "images/page7/jiagong.png",
-	  "images/page7/jiance.png",
-	  "images/page7/play-video.png",
-	  "images/shuye.png",
-	  "images/lvye.png",
-	  "images/everyday/1.png",
-	  "images/everyday/2.png",
-	  "images/everyday/3.png",
-	  "images/everyday/4.png",
-	  "images/everyday/5.png",
-	  "images/everyday/6.png",
-	  "images/everyday/7.png",
-	  "images/everyday/8.png",
-	  "images/everyday/9.png",
-	  "images/everyday/10.png",
-	  "images/everyday/11.png",
-	  "images/en.png",
-	  "images/page2/title.png",
-	  "images/page2/title2-1.png",
-	  "images/page2/title2-2.png",
-	  "images/page2/title3-1.png",
-	  "images/page2/title3-2.png",
-	  "images/page2/title3-3.png",
-	  "images/page3/title1-1.png",
-	  "images/page3/title1-2.png",
-	  "images/page3/title2.png",
-	  "images/page3/title3-1.png",
-	  "images/page3/title3-2.png",
-	  "images/page4/title1-1.png",
-	  "images/page4/title1-2.png",
-	  "images/page4/title2.png",
-	  "images/page4/title3-1.png",
-	  "images/page4/title3-2.png",
-	  "images/page5/title1-1.png",
-	  "images/page5/title1-2.png",
-	  "images/page5/title2.png",
-	  "images/page5/title3-1.png",
-	  "images/page5/title3-2.png",
-	  "images/page6/title1-1.png",
-	  "images/page6/title1-3.png",
-	  "images/page6/title2-3.png",
-	  "images/page6/title3-2.png",
-	  "images/page6/title4.png",
-	  "images/page6/title5-1.png",
-	  "images/page6/title5-2.png",
-	  "images/page6/title5-3.png",
-	  "images/page8/bg1.jpg",
-	  "images/page8/bg2.jpg",
-	  "images/page8/dili.png",
-	  "images/page8/zhiwei.png",
-	  "images/page8/title1.png",
-	  "images/page8/title2.png",
-	  "images/page8/lv-logo.png",
-    "images/layer/jiance/1.jpg",
-    "images/layer/jiance/2.jpg",
-    "images/layer/jiagong/1.jpg",
-    "images/layer/jiagong/2.jpg",
-    "images/layer/lingshou/1.jpg",
-    "images/layer/lingshou/2.jpg",
-    "images/layer/liutong/1.jpg",
-    "images/layer/liutong/2.jpg",
-    "images/layer/liutong/3.jpg",
-    "images/layer/zhongzhi/1.jpg",
-    "images/layer/zhongzhi/2.jpg",
-    "images/layer/zhongzhi/3.jpg",
-    "images/diqiu/01.png",
-    "images/diqiu/02.png",
-    "images/diqiu/03.png",
-    "images/diqiu/04.png",
-    "images/diqiu/05.png",
-    "images/diqiu/06.png",
-    "images/everyday/9.png",
-    "images/diqiu/07.png",
-    "images/diqiu/08.png",
-    "images/diqiu/10.png",
-    "images/diqiu/09.png",
-    "images/diqiu/13.png",
-    "images/diqiu/14.png",
-  ];
-  baseApp.loading(cacheList, function () {
-    $("#num span").text('100%')
-    $('.loading-content .line').css('width', '100%');
-    setTimeout(function () {
-      loadingType = false;
-      $('.loading-content').hide();
-      $(".content").show();
-      setTimeout(function () {
-        addTransitionClass(parms.pageNow);
-        app.bindTouchEvent(); // 绑定触摸事件
-      }, 200);
-    }, 300);
-
-
-  }, function (progress) {
-    $("#num span").text(progress + '%')
-    $('.loading-content .line').css('width', progress + '%')
-  });
+  $('body').on('loaded', function(){
+	  addTransitionClass(parms.pageNow);
+	  app.bindTouchEvent(); // 绑定触摸事件
+  })
   var parms = {
     page9AnimationType: false,
     options: {
@@ -660,6 +702,7 @@ $(function () {
     $(".music-oper").on("click", function (e) {
       // e.stopPropagation();
       var audio = document.getElementById('audio-cls');
+      console.log('audio paused')
       if (audio !== null) {
         if (audio.paused) {
           audio.play();// 播放
@@ -669,7 +712,8 @@ $(function () {
           $(this).addClass("suspend");
         }
       }
-    })
+    });
+
 
     //关闭 弹窗 轮播
     $("body .layer-content").on("click", '.close-img', function (e, type) {
@@ -763,8 +807,14 @@ $(function () {
   function audioAutoPlay () {
     var audio = document.getElementById("audio-cls");
     var play = function () {
-      audio.play();
-      document.removeEventListener("touchstart", play, false);
+	    try {
+		    audio.play().catch(function(err){
+		    	console.log('play err', err);
+		    });
+		    document.removeEventListener("touchstart", play, false);
+	    } catch (e) {
+	    	console.log(e.message)
+	    }
     };
     play();
     document.addEventListener("WeixinJSBridgeReady", function () {
@@ -776,7 +826,7 @@ $(function () {
     document.addEventListener("touchstart", play, false);
 
     audio.addEventListener('canplay', function () {
-      audio.play();
+	    play();
     });
     document.addEventListener('DOMContentLoaded', function () {
       function audioAutoPlay () {
