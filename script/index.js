@@ -99,20 +99,6 @@ var cacheList = [
 	"images/layer/zhongzhi/1.jpg",
 	"images/layer/zhongzhi/2.jpg",
 	"images/layer/zhongzhi/3.jpg",
-	"images/diqiu/01.jpg",
-	"images/diqiu/02.jpg",
-	"images/diqiu/03.jpg",
-	"images/diqiu/04.jpg",
-	"images/diqiu/05.jpg",
-	"images/diqiu/06.jpg",
-	"images/diqiu/07.jpg",
-	"images/diqiu/08.jpg",
-	"images/diqiu/09.jpg",
-	"images/diqiu/10.jpg",
-	"images/diqiu/11.jpg",
-	"images/diqiu/12.jpg",
-	"images/diqiu/13.jpg",
-	"images/diqiu/14.jpg",
 	"dist/5e2e136b4141cc9b039d1e05572dc524.jpg",
 	"dist/6aef0f3595e4a5a74427cbf73b86b46c.png",
 	"dist/7cecc3047342e754472919f10ad52445.jpg",
@@ -132,11 +118,6 @@ var cacheList = [
 	"dist/f4ba3d1413f4b5f813a6ad18ec2313c3.jpg",
 	"dist/f7f66d93b686221e681922d259a18a23.jpg",
 	"dist/fd00533fb962948bdf436d8e612b686c.png",
-
-
-
-
-
 ];
 $("#audio-cls").on('load', function(){
 	console.log('mp3 load')

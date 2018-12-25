@@ -1164,7 +1164,7 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
       background-image: url("../images/diqiu/big2.jpg");
       background-position-x: 0px;
       background-position-y: bottom;
-      background-size: 1400% 100%;
+      background-size: 11520 / $baseFontSize * 1rem 100%;
       //background-size: contain;
 	  background-repeat: no-repeat;
 	  animation-name:diqiucircle;
@@ -1560,7 +1560,7 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
     background-position: 0 0;
   }
   100% {
-    background-position: -5250px 0 ; // 14帧
+    background-position: -11520 / $baseFontSize * 1rem 0 ; // 14帧
   }
 
 }
@@ -1569,7 +1569,7 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
     background-position: 0 0;
   }
   100% {
-    background-position: -5250px 0 ; // 14帧
+    background-position: -11520 / $baseFontSize * 1rem 0 ; // 14帧
   }
 
 }
