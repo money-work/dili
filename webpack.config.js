@@ -22,7 +22,7 @@ module.exports = {
   output: {
     path: './dist/',
     publicPath: './dist/',
-    filename: '[name].js'
+    filename: '[name].js?v=[hash:8]'
     //sourceMapFilename:'[name].map'
   },
   module: {
