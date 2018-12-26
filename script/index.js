@@ -474,7 +474,7 @@ $(function () {
     },
     move: function (el) {
       var _this = this;
-      el.animate({ 'left': -el.width() }, 10000, 'Linear', function () {
+      el.animate({ 'left': -el.width() }, 20000, 'Linear', function () {
         _this.resetAttr(el);
         _this.move(el);
       });
