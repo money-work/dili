@@ -1302,8 +1302,8 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
         }
       }
       .btn {
-        @include px2rem(width, 80);
-        @include px2rem(height, 120);
+        @include px2rem(width, 100);
+        @include px2rem(height, 150);
         text-align: center;
         float: left;
         opacity: 0;
@@ -1341,28 +1341,28 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 
       .btn1 {
         @include px2rem(margin-left, 42);
-        @include px2rem(margin-top, 74);
+        @include px2rem(margin-top, 134);
       }
       .btn2 {
-        @include px2rem(margin-left, 56);
-        @include px2rem(margin-top, 26);
+        @include px2rem(margin-left, 24);
+        @include px2rem(margin-top, 35);
       }
       .btn3 {
-        @include px2rem(margin-left, 84);
-        @include px2rem(margin-top, 0);
+        @include px2rem(margin-left, 80);
+        @include px2rem(margin-top, -16);
       }
       .btn4 {
-        @include px2rem(margin-left, 84);
-        @include px2rem(margin-top, 12);
+        @include px2rem(margin-left, 80);
+        @include px2rem(margin-top, 28);
       }
       .btn5 {
-        @include px2rem(margin-left, 80);
-        @include px2rem(margin-top, 82);
+        @include px2rem(margin-left, 40);
+        @include px2rem(margin-top, 144);
       }
       .circle {
         @include px2rem(width, 100);
         @include px2rem(height, 100);
-        @include px2rem(margin-bottom, 20);
+        @include px2rem(margin-bottom, 36);
       }
       .circle1, .circle2, .circle3, .center {
         position: absolute;
