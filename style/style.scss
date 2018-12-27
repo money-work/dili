@@ -1144,8 +1144,8 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
       height: 100%;
       width: 100%;
 	  opacity: 0;
-      background-color:#0a2037;
-      //background:url(../images/page7/bg6.jpg) center bottom no-repeat;
+      //background-color:#0a2037;
+      background:url(../images/page7/bg6.jpg) center bottom no-repeat;
       background-size:cover;
     }
 
@@ -1180,8 +1180,8 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
       animation-iteration-count: infinite;
       animation-timing-function: linear;
       animation-duration: 80s;
-      box-shadow:  0 0 100px rgba(255,255,255,0.7);;
-      border-radius: 50%;
+      //box-shadow:  0 0 100px rgba(255,255,255,0.7);;
+      //border-radius: 50%;
     }
 
     .guodu-img {
@@ -1363,7 +1363,7 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 
       .btn1 {
         @include px2rem(margin-left, 42);
-        @include px2rem(margin-top, 150);
+        @include px2rem(margin-top, 118);
       }
       .btn2 {
         @include px2rem(margin-left, 24);
@@ -1379,7 +1379,7 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
       }
       .btn5 {
         @include px2rem(margin-left, 40);
-        @include px2rem(margin-top, 150);
+        @include px2rem(margin-top, 118);
       }
       .circle {
         @include px2rem(width, 100);
@@ -1571,13 +1571,13 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
   0% {
     -webkit-transform-origin: center;
     transform-origin: center;
-    -webkit-transform: translateY(64%) rotateZ(0deg) translateZ(0);
-    transform: translateY(64%) rotateZ(0deg) translateZ(0);
+    -webkit-transform: translateY(58%) rotateZ(0deg) translateZ(0);
+    transform: translateY(58%) rotateZ(0deg) translateZ(0);
   }
   100% {
     -webkit-transform-origin: center;
     transform-origin: center;
-    -webkit-transform: translateY(64%) rotateZ(-360deg) translateZ(0);
-    transform: translateY(64%) rotateZ(-360deg) translateZ(0);
+    -webkit-transform: translateY(58%) rotateZ(-360deg) translateZ(0);
+    transform: translateY(58%) rotateZ(-360deg) translateZ(0);
   }
 }

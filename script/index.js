@@ -102,7 +102,6 @@ var cacheList = [
 	"dist/5e2e136b4141cc9b039d1e05572dc524.jpg",
 	"dist/6aef0f3595e4a5a74427cbf73b86b46c.png",
 	"dist/7cecc3047342e754472919f10ad52445.jpg",
-	"dist/8c27f739c2c8ea961df9005b303706ae.jpg",
 	"dist/8f06b206a83ee6f85ba25082d3cbb798.jpg",
 	"dist/28c1fee189db923b2cc050aca19a9867.png",
 	"dist/34aa08d26ff4feec4531ab63ec7b76f2.jpg",
@@ -110,7 +109,6 @@ var cacheList = [
 	"dist/63f57da784eb1407ab2531e81b0070d7.jpg",
 	"dist/96bb4081972efe7dc267846a91e78cb7.jpg",
 	"dist/187a6f0bcb0314147138388cefc2383c.jpg",
-	"dist/591ce8a98ab3e1f9357b5b448fa7b062.jpg",
 	"dist/984e69fa12b45bf3e624443c960b8e98.jpg",
 	"dist/3446dafb4b5455e0f0389aaf53218cf5.jpg",
 	"dist/7756dc2756d44ee7a2bf340a4fa85f38.jpg",
@@ -119,6 +117,7 @@ var cacheList = [
 	"dist/f4ba3d1413f4b5f813a6ad18ec2313c3.jpg",
 	"dist/f7f66d93b686221e681922d259a18a23.jpg",
 	"dist/fd00533fb962948bdf436d8e612b686c.png",
+	"dist/ff4b0322906df0f6a810322a6f74a91c.png",
 ];
 $("#audio-cls").on('load', function(){
 	console.log('mp3 load')
