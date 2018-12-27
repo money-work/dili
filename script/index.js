@@ -110,6 +110,7 @@ var cacheList = [
 	"dist/63f57da784eb1407ab2531e81b0070d7.jpg",
 	"dist/96bb4081972efe7dc267846a91e78cb7.jpg",
 	"dist/187a6f0bcb0314147138388cefc2383c.jpg",
+	"dist/591ce8a98ab3e1f9357b5b448fa7b062.jpg",
 	"dist/984e69fa12b45bf3e624443c960b8e98.jpg",
 	"dist/3446dafb4b5455e0f0389aaf53218cf5.jpg",
 	"dist/7756dc2756d44ee7a2bf340a4fa85f38.jpg",

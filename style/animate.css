@@ -3089,10 +3089,16 @@ Copyright (c) 2014 Daniel Eden
 
 @-webkit-keyframes guang {
 	0%{
+		opacity:0;
 		transform: translate(0%, 0%);
+	}
+	10%{
+		opacity:1;
+		transform: translate(10%, -10%);
 	}
 
 	100% {
+		opacity:1;
 		transform: translate(100%, -100%);
 	}
 
@@ -3100,10 +3106,16 @@ Copyright (c) 2014 Daniel Eden
 
 @keyframes guang {
 	0%{
+		opacity:0;
 		transform: translate(0%, 0%);
+	}
+	10%{
+		opacity:1;
+		transform: translate(10%, -10%);
 	}
 
 	100% {
+		opacity:1;
 		transform: translate(100%, -100%);
 	}
 }
