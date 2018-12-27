@@ -3097,8 +3097,13 @@ Copyright (c) 2014 Daniel Eden
 		transform: translate(10%, -10%);
 	}
 
-	100% {
+	90% {
 		opacity:1;
+		transform: translate(90%, -90%);
+	}
+
+	100% {
+		opacity:0;
 		transform: translate(100%, -100%);
 	}
 
@@ -3114,8 +3119,13 @@ Copyright (c) 2014 Daniel Eden
 		transform: translate(10%, -10%);
 	}
 
-	100% {
+	90% {
 		opacity:1;
+		transform: translate(90%, -90%);
+	}
+
+	100% {
+		opacity:0;
 		transform: translate(100%, -100%);
 	}
 }

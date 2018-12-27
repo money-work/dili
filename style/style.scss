@@ -1144,8 +1144,8 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
       height: 100%;
       width: 100%;
 	  opacity: 0;
-      //background-color:#0a2037;
-      background:url(../images/page7/bg6.jpg) center bottom no-repeat;
+      background-color:#0a2037;
+      //background:url(../images/page7/bg6.jpg) center bottom no-repeat;
       background-size:cover;
     }
 
@@ -1175,11 +1175,13 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
 	  left: 0;
 	  display: none;
 	  z-index: 99;
-      transform: translateY(64%) rotate(0deg);
+      transform: translateY(58%) rotate(0deg);
       animation-name: diqiucircle;
       animation-iteration-count: infinite;
       animation-timing-function: linear;
-      animation-duration: 40s;
+      animation-duration: 80s;
+      box-shadow:  0 0 100px rgba(255,255,255,0.7);;
+      border-radius: 50%;
     }
 
     .guodu-img {
