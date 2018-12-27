@@ -467,7 +467,7 @@ $(function () {
   var  Cloud  =  {
     resetAttr: function (el) {
       el.css({
-        'left': window.screen.width
+        'left': window.screen.width * 0.8
       })
     },
     init: function(el){
@@ -475,7 +475,7 @@ $(function () {
     },
     move: function (el) {
       var _this = this;
-      el.animate({ 'left': -el.width() }, 20000, 'Linear', function () {
+      el.animate({ 'left': -el.width() * 0.8 }, 20000, 'Linear', function () {
         _this.resetAttr(el);
         _this.move(el);
       });
@@ -986,6 +986,13 @@ $(function () {
             this.removeEventListener(animationEvent, arguments.callee, false)
           });
 
+          if(pageNow == 7){
+            transitionEvent && $('.page_7 .line')[0].addEventListener(transitionEvent, function () {
+              triggerEvent(document.querySelector('.content'), 'touchend');
+              this.removeEventListener(transitionEvent, arguments.callee, false);
+            });
+          }
+
           break;
         case 'sanluoTransition':
           setTimeout(function () {
@@ -1069,6 +1076,14 @@ $(function () {
   }
 
 
+  function triggerEvent(element,eventType){
+    var e;
+    if(element.dispatchEvent){//正常情况
+      e = new CustomEvent(eventType,{detail:{dispatch: true}});
+      element.dispatchEvent(e);
+    }
+  }
+
   var app = {
 
     // 页面平移
@@ -1139,6 +1154,12 @@ $(function () {
         }
         var translate = 0;
         // 发生了滑动，并且当前滑动事件未结束
+
+        if(e.detail.dispatch){
+          isMove = true;
+          isTouchEnd = false;
+        }
+
         if (isMove && !isTouchEnd) {
           // 使用动画过渡让页面滑动到最终的位置
           var animationEvent = whichAnimationEvent();
@@ -1208,7 +1229,7 @@ $(function () {
               return false
             }
             $('.page_9 .fade-in').removeAttr('style').removeClass('fade-in').removeClass('logo-img-transition');
-            $('.page_9 .lv-logo-img').removeAttr('style').removeClass('lv-logo-img-transition');
+            $('.page_9 .lv-logo-img').removeAttr('style').removeClass('lv-logo-img-transition').removeClass('fade-in');
             $('.page_9 .logo-img').removeAttr('style').removeClass('logo-img-transition');
             mangerAnimation();
             parms.page9Type = false;
@@ -1228,24 +1249,51 @@ $(function () {
               'animation-duration': 'inherit',
               'transition-duration': 'inherit'
             });
-            $('.page_9 .logo-img').removeAttr('style').addClass('logo-img-transition').css('animation-duration', '1s');
+            $('.page_9 .bg2').addClass('fade-in').css('animation-duration', '2s');
+            $('.page_9 .logo-img').css({
+              "z-index": '99'
+            });
             setTimeout(function () {
-              $('.page_9 .logo-img').removeClass('fade-in').css('opacity', '0');
-              $('.page_9 .lv-logo-img').css({
-                'opacity': '1',
+              $('.page_9 .logo-img').removeAttr('style').addClass('logo-img-transition').css({
+                'animation-duration': '1s',
                 "z-index": '99'
               });
-              $('.page_9 .bg2').addClass('fade-in').css('animation-duration', '2s');
+
+              setTimeout(function () {
+                $('.page_9 .logo-img').removeClass('fade-in').css('opacity', '0');
+                $('.page_9 .lv-logo-img').addClass('fade-in').css({
+                  "z-index": '99' ,
+                  'animation-duration': '1s'
+                });
+
+                // animationEvent && $('.page_9 .bg2')[0].addEventListener(animationEvent, function () {
+                $('.page_9 .page-content-bg').removeClass('fade-in').removeAttr('style');
+                $('.page_9 .page-content .fade-in').removeClass('fade-in').removeAttr('style');
+                $('.page_9 .logo-img').removeClass('fade-in').removeAttr('style');
+                $('.page_9 .bg-content .zoomIn').removeClass('zoomIn animated').removeAttr('style');
+                parms.page9AnimationType = true;
+                this.removeEventListener(animationEvent, arguments.callee, false);
+                // });
+              },2100)
+
             }, 2100);
 
-            animationEvent && $('.page_9 .bg2')[0].addEventListener(animationEvent, function () {
-              $('.page_9 .page-content-bg').removeClass('fade-in').removeAttr('style');
-              $('.page_9 .page-content .fade-in').removeClass('fade-in').removeAttr('style');
-              $('.page_9 .logo-img').removeClass('fade-in').removeAttr('style');
-              $('.page_9 .bg-content .zoomIn').removeClass('zoomIn animated').removeAttr('style');
-              parms.page9AnimationType = true;
-              this.removeEventListener(animationEvent, arguments.callee, false);
-            });
+            // setTimeout(function () {
+            //   $('.page_9 .logo-img').removeClass('fade-in').css('opacity', '0');
+            //   $('.page_9 .lv-logo-img').css({
+            //     'opacity': '1',
+            //     "z-index": '99'
+            //   });
+            //
+            // // animationEvent && $('.page_9 .bg2')[0].addEventListener(animationEvent, function () {
+            //   $('.page_9 .page-content-bg').removeClass('fade-in').removeAttr('style');
+            //   $('.page_9 .page-content .fade-in').removeClass('fade-in').removeAttr('style');
+            //   $('.page_9 .logo-img').removeClass('fade-in').removeAttr('style');
+            //   $('.page_9 .bg-content .zoomIn').removeClass('zoomIn animated').removeAttr('style');
+            //   parms.page9AnimationType = true;
+            //   this.removeEventListener(animationEvent, arguments.callee, false);
+            // // });
+            // },3100)
 
             return false;
           }
