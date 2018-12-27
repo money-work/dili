@@ -44,6 +44,7 @@ var cacheList = [
 	"images/page2/title3-3.png",
 	"images/shuye.png",
 	"images/lvye.png",
+	"images/diqiu.png",
 	"images/everyday/1.png",
 	"images/everyday/2.png",
 	"images/everyday/3.png",
