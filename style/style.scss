@@ -1296,7 +1296,7 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
       //@include px2rem(margin-top, 320);
       @include px2rem(height, 220);
       position: absolute;
-      bottom: 20%;
+      bottom: 18%;
       width: 100%;
       &.Zindex {
         z-index: 99;
