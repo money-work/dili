@@ -229,18 +229,6 @@ $(function () {
           'animationName': 'fadeIn animated',
           'animationTime': '1.5s',
           'num': 2
-        },
-        {
-          'classStr': 'bg4',
-          'animationName': 'fadeIn animated',
-          'animationTime': '1s',
-          'num': 3
-        },
-        {
-          'classStr': 'bg5',
-          'animationName': 'fadeIn animated',
-          'animationTime': '1s',
-          'num': 4
         }
       ],
       titleAnimation: {
@@ -641,6 +629,16 @@ $(function () {
           if (page == 7) {
             var titleEl = $(".page_7 .page-content .title .label")[obj.num];
             $(titleEl) && $(titleEl).length > 0 && $(titleEl).css('animation-duration', '1s').addClass('fade-in');
+            if(obj.num ==2 ){
+              var titleEl1 = $(".page_7 .page-content .title .label")[3];
+              var titleEl2 = $(".page_7 .page-content .title .label")[4];
+              setTimeout(function () {
+                $(titleEl1) && $(titleEl1).length > 0 && $(titleEl1).css('animation-duration', '1s').addClass('fade-in');
+                setTimeout(function () {
+                  $(titleEl2) && $(titleEl2).length > 0 && $(titleEl2).css('animation-duration', '1s').addClass('fade-in');
+                }, 1000)
+              }, 1000)
+            }
           }
 
           if(obj.renClass){
@@ -988,7 +986,7 @@ $(function () {
 
           if(pageNow == 7){
             transitionEvent && $('.page_7 .line')[0].addEventListener(transitionEvent, function () {
-              triggerEvent(document.querySelector('.content'), 'touchend');
+              // triggerEvent(document.querySelector('.content'), 'touchend');
               this.removeEventListener(transitionEvent, arguments.callee, false);
             });
           }
