@@ -445,7 +445,7 @@ $(function () {
     transitionEvent && $(".page_" + pageNum + ' .' + el.classStr)[0].addEventListener(transitionEvent, function () {
       count++;
       console.log('watchTransitionEvent---count----------->', count)
-      resetAnimationCount();
+      // resetAnimationCount();
       $(".page_" + pageNum + ' .' + nextel.classStr).css('transition-duration', nextel.time).addClass(nextel.classStr + '-transition');
       $(".page_" + pageNum + ' .' + el.classStr)[0].removeEventListener(transitionEvent, arguments.callee, false);//销毁事件
     });
@@ -476,11 +476,11 @@ $(function () {
   },1200);
 
   function resetAnimationCount () {
-    if (animationCount === count) {
-      console.log('resetAnimationCount', animationCount, 'count', count)
-      animationCount = 0;
-      count = 1;
-      pageAnimationDone = true;
+    // if (animationCount === count) {
+    //   console.log('resetAnimationCount', animationCount, 'count', count)
+    //   animationCount = 0;
+    //   count = 1;
+    //   pageAnimationDone = true;
       var page = parms.pageNow;
 
       if (page > 1) {
@@ -490,7 +490,7 @@ $(function () {
         resetAnimationCss(page + 1);
       }
 
-    }
+    // }
   }
 
   window.resetAnimationCss = resetAnimationCss;
@@ -624,7 +624,7 @@ $(function () {
       if (type == 'bgAnimation') {
         // setTimeout(function () {
           count++;
-          resetAnimationCount();
+          // resetAnimationCount();
           $(el) && $(el).next().length > 0 && $(el).next().css('animation-duration', obj.animationTime).addClass(obj.animationName);
           if (page == 7) {
             var titleEl = $(".page_7 .page-content .title .label")[obj.num];
@@ -654,10 +654,10 @@ $(function () {
       } else {
         if (page === 7 && type === 'titleAnimation') {
           count++;
-          resetAnimationCount();
+          // resetAnimationCount();
         } else {
           count++;
-          resetAnimationCount();
+          // resetAnimationCount();
           if (type !== 'titleAnimation') {
             $(el) && $(el).next().length > 0 && $(el).next().css('animation-duration', obj.animationTime).addClass(obj.animationName);
           }
@@ -837,6 +837,7 @@ $(function () {
   function mangerAnimation () {
 
     // setTimeout(pageAnimation, 300);
+    resetAnimationCount();
     pageAnimation();
   }
 
@@ -1167,7 +1168,7 @@ $(function () {
             isTouchEnd = true; // 标记当前完整的滑动事件已经结束
             return false;
           }
-          if (!pageAnimationDone) return false;
+          // if (!pageAnimationDone) return false;
 
           $(".close-img").trigger("click", 'trigger');
           // $(".close-btn").trigger("click")
