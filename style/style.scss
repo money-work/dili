@@ -910,6 +910,7 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
   .bg4{
     background-image: url(../images/page3/bg4.jpg);
     .bg-info1{
+      z-index: 0;
       background-image: url(../images/page3/bg4-1.jpg);
     }
   }
