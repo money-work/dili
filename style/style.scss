@@ -136,6 +136,7 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
   overflow: hidden;
   text-align: center;
   background-image: url("../images/page1/bg.jpg");
+  background-size:cover;
   @extend .background-public;
   .logo-img {
     position: relative;
@@ -442,6 +443,7 @@ $baseFontSize: 80; //基于视觉稿横屏尺寸/100得出的基准font-size
   overflow: hidden;
   text-align: center;
   background-image: url("../images/page1/bg.jpg");
+  background-size:cover;
   @extend .background-public;
 
   .logo-img {
